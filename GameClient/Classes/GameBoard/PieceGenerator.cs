@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Net.Sockets;
 using System.Reflection;
 using GameClient.Classes.Utilities;
 using GameConfiguration.DataObjects;
