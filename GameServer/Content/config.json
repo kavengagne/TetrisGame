@@ -1,0 +1,94 @@
+﻿{
+  "Game": {
+    "BackgroundColor": {"B":237,"G":149,"R":100,"A":255}
+  },
+  "Board": {
+    "Rows": 25,
+    "Columns": 10,
+    "BackgroundColor": {"B":245,"G":245,"R":245,"A":255,"PackedValue":4294309365},
+    "BlockSize": "20, 20",
+    "Speed": 200
+  },
+  "Pieces": [
+    {
+      "Name": "A",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": -1, "Y": 0 },
+        { "X": 1, "Y": 0 },
+        { "X": 0, "Y": -1 }
+      ],
+      "RotationsCount": 4
+    },
+    {
+      "Name": "I",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": -1, "Y": 0 },
+        { "X": 1, "Y": 0 },
+        { "X": 2, "Y": 0 }
+      ],
+      "RotationsCount": 2
+    },
+    {
+      "Name": "J",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": 0, "Y": -1 },
+        { "X": 0, "Y": 1 },
+        { "X": -1, "Y": 1 }
+      ],
+      "RotationsCount": 4
+    },
+    {
+      "Name": "L",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": 0, "Y": -1 },
+        { "X": 0, "Y": 1 },
+        { "X": 1, "Y": 1 }
+      ],
+      "RotationsCount": 4
+    },
+    {
+      "Name": "O",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": 1, "Y": 0 },
+        { "X": 0, "Y": 1 },
+        { "X": 1, "Y": 1 }
+      ],
+      "RotationsCount": 1
+    },
+    {
+      "Name": "S",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": -1, "Y": 0 },
+        { "X": 0, "Y": -1 },
+        { "X": 1, "Y": -1 }
+      ],
+      "RotationsCount": 2
+    },
+    {
+      "Name": "Z",
+      "Positions": [
+        { "X": 0, "Y": 0 },
+        { "X": 1, "Y": 0 },
+        { "X": 0, "Y": -1 },
+        { "X": -1, "Y": -1 }
+      ],
+      "RotationsCount": 2
+    }
+  ],
+  "PiecesColors": [
+    {"B":0,"G":0,"R":255,"A":255,"PackedValue":4278190335},
+    {"B":230,"G":216,"R":173,"A":255,"PackedValue":4293318829},
+    {"B":255,"G":255,"R":255,"A":255,"PackedValue":4294967295},
+    {"B":0,"G":255,"R":255,"A":255,"PackedValue":4278255615},
+    {"B":0,"G":165,"R":255,"A":255,"PackedValue":4278232575},
+    {"B":144,"G":238,"R":144,"A":255,"PackedValue":4287688336},
+    {"B":203,"G":192,"R":255,"A":255,"PackedValue":4291543295},
+    {"B":238,"G":130,"R":238,"A":255,"PackedValue":4293821166}
+  ]
+}
