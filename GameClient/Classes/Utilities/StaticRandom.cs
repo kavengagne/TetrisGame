@@ -5,7 +5,15 @@ namespace GameClient.Classes.Utilities
     public static class StaticRandom
     {
         #region Fields
-        private static readonly Random Rand = new Random(); 
+        private static readonly Random Rand; 
+        #endregion
+
+
+        #region Constructor
+        static StaticRandom()
+        {
+            Rand = new Random();
+        }
         #endregion
 
 
