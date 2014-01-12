@@ -73,6 +73,7 @@
     <Compile Include="Classes\GameBoard\Piece.cs" />
     <Compile Include="Classes\GameBoard\PieceModel.cs" />
     <Compile Include="Classes\GameBoard\Score.cs" />
+    <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Classes\Utilities\StaticRandom.cs" />
     <Compile Include="Classes\TetrisGame.cs" />
     <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />

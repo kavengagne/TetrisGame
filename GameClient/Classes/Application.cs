@@ -47,7 +47,7 @@ namespace GameClient.Classes
         public ClientInformation Client { get; set; }
         public Configuration Configuration { get; set; }
         public bool IsRunning { get; set; }
-        public TetrisGame Game;
+        public TetrisGame Game { get; set; }
         #endregion
 
 

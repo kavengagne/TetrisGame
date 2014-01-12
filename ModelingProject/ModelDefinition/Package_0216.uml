@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="959a6a2c-b08c-4a4c-b1aa-06615adaba56"
+  name="Classes"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="2bd99486-998d-48fd-b9a9-d385a5be9411"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGameConfiguration.Classes"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="32ba0f09-dfd4-48c4-ad32-21f2ed9fda01"
+        name="ConfigurationLoader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8311873f-607d-4dde-af5b-33b8ee292a14"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.Classes Type%3DConfigurationLoader"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="44fdd84b-89ea-42dd-978c-0720131e314d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="96d1a3f3-daab-4242-96fd-5c629d52ad99">
+                <propertyInstance
+                  Id="a92069f3-d29c-4fe3-9c20-cae03e6cf98b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9a8e64c0-02dc-47eb-8903-aa39fa785167">
+                <propertyInstance
+                  Id="e8a4c954-8e2e-4d1b-9670-00ee1587dd7d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="03095aaf-ac1d-489e-a259-4e00d858f486">
+                <propertyInstance
+                  Id="7165bf93-ef83-4195-a778-12ec9e7c3df4"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="123dfeab-d52a-4fcd-aee5-02f08595a664">
+                <propertyInstance
+                  Id="3142649d-07c2-430c-ae6e-c00b756e7136"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0eb6dab6-ca03-4c9e-977b-7213dc8987ef">
+                <propertyInstance
+                  Id="35806724-3be2-4cfb-9587-92f1d5c62a69"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="eafc4abd-e948-4bdd-8e81-80f6dcc8dbf0"
+            name="GetServerConfiguration"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d5507515-5251-4d12-bf55-0321a2199c45"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.Classes Type%3DConfigurationLoader Member%3D(Name%3DGetServerConfiguration OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="43e4a2b8-af7c-4a5e-a051-c6d920d9b3bc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91413f8f-23e6-4056-9b3e-ee4df403a971">
+                    <propertyInstance
+                      Id="3fa11fac-77e6-4b67-addc-53b683bab17b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c8b6d6c-3c4d-4cb6-9654-43b6c878823e">
+                    <propertyInstance
+                      Id="4df3ef49-1a08-49f2-ad90-fe3518081f35"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4773404-d710-4f75-b9e4-0d93c1898cf3">
+                    <propertyInstance
+                      Id="ecba8327-57cb-4d2a-9f97-ec67d7bf9161"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dacda30-b268-437f-a7ab-f5866fbffa97">
+                    <propertyInstance
+                      Id="18a02da6-1fbd-43b1-8888-38de7375808e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb8a1e28-cdd6-4a47-a93c-b4cface42cc2">
+                    <propertyInstance
+                      Id="4bbc8303-05dc-499b-af37-16d0710c6007"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="566bf09b-4c89-40ce-9707-d0e21ca46c19">
+                    <propertyInstance
+                      Id="321891f2-2356-448c-a74c-c313166130ce"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d240c72c-f702-4a4b-83bb-156012b0a58b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7da815ce-6220-46fc-8226-4ce14fa0c8c1"
+                      LastKnownName="Configuration"
+                      LastKnownLocation="Package3_0147.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="42d87769-79a3-4d02-a73d-99e77152395e"
+                  name="clientInformation"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="db00e97d-26f6-4acd-a116-8318e72e09dc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.Classes Type%3DConfigurationLoader Member%3D(Name%3DGetServerConfiguration OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation)]) ParameterIdentifier%3DclientInformation"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e302df02-72ac-4426-91ce-01649958b700"
+                      LastKnownName="ClientInformation"
+                      LastKnownLocation="Package3_0147.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6bd01485-c8fe-4f25-b6cb-d4d668956488"
+            name="GetClientConfiguration"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7e5c0bc5-d670-4136-843b-952c5a11aa94"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.Classes Type%3DConfigurationLoader Member%3DGetClientConfiguration"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bcddb366-395a-46ab-b068-0dd35a3f0b3b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5bdb834c-075b-4139-a8d7-5cd2f78c699f">
+                    <propertyInstance
+                      Id="6a067907-61a1-47af-9d44-ce2179691599"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17fb88ad-5cf0-44ae-bd14-0d7629f1c865">
+                    <propertyInstance
+                      Id="e5c3b3fc-1a6e-401d-acdd-1bf1d6d0bbd7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa4a1468-d814-4bcf-9f95-b0a6f4866060">
+                    <propertyInstance
+                      Id="d46006d6-4156-412e-830e-019326398af8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3b79d56-75fe-4221-a4e0-f149c7a4e304">
+                    <propertyInstance
+                      Id="7688c5f1-b50d-479c-b224-cf09aa9bd738"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d09ca11-55b9-4fc1-8cef-84b0e673e8b4">
+                    <propertyInstance
+                      Id="f72e9a3b-c48a-4018-964d-986bddc8b9c5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37ec4d5f-7020-4816-8c31-fa1cd9f3dc26">
+                    <propertyInstance
+                      Id="effe2832-de07-49d9-9f8a-7030da0e5efb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="32213845-3421-4dbc-ac8c-769c02260036"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e302df02-72ac-4426-91ce-01649958b700"
+                      LastKnownName="ClientInformation"
+                      LastKnownLocation="Package3_0147.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

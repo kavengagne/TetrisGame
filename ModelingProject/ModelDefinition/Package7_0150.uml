@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c82a41ad-1fe9-4fe8-939f-7500cee93829"
+  name="OpenTK"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="89eb2ff9-a971-4c85-8dab-edf19f37e139"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DOpenTK"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="7095d290-c30e-4db1-9d2b-e85ff7475882"
+        name="GameWindow"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1b6db648-0991-4fc8-b9ea-8e62e0f332e4"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FOpenTK.dll&quot; Namespace%3DOpenTK Type%3DGameWindow"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e1c559a5-e4d9-4b68-b49e-be333325f89a"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c1ed305e-cf5b-4389-b1eb-27c8d0feae93">
+                <propertyInstance
+                  Id="a28ce806-21fa-4740-b658-e0f13205b048"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6bd35158-62ac-4845-b379-04718b14777d">
+                <propertyInstance
+                  Id="0871586d-3791-4a49-9135-1ea3d6defbc3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ca5fb55-c6d3-4d01-bab2-f15d50960ca4">
+                <propertyInstance
+                  Id="707c79b1-49d8-428c-af8a-fdb69690eb03"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b844bce8-e4ca-4825-a4af-143349459f27">
+                <propertyInstance
+                  Id="7a8f5f86-8dee-4c1c-ba77-3fbf2b723be3"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="39e989ea-24b9-4b87-82a2-42027f936d1c">
+                <propertyInstance
+                  Id="78f7a5d1-de3f-47ea-9309-10f8be764e2e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

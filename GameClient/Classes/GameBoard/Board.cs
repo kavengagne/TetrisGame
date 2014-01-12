@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using GameClient.Interfaces;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,10 +11,10 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace GameClient.Classes.GameBoard
 {
-    public class Board
+    public class Board : ISprite
     {
         #region Fields
-        private PieceGenerator _pieceGenerator;
+        public PieceGenerator _pieceGenerator;
         private Block[][] _grid;
         private double _delayCurrent;
         private readonly Application _application;
@@ -189,7 +190,7 @@ namespace GameClient.Classes.GameBoard
 
         private void StoreCurrentPiece()
         {
-            var model = CurrentPiece.PieceModel[CurrentPiece.RotationIndex];
+            var model = CurrentPiece.Model[CurrentPiece.RotationIndex];
             var position = CurrentPiece.Position;
             for (int i = 0; i < model.Length; i++)
             {

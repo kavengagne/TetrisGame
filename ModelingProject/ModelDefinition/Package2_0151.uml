@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="7c4f52eb-49e7-4a95-b93f-e466af7292a1"
+  name="Interfaces"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="975bf779-8ec8-4564-bfa2-eff2524e2bbc"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGameClient.Interfaces"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="81909673-6a39-444b-b679-048f69ca415a"
+        name="ISprite"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="82dfc071-35db-4ab9-81eb-757dff48a1b4"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Interfaces Type%3DISprite"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c5a106d8-baca-4629-a951-b0e64a1723f7"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="37faa2dc-98dc-4106-b68b-9973395e2bba">
+                <propertyInstance
+                  Id="5dff976c-0c03-46b7-8dfd-f2b774710e26"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aa22975d-24db-460a-8902-80e56723beda">
+                <propertyInstance
+                  Id="3c1e7b9f-ba3d-4361-b734-c93d60f52dd6"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b1e27699-cc58-4428-b1ac-9007b0d4b522">
+                <propertyInstance
+                  Id="50c283e6-588c-436c-ba24-fb401fae9fef"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="55c1b024-76f9-4986-8a80-cd58e0614be9">
+                <propertyInstance
+                  Id="2d3314bb-b051-4947-8de4-72aa968afccb"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="cb739d71-5d6c-4e9a-96d3-d391cceba5f3"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8ea2d7fa-40a4-472c-acd0-358b48bbc54c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Interfaces Type%3DISprite Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2a1867dc-fdcc-4f77-977d-c93809c4becf"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="193652f7-f842-474c-a39a-48f71d25a60f">
+                    <propertyInstance
+                      Id="5ee68a33-5c70-4fae-b87a-c127875459a2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed9bee10-6795-41fc-a573-b7a773472160">
+                    <propertyInstance
+                      Id="12e475a6-f814-452b-947e-14337b06856e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8f93cde-58fd-4b1e-bbc7-475595464d4d">
+                    <propertyInstance
+                      Id="7aa9d181-63d2-4024-9027-3ddd40f360b7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="077efc18-8cd9-43f0-92e8-446d1b39bdd2">
+                    <propertyInstance
+                      Id="f7d432b3-7c35-457a-aeea-c1124a656ca0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52ef8e7b-9976-49b7-b17f-ae7bd7b3ca11">
+                    <propertyInstance
+                      Id="91c01776-e915-4e86-9131-d944326a034a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86fc394f-13bd-4d44-8f28-881b084e714a">
+                    <propertyInstance
+                      Id="bfd0cb03-7ee6-4e75-8fbf-49641c78fe4e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="30359ead-7e38-4669-9cbd-06df2fcd3be4"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a968364c-739d-441b-a5e8-e26112f27351"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Interfaces Type%3DISprite Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="913b2a28-2ffe-40e5-becb-cc86e5f75d99"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b76d27a6-7799-4fde-a72a-7b4e517e4d2f"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fb53b224-421c-4fee-a2ac-c9b8b6266e21"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Interfaces Type%3DISprite Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="94b1a060-ec7b-4002-82e0-9562c2b7b5c6"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

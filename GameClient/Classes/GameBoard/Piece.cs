@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using GameClient.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Color = Microsoft.Xna.Framework.Color;
@@ -8,38 +9,33 @@ using Point = Microsoft.Xna.Framework.Point;
 
 namespace GameClient.Classes.GameBoard
 {
-    public class Piece
+    public class Piece : ISprite
     {
-        #region Fields
-
-        #endregion
-
-
         #region Properties
         public Point Position { get; set; }
         public Color Color { get; set; }
         public Board Board { get; set; }
         public Block[] Blocks { get; set; }
-        public PieceModel PieceModel { get; private set; }
+        public PieceModel Model { get; private set; }
         public int RotationIndex { get; set; }
         public Size BlockSize { get; set; }
         #endregion
 
 
         #region Constructors
-        public Piece(Board board, Color color, PieceModel pieceModel, int rotationIndex, Size blockSize)
+        public Piece(Board board, Color color, PieceModel model, int rotationIndex, Size blockSize)
         {
             Board = board;
             Color = color;
-            PieceModel = pieceModel;
+            Model = model;
             RotationIndex = 0;
-            if (rotationIndex >= 0 && rotationIndex < pieceModel.Length)
+            if (rotationIndex >= 0 && rotationIndex < model.Length)
             {
                 RotationIndex = rotationIndex;
             }
             BlockSize = blockSize;
             Position = new Point(5, 0);
-            CreateBlocks(pieceModel[RotationIndex]);
+            CreateBlocks(model[RotationIndex]);
         }
 
         private void CreateBlocks(IList<Point> positions)
@@ -105,7 +101,7 @@ namespace GameClient.Classes.GameBoard
         private bool Move(int deltaX, int deltaY, int deltaRotation)
         {
             bool moved = true;
-            var positions = PieceModel[(RotationIndex + deltaRotation) % PieceModel.Length];
+            var positions = Model[(RotationIndex + deltaRotation) % Model.Length];
             foreach (var pos in positions)
             {
                 if (!Board.IsEmptyAt(new Point(pos.X + deltaX + Position.X, pos.Y + deltaY + Position.Y)))
@@ -116,7 +112,7 @@ namespace GameClient.Classes.GameBoard
             if (moved)
             {
                 Position = new Point(Position.X + deltaX, Position.Y + deltaY);
-                RotationIndex = (RotationIndex + deltaRotation) % PieceModel.Length;
+                RotationIndex = (RotationIndex + deltaRotation) % Model.Length;
                 for (int i = 0; i < Blocks.Length; i++)
                 {
                     Blocks[i].X = positions[i].X;

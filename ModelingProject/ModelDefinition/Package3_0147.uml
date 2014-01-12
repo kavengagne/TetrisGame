@@ -1,0 +1,2789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="58e0f54a-c891-485a-ae31-d1693b11e589"
+  name="DataObjects"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="4623cb39-395f-4b58-be73-98b1343893b8"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGameConfiguration.DataObjects"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="e302df02-72ac-4426-91ce-01649958b700"
+        name="ClientInformation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c66ad219-17f4-4f8a-80c1-924c121bede5"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0511ca3f-4bcc-4ee0-82cc-4b3df3d9837a"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7221150c-7282-4756-89c2-acea758f0777">
+                <propertyInstance
+                  Id="300de67e-3b26-45b4-b524-7f8a5c02d31d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="076f43a9-8091-4c88-a87a-87c9d282a8bf">
+                <propertyInstance
+                  Id="56ba352e-506f-4ae3-b66e-e6566ef3a388"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c0003363-7db9-4090-ad43-f0e2e8db3ea9">
+                <propertyInstance
+                  Id="19d40bdf-1a45-4b51-986a-624fbe1a225f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0c3b5f2e-2511-463c-b318-14abbfcba3d8">
+                <propertyInstance
+                  Id="dacd6d52-1af2-4c22-9039-3396b4ed9cb5"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="0936c997-03f9-483e-b8be-702ba4bb75a4"
+            isDerived="false"
+            sourceEndRoleName="ClientInformation"
+            targetEndRoleName="RequestHeaders"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="bbbd34f6-97a3-4ccf-8548-b1b36e3a3bef"
+              LastKnownName="Dictionary&lt;HttpRequestHeader‎, String‎&gt;"
+              LastKnownLocation="Package4_0151.uml" />
+            <description>Property RequestHeaders references type Dictionary&lt;HttpRequestHeader‎, String‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d259a06-fd03-420f-8584-7ca4cd8e96ac"
+                  name="ClientInformation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2f7ccec6-671b-427f-a0c8-7db029cf01c7"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d1cbaea3-3aa0-403d-ae99-358c1f16a09a"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="958a1a7b-2fae-414a-849a-c91742aa07ad"
+                  name="RequestHeaders"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="04921341-3f5c-4c82-b47a-d010906ca9db"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="831cd724-9035-4e5a-9bb6-db394af4a6e4"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="7508d6a7-76a2-460a-8fe2-2e5cca07f267"
+            name="RequestHeaders"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="202739b3-1173-4a28-830b-4e691ed54d40"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DRequestHeaders"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5cbe61e7-ecf4-4272-af5b-9520252347ac"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c429b18-374f-47f8-88d3-5a9c880b96ba">
+                    <propertyInstance
+                      Id="104a2c62-3590-41a5-a443-24998d16fb01"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1896ace0-edba-4ca7-ac13-91931ed1d3f1">
+                    <propertyInstance
+                      Id="a2abf220-3f5a-4be6-b5bc-372a0ba12277"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cdd83061-b314-4840-aac5-c7a42dfb0968">
+                    <propertyInstance
+                      Id="8f9a61f2-91a6-4fcd-ae4c-99e3155195cc"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d2a8463-fd8b-4c42-9e2d-37804aac43db">
+                    <propertyInstance
+                      Id="d103a956-3a66-41da-8a81-ae23904db3c4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6d636f8-f330-4ede-9af9-749583df6fbb">
+                    <propertyInstance
+                      Id="2a25b059-1c84-4d28-952a-2f0e1ea7a0ed"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f052b83d-6f40-42d1-b08d-a324d0f32e51">
+                    <propertyInstance
+                      Id="e911f646-a262-4545-8640-378283177c76"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="729a59e8-7147-4d10-8295-dc42be302abd">
+                    <propertyInstance
+                      Id="e1cd438f-1c7e-4d85-b73f-a2dfb6416a9a"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="bbbd34f6-97a3-4ccf-8548-b1b36e3a3bef"
+                LastKnownName="Dictionary&lt;HttpRequestHeader‎, String‎&gt;"
+                LastKnownLocation="Package4_0151.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5e52799d-b204-428c-9683-0f95c2df5243"
+            name="ServerAddress"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="599f437c-589d-4af5-b65c-8a1cb55bfbdc"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DServerAddress"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a977d2a5-e92c-4149-9ec4-36fae8871bc0"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d65842b-d0b0-4cec-87b2-5fe1a0fe1e56">
+                    <propertyInstance
+                      Id="90744482-d2e5-49e5-aca5-9cc74cda9625"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5cefd533-7595-4aa6-952f-737ce7a9546a">
+                    <propertyInstance
+                      Id="705a0374-9104-4e2b-bd64-6d01d96cb164"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a4b0bcea-fbe4-4b1b-afdb-57d9c8734ddd">
+                    <propertyInstance
+                      Id="6be26927-d486-4c19-a41e-7d95bb62a0fb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f5889e67-c592-4a35-849c-ad23ef7781b6">
+                    <propertyInstance
+                      Id="c4686a41-ad3a-469b-826e-e9f737e69e34"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bf06f01-4939-4d2e-914c-468d36038bb4">
+                    <propertyInstance
+                      Id="9c709109-86e9-4fcf-8881-c7810bd0b9cb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fedbb3b9-a943-4960-a0f9-089dd5c0b8e9">
+                    <propertyInstance
+                      Id="d1bb2010-e18e-4de2-becf-bb8cb520ce89"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb529ba8-3eec-46de-ac68-601cdc2d8b47">
+                    <propertyInstance
+                      Id="f843712c-bea0-4a2b-9409-4370f70111dd"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="906eeba9-5e1a-4919-9919-6a3500456a6a"
+            name="ServerQuery"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="c4ebe12d-e58f-4d82-978b-12c0dfb0ef11"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DServerQuery"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="21d34911-6e6b-47f5-b4cf-03e6d3f2c118"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ede7cc9-8551-41fa-a3ad-888c48fe7170">
+                    <propertyInstance
+                      Id="c341d815-fee9-4d90-9c0e-813d9974144c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="338093d0-832e-4c36-ad38-cee1bac12611">
+                    <propertyInstance
+                      Id="f89519ac-0b25-44f1-8a64-9c06a6d9bc3b"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8f753d2d-0e74-4634-83c5-e7ad38a5ec3d">
+                    <propertyInstance
+                      Id="7965d75b-c11a-4c59-90a7-73e43d4d5c47"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7ad085e-c635-44d2-a457-068075ac93ae">
+                    <propertyInstance
+                      Id="d9d8d8bb-4a40-4c54-a969-4716714b7660"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81e0e1c8-edea-4b12-82e4-1705cb0e5932">
+                    <propertyInstance
+                      Id="39821dda-9806-4a1b-a48a-716aa7c7c149"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51946c2e-4bc0-401c-9d4f-ae72926aaf04">
+                    <propertyInstance
+                      Id="7ec88ac8-da04-474e-a815-26326d6eed30"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="03f61934-3f9a-4dcf-88a4-1feb44ea0d03">
+                    <propertyInstance
+                      Id="21ed1fa2-2c92-4872-bf7c-4474a09ba5b2"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8107100b-f275-4833-b7b2-8da3b7df950f"
+            name="WindowHeight"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5f18bbe0-94fd-4cc9-8e08-8905719f9b1c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DWindowHeight"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bcfb2bd8-cc6c-4979-95d9-20e129a9b6bb"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b7f0420-ae21-400f-86a4-6a7e2c3a475a">
+                    <propertyInstance
+                      Id="a8a78fb1-c53b-49b2-a6bc-2fc87180401b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbf152d8-79bf-4272-82f1-edcb4d01d56c">
+                    <propertyInstance
+                      Id="4b156e7c-1101-42b8-9d24-619711de517c"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c01eb64-f8ec-4c8a-9e5e-f1f5507d184d">
+                    <propertyInstance
+                      Id="12c643e5-d6c4-4272-850d-84526f2f355f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e1cf21b-c64a-4fad-8164-2839cb4c4686">
+                    <propertyInstance
+                      Id="65447ad1-9855-4a85-a729-246257644c3b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b782634-6b05-4a16-b5f4-eec851b18f1b">
+                    <propertyInstance
+                      Id="ba32cdb4-fd2d-474d-acf7-a976fd5f8acd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bb6ec30-31a7-42f7-9979-deac0dbea7ef">
+                    <propertyInstance
+                      Id="cb69c5b6-61db-48d2-96aa-ab1d9b8b2d53"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="659c33d2-0607-45fe-b043-d013e9faa926">
+                    <propertyInstance
+                      Id="f3ceaff0-5f38-4444-8df7-02dbb4dad93e"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d57108cf-4ea4-42d2-b572-efc565648727"
+            name="WindowName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9676aac5-6636-4737-9f6d-1e9e5a5de088"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DWindowName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b3c8ba78-37ee-4a7b-8ea7-5f8b55d05582"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42cb819b-6d5a-4f27-8370-b28e0095caa6">
+                    <propertyInstance
+                      Id="522a0cc8-4081-4d47-8334-52824549fdec"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d709c26-d077-4387-90c8-c528df08f4f5">
+                    <propertyInstance
+                      Id="6f8a2675-5828-4fc3-9998-493a27aed3be"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9cb2dbfc-ddaf-4dcc-a070-b2b8ae6739e5">
+                    <propertyInstance
+                      Id="493f814d-d15d-4d99-b57a-91ace47c32be"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fe0c6dd-3135-4758-95c7-2dabba2b7864">
+                    <propertyInstance
+                      Id="f1d3f6c1-88f8-4d25-9b45-48e770e2a528"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0be3b4f7-15dd-459c-a9aa-1e20a4f3c9bd">
+                    <propertyInstance
+                      Id="b3efe625-cca8-4756-b012-146dbc4b0b7c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="beef1553-e9a8-4922-ae5a-00ccf203ad49">
+                    <propertyInstance
+                      Id="d0abdfb3-8b71-42c8-b0c6-84a0b5ea2491"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72115df9-51d7-4ddd-851e-1d354a0db2f7">
+                    <propertyInstance
+                      Id="97db282b-f844-4c75-87f7-9290f04c2ddd"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f29049cd-70f0-44c4-b600-de2d401d24f4"
+            name="WindowWidth"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e1f65000-bf40-4390-9856-18df2ea891d8"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3DWindowWidth"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="28d16797-79a1-4038-9b4d-e7bd9f98516d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40bbc24e-e0b5-4029-82e4-92fcd2a994fe">
+                    <propertyInstance
+                      Id="0fc55bc8-f0f9-4828-ad60-b7c4040876e6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04463be9-e7ab-4b61-826f-058775ee3625">
+                    <propertyInstance
+                      Id="ada2b73d-8444-44d6-b2ae-ef97f2a650cf"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c44fbc86-e14a-44c2-a6bd-2ebba3121269">
+                    <propertyInstance
+                      Id="c6b58782-b0c6-4242-8b15-489c73ec288a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="977f1db9-9314-4160-a7ae-a00da304a660">
+                    <propertyInstance
+                      Id="3b97d34c-c1b0-4986-828f-cb654483e46c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b97abb3-3135-4e53-8904-a231e4ec4665">
+                    <propertyInstance
+                      Id="a6910d70-f9ac-4d2a-98fe-83d434bcca31"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cd5ec8e-96f0-449c-8faf-a1ddd10053e3">
+                    <propertyInstance
+                      Id="fc83b147-9f93-4749-9e8c-506f06575d36"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="349044e9-9e11-4554-92fc-9959143dc31e">
+                    <propertyInstance
+                      Id="efb97e49-38c1-499d-b2a7-2b0f8875ffa2"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8896655d-626a-42c9-a658-bf6235377ce4"
+            name="ClientInformation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0a689946-a874-4770-aefe-83fd89d2859e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DClientInformation Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="789afbc8-1968-41ba-9d8f-2950b698919f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2f79134-773a-442d-a576-755dde351d3e">
+                    <propertyInstance
+                      Id="812f37f4-de81-4eb0-82bf-3036016223fe"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3604cc10-1a90-4084-b38e-5b7ebc3196e2">
+                    <propertyInstance
+                      Id="bb8709ea-ab69-4343-92aa-029dcbc010ea"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c484202-29f3-478d-87ac-dc4db6865dc4">
+                    <propertyInstance
+                      Id="85b71462-df4d-49f1-af30-3547069e44fb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff7d2829-db49-4f07-9fd7-655051cb83ed">
+                    <propertyInstance
+                      Id="cdbd0ab6-0e98-4a01-aa7b-7740e564bfbc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0da038a-29d4-465c-93f9-0c6f8d3e9d43">
+                    <propertyInstance
+                      Id="5b7b44c7-3f23-454c-a602-2da475c35671"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="11f0d7f8-bc6f-4424-a7d3-a335f25a2fad">
+                    <propertyInstance
+                      Id="1283fad1-aa1d-4342-86c7-a3effe3aed71"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7da815ce-6220-46fc-8226-4ce14fa0c8c1"
+        name="Configuration"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f6ec53af-65ce-465c-9e31-d069beb2b93e"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6ed09c44-0b2b-4ca4-997d-d82b64a6fbcc"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="52e68b71-545f-408d-9e1f-f15231bb6d11">
+                <propertyInstance
+                  Id="825cb256-b63c-4379-a619-34e823976703"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9009f519-052c-4519-9234-cc1d19b013ad">
+                <propertyInstance
+                  Id="fb087a26-08d5-4ae2-a5a0-f9d98a03db55"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d70a359c-7a69-4e41-a30a-79126bdc5862">
+                <propertyInstance
+                  Id="320f1d7b-e272-4c02-abe9-eeb2f66d5391"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d27109dd-b752-4047-8191-436651777ecc">
+                <propertyInstance
+                  Id="1c779749-7424-44a3-8204-46772792de73"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="7a506ae3-a89a-4149-baa9-3346f60207ed"
+            isDerived="false"
+            sourceEndRoleName="Configuration"
+            targetEndRoleName="Board"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9f9491f3-de4e-45da-87a6-c6aae6c55fe8"
+              LastKnownName="BoardInformation"
+              LastKnownLocation="Package3_0147.uml" />
+            <description>Property Board references type BoardInformation.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b71b91fc-4400-4a19-be49-c93147f5c872"
+                  name="Configuration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e69f8a9b-3cbe-4f9c-b4f1-b240ebcc458a"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="871a20bf-cac4-4dd7-92ba-eeaff103537c"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="304aab92-8a1b-47f7-bdeb-7caaef465271"
+                  name="Board"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7dde993d-861d-48ad-87b3-29a7904de65f"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e1df3524-e602-4908-865c-5b16ae7589cb"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ef51ee94-b7ab-4525-861a-8aa39ab23e2e"
+            isDerived="false"
+            sourceEndRoleName="Configuration"
+            targetEndRoleName="Game"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e809342b-a254-47d1-9bf3-df787811c2c8"
+              LastKnownName="GameInformation"
+              LastKnownLocation="Package3_0147.uml" />
+            <description>Property Game references type GameInformation.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a21f3704-b508-436b-b3bd-ecd341333f70"
+                  name="Configuration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c4f02f29-c441-4f45-8107-f88545edaf15"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fd1d92ec-3d4e-4249-94d1-e95e749f13d4"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="95f7b7c9-1f73-45f5-8553-7fa9129fa1ed"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="57cccf7f-cc07-4a94-8fc3-19895b085d8b"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a965f6e2-3aaa-4920-8faf-14e30b83ab19"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ab6cb54c-1c9c-454d-9d0a-2c6a38024f8e"
+            isDerived="false"
+            sourceEndRoleName="Configuration"
+            targetEndRoleName="Pieces"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="16a5b545-5dea-4042-bb45-438ede2f5f3a"
+              LastKnownName="PieceInformation"
+              LastKnownLocation="Package3_0147.uml" />
+            <description>Property Pieces references type PieceInformation.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c750446-1a62-4206-8e7e-f8499aac4d7d"
+                  name="Configuration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a9dbd3ab-6ee4-4941-be0d-0cdbb28eb0e3"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="abb60799-cdf6-487f-a0aa-18f4da6abe24"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="86194449-487b-4bcf-afca-b4886fd52691"
+                  name="Pieces"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isOrdered="true"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="19168d23-ba2d-4a6f-8b6a-7571d209ffa1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8cc7323e-45f6-45eb-b477-7d73da34e85d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e81246c8-842f-4567-a5d2-981b95209eea"
+            isDerived="false"
+            sourceEndRoleName="Configuration"
+            targetEndRoleName="PiecesColors"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+              LastKnownName="Color"
+              LastKnownLocation="Package2_0150.uml" />
+            <description>Property PiecesColors references type Color.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d122f44-2ae7-4e94-be80-2e249ee2378c"
+                  name="Configuration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="eba2bbdb-a0e4-423c-9f9a-14dd8567b870"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d751568a-c922-42d9-b321-414fb8b377a4"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="69fbee9c-0c2b-43b3-b37a-e15107e1d8f5"
+                  name="PiecesColors"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isOrdered="true"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="eee6f0a8-2d2c-4fc9-949f-ed2df708332b"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d997dd66-0dda-46c9-b450-4e18fe9714c5"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="74cee030-c485-4977-9726-9546f5f44469"
+            name="Board"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6528ae8c-a463-467a-b279-0c7eaf61f4f5"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration Member%3DBoard"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1082575d-af43-4643-8346-bb72eb2315e0"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d562422-3be3-48be-ad81-69950bf1485c">
+                    <propertyInstance
+                      Id="5ce0bdee-0a08-44cb-9d5d-1fccc93699ab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6f0638d-6c44-4d88-8ced-a1f63a285afe">
+                    <propertyInstance
+                      Id="38007d7c-5663-477e-b115-3c4aff0ec39e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5fb5691-db73-4ed7-9742-acf311ebafe1">
+                    <propertyInstance
+                      Id="2db01206-f38b-43c7-ad60-8cd26c6f704f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f12ca3fe-3c6d-4f97-b241-310496ceb05c">
+                    <propertyInstance
+                      Id="52d75edb-cdec-4cba-82de-252f478a4d34"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="599dd2f6-f2ac-48a7-9d84-0540aa659b9f">
+                    <propertyInstance
+                      Id="6db9f898-d03f-408f-91b0-56c8a19c5bf9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="458df96c-c21e-4142-8dfc-00b2f154ba01">
+                    <propertyInstance
+                      Id="0ffb30d1-6cb4-4906-a2ea-816db11809ca"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78e3e53a-d100-4010-9c05-8efa973df96a">
+                    <propertyInstance
+                      Id="a6659dd9-921a-43ba-9bcd-c252a88d70cb"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="9f9491f3-de4e-45da-87a6-c6aae6c55fe8"
+                LastKnownName="BoardInformation"
+                LastKnownLocation="Package3_0147.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3154947b-a3a4-4142-8dea-181ddb4010c6"
+            name="Game"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="843d276d-b1c6-4233-b2d0-817f007c048f"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration Member%3DGame"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4ab55a81-8a88-4dac-a73d-1e26eff9c796"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2c500cb3-e9cd-46ea-907e-795bacdb7ac6">
+                    <propertyInstance
+                      Id="8f26f4b6-c1ca-4a25-85a7-5e545af7c505"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="097194ed-dbc5-478c-8b1b-d187984af7fa">
+                    <propertyInstance
+                      Id="99780c8e-2f46-4221-86c0-f03844858685"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3f79951-7582-40e8-b40a-b74415d0ba8c">
+                    <propertyInstance
+                      Id="1e91741b-eca6-468e-941b-f05d78fffee1"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cec36ea3-6983-4a96-ad5b-3b42be559024">
+                    <propertyInstance
+                      Id="d73e5234-76c8-4e3b-afe9-affd2a02e971"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a33f6cdb-6906-49b9-8db1-60e95b40913e">
+                    <propertyInstance
+                      Id="83a4af20-2a4a-4489-b2e9-9cf9e44d3b1f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5808f45e-e54f-4ee0-9627-50667f091e3a">
+                    <propertyInstance
+                      Id="2b9e6661-c06a-422b-8e44-a1c030d56f80"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea01f634-c969-4b41-8237-cd52d4dbf6e0">
+                    <propertyInstance
+                      Id="c9a1ae63-378f-4bdf-b0b3-e45b7131a0de"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e809342b-a254-47d1-9bf3-df787811c2c8"
+                LastKnownName="GameInformation"
+                LastKnownLocation="Package3_0147.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2686165b-f7ac-423a-b7d1-d19417e89111"
+            name="Pieces"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f5946314-2d06-4398-a21c-602463bd8d1e"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration Member%3DPieces"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e4705a5a-67a7-448b-ab3d-ba0c30450fed"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b6b16c1-e140-4620-bcbb-40819dfcfbe6">
+                    <propertyInstance
+                      Id="11466cdb-0720-4076-adc0-62b27c7ab654"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93a31d05-3a26-4b96-86c3-52b3c301b8cd">
+                    <propertyInstance
+                      Id="b13c919c-0dac-46e0-9d61-3452daf92439"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5bf23463-e604-4ac0-be7f-3add107c65e1">
+                    <propertyInstance
+                      Id="f60a99d5-844f-44c4-b3ef-f2aaffb10a7a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a15a238-a723-4b98-9d58-afc66dc95fc6">
+                    <propertyInstance
+                      Id="273e9615-a1ed-4899-b60b-fd88f60f2aea"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12459d2e-6745-4b96-b659-7092ecfc7eb4">
+                    <propertyInstance
+                      Id="48aa5c40-4282-4768-97a6-35954e93f5ce"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a99a4f60-c714-4246-8fa8-5d5576963c67">
+                    <propertyInstance
+                      Id="ec9a84dc-5881-4ef7-a3e0-33f358d6a375"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0cb10565-1516-4782-b36c-4986aad68ba2">
+                    <propertyInstance
+                      Id="2b2515a8-3243-45e5-8bde-2e322a288644"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="6dc3f681-d132-481c-a510-0850afae2c97"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="40353001-f391-4d91-aca4-d8d6bac7f6c4"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="16a5b545-5dea-4042-bb45-438ede2f5f3a"
+                LastKnownName="PieceInformation"
+                LastKnownLocation="Package3_0147.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c0b7d257-f5c4-4c4e-8e32-ec73e39a272b"
+            name="PiecesColors"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="291c9142-6416-4a31-bd7a-cbb31cb34792"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration Member%3DPiecesColors"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dcca3c5a-4fa5-422c-884e-053bd3aa2553"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5a8ec97-5336-4c56-86c2-6cbfcc4df21f">
+                    <propertyInstance
+                      Id="eb54bf78-066c-4580-adb6-5842d76db268"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="774da265-5eb1-49bb-b9a3-65462fbb77be">
+                    <propertyInstance
+                      Id="216944d0-b594-4ae5-8236-89c2512de28e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0859cfd5-ab98-43f2-a736-3d51dcef7bcc">
+                    <propertyInstance
+                      Id="55cd498e-5146-43ad-977f-b93b0d3eac5c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="858c2ca2-8e02-4996-b10b-970001e649bf">
+                    <propertyInstance
+                      Id="37590f25-dd54-4f51-8d11-3db4dd97daa1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0667e55-bbbb-475c-9b63-3d1ff4b6e041">
+                    <propertyInstance
+                      Id="2b7f8446-95b7-421d-b19c-fadd34d37dee"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9d13648-dc73-4998-9063-eb0cc3b55092">
+                    <propertyInstance
+                      Id="7ebe66fd-93b0-4b6b-b68c-1b0a6e91ab82"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b7f99bc-ee34-4c3d-82da-aca0fd66b053">
+                    <propertyInstance
+                      Id="dd793baa-8e86-4060-959b-9338ca943273"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="904e1068-d7af-43a5-99c2-0f65ff6b8fb4"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="73bf1331-f725-4e97-b190-1551e6224084"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+                LastKnownName="Color"
+                LastKnownLocation="Package2_0150.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3de3f1c1-3d31-4a24-9812-459c3012329e"
+            name="Configuration"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="eeea7391-b5ef-40c9-8c72-e1d4c06aab44"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DConfiguration Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2ff7a147-bcaa-42d3-b47f-21e4319f119a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30aa9a30-437b-44b5-85ac-c40cc68f564a">
+                    <propertyInstance
+                      Id="0f717b6a-6664-46ef-885c-60f7800e26e4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44189876-8248-456d-9fdf-20074f4d5bc3">
+                    <propertyInstance
+                      Id="1849dd10-bad5-4c08-904d-4125d22197d4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b30d8a2-0352-48b5-8e4e-a404d7f49cd6">
+                    <propertyInstance
+                      Id="315f4859-fd5a-4027-9877-de629c48a4c7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73366f0d-ce04-457c-b8e9-f6d3d02786bd">
+                    <propertyInstance
+                      Id="0644723a-32c6-4a26-8261-11dbc50c849e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="174d608b-1bab-4af2-8a79-6cbb771fbd23">
+                    <propertyInstance
+                      Id="1b8ee212-380d-4c4d-8a50-6ea6aad48bd6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57315784-3468-4a5a-adcd-18f7e5d47086">
+                    <propertyInstance
+                      Id="dbf7e04d-d227-4c1d-b3ed-c26824f7bf9f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="16a5b545-5dea-4042-bb45-438ede2f5f3a"
+        name="PieceInformation"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a2222b37-da7d-458b-9314-a22aab7d29d6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3D(Name%3DPieceInformation ArrayRank%3D1 ParentType%3DPieceInformation)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8e57e23b-eeea-4924-a886-c32ef69f038d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f381963c-ac2f-43b8-8d9f-4111b456d5aa">
+                <propertyInstance
+                  Id="aa1b3a3d-3195-42d5-beff-4352c38587f4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2d611b60-4ed7-4925-801c-1a69e0e15cb6">
+                <propertyInstance
+                  Id="c4a17ff7-1e0e-4465-b8d4-ce34e6a92671"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="70817a3d-30be-477c-941a-4b872541cfe8">
+                <propertyInstance
+                  Id="2acaab17-8232-458c-9e75-5977d63b79cb"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="49dd4c53-816b-466b-a3c7-69707e00d604">
+                <propertyInstance
+                  Id="cb123470-14fa-4452-93ca-78cf33502aea"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d8c08eab-740c-4601-9f2b-b8f346e6c84b">
+                <propertyInstance
+                  Id="5a1d0abd-432d-4dbe-9f67-78e7bfa23174"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="27134855-7fc1-4ad0-b7ca-389c89f8feb9"
+            isDerived="false"
+            sourceEndRoleName="PieceInformation"
+            targetEndRoleName="Positions"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8457e757-2382-4112-ae3b-93862a379e29"
+              LastKnownName="Point"
+              LastKnownLocation="Package2_0150.uml" />
+            <description>Property Positions references type Point.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="59ea9b5e-916a-4a0c-9221-9cf4760c542d"
+                  name="PieceInformation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c3fd36fc-a347-424b-a263-b837a74f38f4"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7112fa6b-24bf-4ccc-93ac-5b0288baa879"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="777650bc-5ae9-44e3-9aee-0c3d86bfdb4c"
+                  name="Positions"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isOrdered="true"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4257dd81-06d0-48f9-a90d-71b0ecd21aee"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1a57283b-5b84-4937-b7cd-4292f75f7a26"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="aae2f6f8-f099-4341-a61c-485ecccd6614"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="154c8ea5-5b76-4a53-80b2-e45c4e9f1c50"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DPieceInformation Member%3DName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="852bcdaf-52bc-499c-9d06-bd015855b7ea"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f1de039-43c1-4023-af7a-9afd2f6da2b1">
+                    <propertyInstance
+                      Id="47b46c35-bafd-4cd3-bb54-02494d27db5f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0594adb-b7ac-4ee3-9d4a-70b7a5ca35a1">
+                    <propertyInstance
+                      Id="53ff0802-285d-49f1-99ff-ad1df9a9b458"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72c75c72-a80d-449d-942d-416aa38f2219">
+                    <propertyInstance
+                      Id="2714c715-d0ef-4f04-9eb9-69e23307e11d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8917b75-4612-49b5-87a7-bc20fea162cc">
+                    <propertyInstance
+                      Id="72098cd1-27f5-4c82-b4c7-8a9bca1dde5e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20f29996-bc53-45dc-bbb9-5499fd13235a">
+                    <propertyInstance
+                      Id="4ef93ba7-efbf-46c3-8752-4b4450ba2865"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b13fe266-4435-4a54-9b4b-e00b01fe0183">
+                    <propertyInstance
+                      Id="bf0bb4f5-f458-4d86-981c-f69ac33eb49b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd1ad7c5-7685-48ec-986b-91a3d0cb84aa">
+                    <propertyInstance
+                      Id="a5a73d2b-b53b-4eba-b3d1-939ee28524c1"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2cb6f785-f9f8-4a0e-b0d6-6c0e3dc7f271"
+            name="Positions"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="152c6365-74e8-4354-95fb-dc2cc8806093"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DPieceInformation Member%3DPositions"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ae9d7a50-5831-49ee-9040-5592747b6879"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc18113a-2159-43f9-9eff-96d093be8322">
+                    <propertyInstance
+                      Id="6da1262e-49aa-4642-988a-2a40cf3a15f7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="593e2fdf-e610-48ec-bcd6-03b42e16e7c4">
+                    <propertyInstance
+                      Id="a65ed1b8-ec17-4ce0-9dff-237517d26d40"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47d2aa05-b68a-43fd-aaaa-77fcb4c8323b">
+                    <propertyInstance
+                      Id="d0befc98-571b-462c-83ee-8e3611973f78"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8dede59a-40e5-40a3-b20f-1dde3224da67">
+                    <propertyInstance
+                      Id="4508505f-6db7-438d-9b5a-2b894ff90f6e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c327ea9-aed3-4390-b1a3-2dd78e11de9e">
+                    <propertyInstance
+                      Id="a23c6788-60c7-463b-b1e3-5366d7db704f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="def9250e-4bfa-447f-9a1e-3ba0afbce4d1">
+                    <propertyInstance
+                      Id="08e85377-ce59-4dca-8029-819bc73885cd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ad30fd8-558c-4185-9f46-cbbc85cd2d67">
+                    <propertyInstance
+                      Id="0262124a-a10d-4bd7-8421-47c6df6642cb"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="14101289-28cb-4c95-b243-6b9e8a1c98a2"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="10da5932-847b-473e-a54b-0741956a1f66"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8457e757-2382-4112-ae3b-93862a379e29"
+                LastKnownName="Point"
+                LastKnownLocation="Package2_0150.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="74db96ee-728b-4532-9fb7-77a46f716c50"
+            name="RotationsCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b4eda1c8-cd32-4063-8c5c-3ae8aa462b03"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DPieceInformation Member%3DRotationsCount"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4b06ee09-3028-405a-b89a-e8ac1715cf62"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18c32680-761f-41a8-aa95-4e559108a8a8">
+                    <propertyInstance
+                      Id="a5a4ebf1-98dd-4716-bb89-e297e9f2bd2c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eafae74b-ce6d-4b0b-a083-9bb06e3c8c9b">
+                    <propertyInstance
+                      Id="f8628798-94fd-43bf-aec1-5aa26ae27ee4"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c763682-9e30-427a-b8ce-dcf381073fce">
+                    <propertyInstance
+                      Id="ecb325a1-367f-44b1-803a-8b222b030eed"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e15a7a91-0f5e-4b07-8dcf-02d343619b7c">
+                    <propertyInstance
+                      Id="71ba6e69-ffa1-4262-b458-262a0ab8b403"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="677c5688-14db-45e7-bfbd-8e1a7f7e4540">
+                    <propertyInstance
+                      Id="237991a6-a6cf-4954-a682-9ee09b136ed7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73c15fdd-61fe-4abb-9fcf-d9cc00188729">
+                    <propertyInstance
+                      Id="204359dc-a3bb-4da5-b848-8bea76e4c40d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01f49c74-f9e4-43a4-a083-2001944be3c9">
+                    <propertyInstance
+                      Id="d6088dec-a33a-497c-a951-f92779ef494b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7484a334-f819-4141-aa94-ad4233f91a18"
+            name="PieceInformation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="62c4e2de-cf63-4a1b-a75f-3eb5a712cb06"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DPieceInformation Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="91c51642-a317-425c-b7a7-d1483b9cf3e4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49299575-8db6-4887-9e81-7f7db3e6c45a">
+                    <propertyInstance
+                      Id="2db6b9f1-3279-4a97-a13d-c8683db4e481"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a65902d0-7443-465a-ad1d-2f94563c7d96">
+                    <propertyInstance
+                      Id="0dee948e-13a4-46f3-aaa8-95adb11710a0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbf63714-ce4b-430a-aeee-3c84b97e1c51">
+                    <propertyInstance
+                      Id="57be1070-0d46-4c7e-a934-687aab477c58"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="060d79dd-17cf-41b1-9272-47fe8d6d7dc3">
+                    <propertyInstance
+                      Id="fa41fc6f-b0d6-4f7c-8717-3b4e7d9dac26"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb89879c-5f69-470c-b1a8-d4572ac4114b">
+                    <propertyInstance
+                      Id="7d86607d-f620-4fd2-b880-afa35422d0c8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7275398d-0c15-4702-8113-c6c334c2ad9a">
+                    <propertyInstance
+                      Id="86d88be6-a442-44f9-8857-7d44b7672d60"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e809342b-a254-47d1-9bf3-df787811c2c8"
+        name="GameInformation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="db412c8e-0394-4304-8a04-3c31537507c9"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DGameInformation"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e4d0b59f-4423-462b-98dc-8e0f337eb9d9"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d5b1df7f-4e41-4a86-a6c7-8a1c5790d621">
+                <propertyInstance
+                  Id="71d2f7f8-8464-471f-95e8-a5dd94007720"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fadf7db6-7497-4e11-925b-d47ecabf9bce">
+                <propertyInstance
+                  Id="a186f310-12f6-4f8e-822a-530a3de2306c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd0062fc-380b-4936-8a17-09e0ac795a69">
+                <propertyInstance
+                  Id="2355cbf1-eb00-4b94-9f67-6b3420d682a4"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b705ee75-7325-4a64-a9fc-09bafcd4b2b7">
+                <propertyInstance
+                  Id="56dfebd7-78e1-4ec2-8e3d-cb50d1ab069f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="f18dec5c-4bbb-4922-b0be-8fd4e7cd4b37"
+            isDerived="false"
+            sourceEndRoleName="GameInformation"
+            targetEndRoleName="BackgroundColor"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+              LastKnownName="Color"
+              LastKnownLocation="Package2_0150.uml" />
+            <description>Property BackgroundColor references type Color.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c214a8b9-f354-43d4-945a-a34e99a5f8c4"
+                  name="GameInformation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5d323ace-9080-4935-a391-2a0effa0f81d"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="514a9922-803d-4481-aec0-456dad4940d5"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8cb5cb5e-b49c-4bba-914b-4bd0db20581d"
+                  name="BackgroundColor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="74b3e144-28a2-4600-a681-23cb60f54255"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f2df41d5-fef2-4a3c-b0a8-7799adeb30af"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="09322412-bd97-4129-b378-ca1fcd4ca588"
+            name="BackgroundColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2ff44281-6913-4d71-b58b-bb4787e7b906"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DGameInformation Member%3DBackgroundColor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="00069965-f66d-4809-b528-86620cac2d97"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76b57147-a215-4758-9c5f-6234a91f1b35">
+                    <propertyInstance
+                      Id="ff43c9b3-2ca7-4bb8-8d3d-54cb2d4f1556"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b1840da-5b1f-4913-8587-b858d30af43c">
+                    <propertyInstance
+                      Id="dc5286f6-c0fd-4db1-9dd7-82b30eeef580"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e0e05a47-3fbd-443f-ad2a-83810074b3fb">
+                    <propertyInstance
+                      Id="c24ecd60-a41a-4196-af25-d17f009e64d4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc09daf2-bdcd-46e8-8714-d475a2f886ce">
+                    <propertyInstance
+                      Id="983fd385-1110-4f82-81b2-7192c36f065e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e19f70c-557d-4661-9221-ec9ea755be86">
+                    <propertyInstance
+                      Id="2cd44487-c5fb-4219-8be8-a2fd3337f217"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1418edab-c2ae-4c35-afe6-87fab42bb758">
+                    <propertyInstance
+                      Id="62586b73-258f-44f5-9486-a2f58bca772a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc210f34-960d-4cec-b1a5-2f6b3fae330a">
+                    <propertyInstance
+                      Id="1e3f8ab8-69e8-4d76-810a-ec8c0dad1b52"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+                LastKnownName="Color"
+                LastKnownLocation="Package2_0150.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="15fcea2f-0ea8-451d-9183-c6414aa41495"
+            name="GameInformation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a0525264-c236-4a70-82fc-6f868e4b4a68"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DGameInformation Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7bd1498d-afda-4dac-8c9d-85ab4206ddd7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3960d03c-000b-421a-905c-c70c68d68966">
+                    <propertyInstance
+                      Id="e1d8c749-5066-4a22-ae12-a6064497158d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9fb1818-c4a7-4e0f-9625-793ba558bcad">
+                    <propertyInstance
+                      Id="34b540e7-f9fd-4021-a527-f678e8dc8146"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f15a720f-e4f8-4c8c-8c5b-de3762322e39">
+                    <propertyInstance
+                      Id="6d640bd7-57b9-44cc-acfa-59c710b65e80"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ea89ae5-562a-49cd-a737-6288e8b2645d">
+                    <propertyInstance
+                      Id="2d8b926e-5e4d-49b9-9640-fee1fe2226c2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c42d1e5f-09e7-4bb3-9ffe-12ab7dda7d2d">
+                    <propertyInstance
+                      Id="39fc9432-0ea7-4e32-b041-8b51ad38b839"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fa2e939-f5e2-4717-8f05-116af88a397a">
+                    <propertyInstance
+                      Id="50739f69-de05-413f-8812-db873435c4c4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9f9491f3-de4e-45da-87a6-c6aae6c55fe8"
+        name="BoardInformation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="90e37fab-7ee2-40fd-bc96-fd2b3da9a711"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c4e6ad0e-9ceb-406f-ac7f-0f29f0e30cfe"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b99940fa-3366-4abf-83fe-6774e6092060">
+                <propertyInstance
+                  Id="33208dca-9517-42d7-898f-4b555e0f6526"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f86f86a2-7c34-4465-8c0e-12185e0489cf">
+                <propertyInstance
+                  Id="2ddef02a-613f-493e-b0ae-49898aaaf32e"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="db96d698-3582-4e0f-8d84-d49dd8c3268d">
+                <propertyInstance
+                  Id="38c71d4c-51e0-46d9-938e-1cdbb4c02c6c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8f90a2bf-cf63-46d5-91aa-acb0a8a1f322">
+                <propertyInstance
+                  Id="2cae6a1c-fac6-471a-88a3-20acfd795c71"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="2f0f8076-15eb-4aed-ac4e-22a15e0a0010"
+            isDerived="false"
+            sourceEndRoleName="BoardInformation"
+            targetEndRoleName="BackgroundColor"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+              LastKnownName="Color"
+              LastKnownLocation="Package2_0150.uml" />
+            <description>Property BackgroundColor references type Color.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f02eea4-b0b1-4996-ab61-a3d2e0b6d4e0"
+                  name="BoardInformation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6067fca2-40b8-449c-b14c-c5e3fbfce45f"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b311cceb-cf0c-4283-8fc9-8cc00a2d7a40"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d1fa793-7bd8-49f8-85da-4ca2aa05fbfc"
+                  name="BackgroundColor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4a647f46-d1df-47eb-adf0-208283c05ad6"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f895e8e9-ddb3-4059-823c-9c54bc2b57d2"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="49badb48-d9cc-4f53-92e7-672e4011ebde"
+            isDerived="false"
+            sourceEndRoleName="BoardInformation"
+            targetEndRoleName="BlockSize"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c4384700-2105-4b8a-a0a3-f2ca841e3e3c"
+              LastKnownName="Size"
+              LastKnownLocation="Package1_0151.uml" />
+            <description>Property BlockSize references type Size.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="39d94e83-3f23-4c08-bc0c-e6926185fb43"
+                  name="BoardInformation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9eed08fa-415e-413f-b0af-42ee25730dc4"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a0a4db58-16e9-4623-99b1-716919f007d4"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4394faa-8547-41b8-976c-00b5b4e65324"
+                  name="BlockSize"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f5e3a78f-385a-4fda-9b38-1173e7e70e3b"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="170b00bc-befa-4a06-aecf-f4a174621ad4"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="46e58499-3f55-4e34-b54e-79f6d284f86f"
+            name="BackgroundColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7bcd6ebf-c549-483d-9ffe-3bee800a3b0a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3DBackgroundColor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5e075a89-9389-41f7-b03d-4eddf2d3b8e8"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19958cd3-6078-4392-930c-dfc99e04f084">
+                    <propertyInstance
+                      Id="ecbfe681-dd95-4fff-bd7f-47e0ea32f8ee"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75b19e12-cc7b-4262-99ca-a3f3f97b7957">
+                    <propertyInstance
+                      Id="c0981025-fc29-4e0a-b368-4e1200487f37"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="63650da9-25c1-4393-98b8-ca08e8b9836b">
+                    <propertyInstance
+                      Id="531aac46-e78d-4d24-bdc1-77485a8f7501"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1c1f021-eedd-42eb-b21f-5d6e1a084582">
+                    <propertyInstance
+                      Id="e5a419dc-ad0a-4658-adde-8abf36e058d7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73422ace-9e83-4ca8-81f2-af64018781d9">
+                    <propertyInstance
+                      Id="3129f37c-c726-4375-8793-f1530557d74d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ba9d288-a51e-45de-8b61-92a32f2054fb">
+                    <propertyInstance
+                      Id="05270ace-c1af-4b27-a90f-5a3230ce7c64"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e67b19c3-ac2b-4b3b-85a0-dbcc6b4376cc">
+                    <propertyInstance
+                      Id="14d0656d-47ac-44ca-982c-e6e547d23aae"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+                LastKnownName="Color"
+                LastKnownLocation="Package2_0150.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="242669c2-9a4d-46a2-971f-63903cc872c8"
+            name="BlockSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4c2fd42a-e199-4ba2-af61-6b75f8df3bf8"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3DBlockSize"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d5c6c493-7c0d-4a56-a278-0e90405cd0a4"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ffe61299-84df-484b-912d-d63c97c7a337">
+                    <propertyInstance
+                      Id="1b3c095b-ffc1-458c-a63d-2052fa5583cd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92264373-b530-4763-a101-c5f6dae8b217">
+                    <propertyInstance
+                      Id="cbe785ae-809b-4beb-ae7f-12617bd32f16"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c801e3e0-9559-4583-842a-aea80d4b74f7">
+                    <propertyInstance
+                      Id="7b00c224-ab64-4c4b-bebf-75da6c0cadf0"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac2afbe3-14c4-406c-b3f4-c343e51f0012">
+                    <propertyInstance
+                      Id="afb6d221-3a67-4a5c-8571-c49aeafbd7c9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e0a8135-476d-42f7-b460-4f59212675a1">
+                    <propertyInstance
+                      Id="6f0e7639-32ed-420b-98eb-d80520c506f9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0952588-0b31-4978-aa54-1d744e77305a">
+                    <propertyInstance
+                      Id="a39a86b9-c8da-474c-979f-cf865757d9b8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de3408d4-c2c5-495e-a4c6-08aae93d11c3">
+                    <propertyInstance
+                      Id="13b2c962-0436-4faf-a508-f2ac65044c90"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c4384700-2105-4b8a-a0a3-f2ca841e3e3c"
+                LastKnownName="Size"
+                LastKnownLocation="Package1_0151.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="18a74de7-ff45-415d-982a-84c3824a42f8"
+            name="Columns"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d203b3b5-a79c-4113-b9a7-f633292ee246"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3DColumns"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1b916eaf-1553-424c-bef1-47b656d68610"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f5941f6-f03b-46bc-8224-0fc519fc143a">
+                    <propertyInstance
+                      Id="e45f6c79-aaaa-41eb-91d8-28ec751097f8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="534aa034-8473-4649-b671-0d0bc83ae6ae">
+                    <propertyInstance
+                      Id="78cf35c4-287c-4926-8e17-b2b5202e6506"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fdce9194-2046-42ce-8259-d1639ea039f9">
+                    <propertyInstance
+                      Id="e73585fa-d77e-482b-8fee-0fbdda11febb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62ee8e91-5f35-4ca1-a7f5-850a8e219861">
+                    <propertyInstance
+                      Id="b1febb52-874a-4dda-a2a3-c96491009b5d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d69139d-7023-4622-a554-2196c9cec9f9">
+                    <propertyInstance
+                      Id="a7896890-6658-4e4f-b05d-beed6f5ca4e8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21004a3f-568d-47d6-b6dc-c17d5c566c9f">
+                    <propertyInstance
+                      Id="18c92fab-be40-40a7-87ef-bda29a10fc06"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42b1545c-b440-41c6-aedc-e819f428ccea">
+                    <propertyInstance
+                      Id="20b30ceb-6650-436c-a268-7a82e259db1d"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b6f2cda1-1c4a-412e-ab98-621f8269b92f"
+            name="Rows"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ff836977-f4fd-430c-b182-d2dea636012b"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3DRows"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c3489e91-3354-4610-9de0-3e8ae9b11f00"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3abad47-70b4-472a-9353-82a586a3b4cf">
+                    <propertyInstance
+                      Id="ee46f8bd-096c-499d-a421-136ea1b8d43e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="358bf1b0-0c30-45ca-815f-ddfdda5132a9">
+                    <propertyInstance
+                      Id="0753fc42-3177-44f6-be35-bf45a8a05b93"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="da43dd60-5c2a-450e-83e1-57325b6bdb78">
+                    <propertyInstance
+                      Id="0a39641e-71d7-4e5c-811b-477de6f9ce67"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0adb04fe-0dfa-42f0-96e7-9c04b5abbf91">
+                    <propertyInstance
+                      Id="1c410149-8ae9-4b3f-8844-18b58c258ff5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06bd1dbc-aef2-4ebc-9bfb-cf69935e9854">
+                    <propertyInstance
+                      Id="a6818383-4987-412d-bc24-1b67f58c489a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9245325-b7c6-4194-ae57-dc30baa237e4">
+                    <propertyInstance
+                      Id="63fd4f60-b504-4f20-98a5-235275792b27"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be4e6b96-799c-494e-8c03-43e6fd69b6d5">
+                    <propertyInstance
+                      Id="31ffb940-356d-4fce-9f7c-134caeb45a9b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6bdab4d1-9f89-41e7-9fd6-d10bcf24d38b"
+            name="Speed"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b01a5aea-e9fa-4883-aa66-3fdf2ac07ac4"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3DSpeed"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5bd8e968-fa01-49b6-9fce-45425ac63cd9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d63425b-2485-4c7a-844a-220a8b81ef20">
+                    <propertyInstance
+                      Id="f15831cb-8219-4cfb-b419-dfe8a886fea8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e3d6951-441d-463f-8842-0e4aedc4f469">
+                    <propertyInstance
+                      Id="d1df5545-710a-461c-8c7a-f5fde74935fb"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ccc7cbb-d1d2-4b57-8391-f10a90d47792">
+                    <propertyInstance
+                      Id="7e1cca38-1c9f-4b53-8193-06dda4a3c1b1"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f76d170-e4d2-4d9d-a2a3-4c9f4b4acb0e">
+                    <propertyInstance
+                      Id="5b2a733e-4910-4249-a4a4-09c215bc0526"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="766861af-648c-4678-97f1-ca6addc5803f">
+                    <propertyInstance
+                      Id="fbce9e41-6b69-470a-865f-95871960e273"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce508a35-2b3d-4d7a-b73c-d4d2675af6a2">
+                    <propertyInstance
+                      Id="be7b9bdb-1352-4d0d-89a7-c705b7351072"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9646517b-8339-43d7-b968-c4f071f63747">
+                    <propertyInstance
+                      Id="9e82ed8d-c74e-4f87-913c-7ec239cb814b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a3f2dcd4-9d1d-4899-a6c2-4fc85ed84dd4"
+            name="BoardInformation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="95868c3a-5e05-4163-a8ce-d50552a1406e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameConfiguration%2Fbin%2FDebug%2FGameConfiguration.dll Namespace%3DGameConfiguration.DataObjects Type%3DBoardInformation Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e0da9d0b-4763-41f4-bcb3-de27c7df7fbe"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d61f3ae8-8bfe-424a-b76b-ca9376c73a76">
+                    <propertyInstance
+                      Id="56a0482a-d9a2-4652-8d05-4f9f815d3dae"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21341913-aa2a-4fce-aeb7-fedf9bdeccef">
+                    <propertyInstance
+                      Id="7b062653-f946-452a-8940-8d4658ebe7ed"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93b9be94-dcea-4ad4-bfa2-1bef5810d5a2">
+                    <propertyInstance
+                      Id="d634e3bd-4227-4c49-ac88-b961ccb59dd0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae6453bd-006a-4647-9338-7899e3e74c96">
+                    <propertyInstance
+                      Id="0b14099f-1e4c-43e7-b0cf-88579890a2af"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b76c1823-d729-41e3-ba0e-c09977c178ba">
+                    <propertyInstance
+                      Id="4deb1382-3b33-4ca7-a157-47249628556a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e79b947-e3e7-444b-a20d-fc64ef60a6d3">
+                    <propertyInstance
+                      Id="35f94305-516d-4f6f-96d7-97700948d53f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

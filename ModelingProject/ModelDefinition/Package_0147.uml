@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="2b23e189-ff13-4928-9478-98b62296e8f3"
+  name="GameClient"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="29f7f2fb-0ede-400d-af67-eb2c404a4a27"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGameClient"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d8f4e608-de05-4ab8-a011-ae0325d97e2a"
+        LastKnownName="Classes"
+        LastKnownLocation="Package1_0147.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7c4f52eb-49e7-4a95-b93f-e466af7292a1"
+        LastKnownName="Interfaces"
+        LastKnownLocation="Package2_0151.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

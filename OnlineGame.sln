@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7CA110
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject", "ModelingProject\ModelingProject.modelproj", "{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,16 @@ Global
 		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

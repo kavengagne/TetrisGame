@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Net.Mime;
 using GameClient.Classes.Extensions;
+using GameClient.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace GameClient.Classes.GameBoard
 {
-    public class Block : IDisposable
+    public class Block : ISprite, IDisposable
     {
         #region Properties
         public int X { get; set; }

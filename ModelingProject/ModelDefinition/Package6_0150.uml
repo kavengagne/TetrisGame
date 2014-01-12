@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e0b21159-4bff-4445-8e02-aaa0e84b38a9"
+  name="Extensions"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c565e549-1a69-47dd-aa75-547c397de5e8"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGameClient.Classes.Extensions"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f55f1722-e5c3-4db1-9860-4ec2c4aa26cf"
+        name="GameWindowExtensions"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="0f113125-cef4-4e19-92d9-17b8bc01ee9c"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="47db798e-5eac-4086-83f7-50b2d4d1a3ca"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f242f796-61b6-46cf-b546-cd75655c1fbe">
+                <propertyInstance
+                  Id="046591de-ef38-4e81-bd43-6e6b2bbf7a0f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4c9703d3-5c2f-4418-b0c5-ee3c2aedd7dc">
+                <propertyInstance
+                  Id="c3892b94-4e9a-4f52-9702-29d84d8e4a9b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ffda5b0-f070-4088-8a63-8c34fbd232e4">
+                <propertyInstance
+                  Id="42ee3313-e3b1-4880-8a92-aa0e91d4e976"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e7f17fa3-c6d2-4a5d-b425-5827728a43be">
+                <propertyInstance
+                  Id="bb37d240-b997-4366-8afb-b47aa196dfcd"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f50eac1-ba21-41f2-bc9b-5df01be150d8">
+                <propertyInstance
+                  Id="58a2861c-cd1d-42af-b08d-4188797c79f8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8191e91b-29c9-4001-aaaf-aa1f1c2f5eab"
+            name="SetPosition"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ffd28a17-046a-41d8-b440-3c53391edf61"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions Member%3D(Name%3DSetPosition OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameWindow)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DPoint)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a74c0fc8-f217-4ee3-b7ca-82f1f2d4f907"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6796b4c7-a88a-4122-a47b-d3dcb353254a">
+                    <propertyInstance
+                      Id="f43b82ff-d7d8-4e41-8e95-460a6582b553"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3bf83031-eb9a-41cd-8a08-41b87856d6fd">
+                    <propertyInstance
+                      Id="8262e591-d959-47fb-8c9b-e4d96b0d6cfc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3152cc16-b88b-4fe0-a038-9bc2c03f6400">
+                    <propertyInstance
+                      Id="4f8ec71f-424d-4fc0-bde8-7e3b5af57f46"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1787a76-c7c4-4aa7-8724-8c12cc2258eb">
+                    <propertyInstance
+                      Id="5e3de7a1-1fdf-47d5-9a8b-d7b5dcc3ed59"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17dcc61b-a781-47e3-8c34-79e2b5b65b56">
+                    <propertyInstance
+                      Id="8700dc14-3c7d-4a02-9241-8b19b12a0ae7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56f494c7-4fdb-4486-9a42-617caa4efad6">
+                    <propertyInstance
+                      Id="bbe841c9-56db-450a-9441-ff11de3d7d4f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="97019378-4e63-462b-9260-0d3c0f0e84dc"
+                  name="window"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5f5f9917-e06b-46f9-9876-52c9bd9e9c85"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions Member%3D(Name%3DSetPosition OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameWindow)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DPoint)]) ParameterIdentifier%3Dwindow"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f1846d38-cbe9-4c91-84e9-124b962f2a7b"
+                      LastKnownName="GameWindow"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="59f552bb-9fbf-4232-8da8-b1dda6fc81d6"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="eb0edcc0-b5b0-4156-b64c-96aa50f803ee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions Member%3D(Name%3DSetPosition OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameWindow)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DPoint)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8457e757-2382-4112-ae3b-93862a379e29"
+                      LastKnownName="Point"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="05af9caa-5d09-489f-9f5d-36b8a85d21ae"
+            name="GetForm"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7cf9fa63-2110-4a4a-8821-1f3150d8c510"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions Member%3D(Name%3DGetForm OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameWindow)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5c1d5785-b945-4652-8a2d-19547f149146"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="593c1937-a43f-493c-ab4f-1a3ee4e456c4">
+                    <propertyInstance
+                      Id="65df22bc-96d9-415e-b18b-8157f0b10b07"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71d741c2-e67e-4ee5-99a7-e2bf6d2ccc59">
+                    <propertyInstance
+                      Id="1e81ddc3-6ced-4608-a58f-988777e829dc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf2e9bf1-5aa8-418c-939e-c07d473f2fdd">
+                    <propertyInstance
+                      Id="e63f8d88-323a-4dcc-8249-9462d688a389"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14f923ec-2d44-48dc-8f6e-cce817410fa7">
+                    <propertyInstance
+                      Id="54c9a70b-e0a7-41f1-8c2e-75db83f689e7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebd5a089-1f78-4daf-9bd3-49c8bcf933ed">
+                    <propertyInstance
+                      Id="09842a07-2b3f-4b12-b9b6-271c783e2e83"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dbb8b3e-c8fb-4d5c-ab61-eca9377d0fd3">
+                    <propertyInstance
+                      Id="82a8ad02-7876-4073-843c-8f5906ff94c9"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0a2a12dc-9d5d-4fdb-a4c6-b71b3dba8237"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7095d290-c30e-4db1-9d2b-e85ff7475882"
+                      LastKnownName="GameWindow"
+                      LastKnownLocation="Package7_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f2685ed-754a-4663-9851-7ac4a26af11a"
+                  name="gameWindow"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="81d4a546-5a90-4b11-9579-795f044a7f20"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DGameWindowExtensions Member%3D(Name%3DGetForm OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameWindow)]) ParameterIdentifier%3DgameWindow"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f1846d38-cbe9-4c91-84e9-124b962f2a7b"
+                      LastKnownName="GameWindow"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="150b603a-012b-497d-8826-ea3c1ad0a27f"
+        name="Texture2DExtensions"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8995fc65-0eb2-4ba5-afc8-6b4042a92dd0"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="06ab67eb-ee93-45d1-99a2-aa72cf695a31"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="136dfa9f-490a-43bd-aba9-679a3d156835">
+                <propertyInstance
+                  Id="38646874-2980-48b9-972f-72cd954e86a6"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="07505dbe-3c02-4fcc-8065-66754476bfad">
+                <propertyInstance
+                  Id="715e20c9-ab73-493f-9c5e-e0777db28075"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3019ab55-6578-4d65-b3eb-90cc507ab9d4">
+                <propertyInstance
+                  Id="42cbf489-b772-4574-8d08-7bd4006d896c"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8c11d531-fd0f-40d6-a33b-0be9c43bbd4a">
+                <propertyInstance
+                  Id="5fae8b8a-d700-4d1a-801f-4447a43c79b7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="25523ce0-763f-462e-a59c-1a199202151b">
+                <propertyInstance
+                  Id="f5996c9a-ee85-4041-b611-18bc742ff66c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7e3297fd-78b1-4f94-89ed-75bb8c1aee9a"
+            name="FillWithColor"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="deb0f7d6-4b7c-46b1-b477-b981842a6bbf"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DFillWithColor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5e13394a-ec21-45ab-987b-1488acf8b20f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8a0cd55-baa0-4ad2-875f-6282df138930">
+                    <propertyInstance
+                      Id="f5f4ea13-eacb-401d-8d83-65641eca0e3b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="991a221d-15e8-45ff-b067-d8dd1aba6922">
+                    <propertyInstance
+                      Id="3011678d-1f6c-4645-8fc2-d83405d4badd"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa359a9b-70ba-417f-968a-5d7e2e939afb">
+                    <propertyInstance
+                      Id="6ee4329b-4696-49a0-9821-50d07d00d2ed"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d217b824-6acf-42be-aed3-fe34836f137c">
+                    <propertyInstance
+                      Id="424efceb-740f-4d05-a706-88f4c14447ba"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80e08c53-cbdd-4d26-9a45-07f279ae8c36">
+                    <propertyInstance
+                      Id="54b9ff4e-f055-4345-9cfe-ee968d620964"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9b66a15-eede-4be9-8fef-3511b0b0fbf1">
+                    <propertyInstance
+                      Id="fd20ff3d-14bb-4aad-8d0c-ebc0bb3b48c8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1a163624-b67a-4351-8c2a-1c03ecadc9d5"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f9e55bd9-0392-4046-b221-10a6106c4247"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DFillWithColor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9d9f890f-e01c-4a15-81c0-99156b770f0d"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6abd8459-1ce8-4f5b-9b29-8610a2fa2c4a"
+                  name="color"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="893b0ebb-e1d9-45dd-acf8-d3ae2239a61a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DFillWithColor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dcolor"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="470c5d6e-1ea0-41a8-ada7-3c3f3f34a189"
+            name="AddBorder"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a192844c-0db5-4492-8c37-a1de4d19d57d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DAddBorder OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="adfe6097-9d2a-4b39-a0de-a0b52e0665cc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01698f8b-5328-4fef-a162-67fcd3c8c31b">
+                    <propertyInstance
+                      Id="16a5c632-672d-471e-884f-6bfdef8c60f5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34a0a271-27af-455d-86ed-06c4a8f718d0">
+                    <propertyInstance
+                      Id="0b419a1b-28b1-4490-a6f6-d4b659aa3b17"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fffeef6-a68b-4232-a371-02f793770343">
+                    <propertyInstance
+                      Id="92fced75-233d-4f82-98f9-e3ce41c3242d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1cd6918e-f869-4c7f-abbb-59f4308b4a9e">
+                    <propertyInstance
+                      Id="f9d4ae2c-1a99-4547-bc0c-7583daafdab2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af9666a0-b34d-49cd-9c2b-55ef7499ef88">
+                    <propertyInstance
+                      Id="fa323653-a6ae-450f-93ec-81d8e4ed881e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2fd9a7e-63d5-4df0-9839-763617e2fb1f">
+                    <propertyInstance
+                      Id="5962829d-ef6e-401e-9837-913d75bb8cbe"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7e0e23a9-15d5-4176-b919-5985cf67ccdd"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e35e9f47-c65f-4f7c-be49-20d286523f21"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DAddBorder OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9d9f890f-e01c-4a15-81c0-99156b770f0d"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="854c52ee-b598-4e7b-81e5-9d49c311a74b"
+                  name="color"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="dd1f868d-2318-4852-9503-98d629897409"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DAddBorder OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcolor"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c96eb2ce-4556-4a3b-a6ad-8831dcfcc8f2"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package2_0150.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b06132f5-62a0-435d-a56d-ab9369c2d78e"
+                  name="thickness"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="dd1ce60a-f359-43bc-af7f-ab115f6e67a4"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FE:%2FDropbox%2FProjects%2FOnlineGame%2FGameClient%2Fbin%2FWindowsGL%2FDebug%2FGameClient.exe Namespace%3DGameClient.Classes.Extensions Type%3DTexture2DExtensions Member%3D(Name%3DAddBorder OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMonoGame%2Fv3.0%2FAssemblies%2FWindowsGL%2FMonoGame.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dthickness"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
