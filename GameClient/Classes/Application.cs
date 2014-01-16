@@ -6,8 +6,6 @@ using GameConfiguration.Classes;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
-using Color = Microsoft.Xna.Framework.Color;
-using Point = Microsoft.Xna.Framework.Point;
 
 namespace GameClient.Classes
 {
@@ -79,15 +77,15 @@ namespace GameClient.Classes
         {
             Game = new TetrisGame();
 
-            Game.Window.Title = Client.WindowName;
-            Game.Window.SetPosition(new Point((Screen.PrimaryScreen.Bounds.Width - Client.WindowWidth) / 2, 20));
-
             // ReSharper disable once UnusedVariable
             var graphics = new GraphicsDeviceManager(Game)
             {
                 PreferredBackBufferWidth = Client.WindowWidth,
                 PreferredBackBufferHeight = Client.WindowHeight
             };
+
+            Game.Window.Title = Client.WindowName;
+            Game.Window.SetPosition(new Point((Screen.PrimaryScreen.Bounds.Width - Client.WindowWidth) / 2, 20));
 
             Game.Run();
         }

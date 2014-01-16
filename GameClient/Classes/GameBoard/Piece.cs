@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using GameClient.Interfaces;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
@@ -18,12 +17,12 @@ namespace GameClient.Classes.GameBoard
         public Block[] Blocks { get; set; }
         public PieceModel Model { get; private set; }
         public int RotationIndex { get; set; }
-        public Size BlockSize { get; set; }
+        public Rectangle BlockSize { get; set; }
         #endregion
 
 
         #region Constructors
-        public Piece(Board board, Color color, PieceModel model, int rotationIndex, Size blockSize)
+        public Piece(Board board, Color color, PieceModel model, int rotationIndex, Rectangle blockSize)
         {
             Board = board;
             Color = color;
@@ -37,19 +36,14 @@ namespace GameClient.Classes.GameBoard
             Position = new Point(5, 0);
             CreateBlocks(model[RotationIndex]);
         }
-
-        private void CreateBlocks(IList<Point> positions)
-        {
-            Blocks = new Block[positions.Count];
-            for (int i = 0; i < Blocks.Length; i++)
-            {
-                Blocks[i] = new Block(this, positions[i], BlockSize, Color);
-            }
-        }
         #endregion
 
 
-        #region Public Methods
+        #region ISprite Implementation
+        public void Update(GameTime gameTime)
+        {
+        }
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             foreach (var block in Blocks)
@@ -77,27 +71,48 @@ namespace GameClient.Classes.GameBoard
 
         public void MoveLeft()
         {
-            Move(-1, 0, 0);
+            if (Move(-1, 0, 0))
+            {
+
+            }
         }
 
         public void MoveRight()
         {
-            Move(1, 0, 0);
+            if (Move(1, 0, 0))
+            {
+
+            }
         }
 
-        internal void RotateLeft()
+        public void RotateLeft()
         {
-            Move(0, 0, 3);
+            if (Move(0, 0, 3))
+            {
+                
+            }
         }
 
-        internal void RotateRight()
+        public void RotateRight()
         {
-            Move(0, 0, 1);
+            if (Move(0, 0, 1))
+            {
+                
+            }
         }
         #endregion
 
 
         #region Internal Implementation
+        private void CreateBlocks(IList<Point> positions)
+        {
+            Blocks = new Block[positions.Count];
+            for (int i = 0; i < Blocks.Length; i++)
+            {
+                Blocks[i] = new Block(this, positions[i], BlockSize, Color);
+            }
+        }
+
         private bool Move(int deltaX, int deltaY, int deltaRotation)
         {
             bool moved = true;
@@ -120,6 +135,28 @@ namespace GameClient.Classes.GameBoard
                 }
             }
             return moved;
+        }
+        #endregion
+    }
+
+    public class PreviewPiece : ISprite
+    {
+        #region Constructor
+        public PreviewPiece()
+        {
+
+        }
+        #endregion
+
+
+        #region Implementation of ISprite
+        public void Update(GameTime gameTime)
+        {
+        }
+
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            
         }
         #endregion
     }

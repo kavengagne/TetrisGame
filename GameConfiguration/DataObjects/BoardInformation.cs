@@ -1,6 +1,5 @@
-﻿using System.Drawing;
-using Newtonsoft.Json;
-using Color = Microsoft.Xna.Framework.Color;
+﻿using Newtonsoft.Json;
+using Microsoft.Xna.Framework;
 
 namespace GameConfiguration.DataObjects
 {
@@ -16,7 +15,7 @@ namespace GameConfiguration.DataObjects
         public Color BackgroundColor { get; set; }
 
         [JsonProperty]
-        public Size BlockSize { get; set; }
+        public Rectangle BlockSize { get; set; }
 
         [JsonProperty]
         public int Speed { get; set; }

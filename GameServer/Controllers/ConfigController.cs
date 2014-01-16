@@ -3,7 +3,6 @@ using System.IO;
 using System.Web;
 using System.Web.Http;
 using GameConfiguration.DataObjects;
-using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 
 namespace GameServer.Controllers

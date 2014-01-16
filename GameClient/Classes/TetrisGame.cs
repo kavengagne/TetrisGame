@@ -13,8 +13,8 @@ namespace GameClient.Classes
         #region Fields
         private SpriteBatch _spriteBatch;
         private Board _board;
-        //private ScoreBoard _scoreBoard;
-        //private PreviewPanel _previewPanel;
+        private PreviewPanel _previewPanel;
+        private ScoreBoard _scoreBoard;
         private readonly Application _application;
         #endregion
 
@@ -38,8 +38,8 @@ namespace GameClient.Classes
         protected override void Initialize()
         {
             InitializeTetrisBoard();
-            InitializeScoreBoard();
             InitializePreviewPanel();
+            InitializeScoreBoard();
             // InitializePanelSomething();
             InitializeInputManager();
             RegisterUserInputs();
@@ -63,6 +63,8 @@ namespace GameClient.Classes
         {
             InputManager.HandleInputs(gameTime);
             _board.Update(gameTime);
+            _previewPanel.Update(gameTime);
+            _scoreBoard.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -71,6 +73,8 @@ namespace GameClient.Classes
             GraphicsDevice.Clear(_application.Configuration.Game.BackgroundColor);
             _spriteBatch.Begin();
             _board.Draw(_spriteBatch, gameTime);
+            _previewPanel.Draw(_spriteBatch, gameTime);
+            _scoreBoard.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -85,17 +89,21 @@ namespace GameClient.Classes
         #region Internal Implementation
         private void InitializeTetrisBoard()
         {
+            // TODO: KG - Move to config or something
             _board = new Board(this, new Point(40, 40));
-        }
-
-        private void InitializeScoreBoard()
-        {
-            //_scoreBoard = new ScoreBoard();
         }
 
         private void InitializePreviewPanel()
         {
-            //_previewPanel = new PreviewPanel();
+            var bounds = new Rectangle(_board.Bounds.X + _board.Bounds.Width + 5, 40, 80, 80);
+            _previewPanel = new PreviewPanel(this, _board, bounds, _application.Configuration.Board.BackgroundColor);
+        }
+
+        private void InitializeScoreBoard()
+        {
+            // TODO: KG - Move to config or something
+            var bounds = new Rectangle(_board.Bounds.X + _board.Bounds.Width + 5, 40 + 80 + 5, 80, 80);
+            _scoreBoard = new ScoreBoard(this, bounds, _application.Configuration.Board.BackgroundColor);
         }
 
         private void InitializeInputManager()
@@ -109,6 +117,7 @@ namespace GameClient.Classes
             InputManager.RegisterKeyPressed(Keys.Space, _board.DropPiece);
             InputManager.RegisterKeyPressed(Keys.Up, _board.RotateLeft);
             InputManager.RegisterKeyPressed(Keys.Down, _board.RotateRight);
+            // TODO: KG - Adjust left/right speed
             InputManager.RegisterKeyPressed(Keys.Left, _board.MoveLeft, true, 100);
             InputManager.RegisterKeyPressed(Keys.Right, _board.MoveRight, true, 100);
             // TODO: KG - Restart Game (With Confirmation)

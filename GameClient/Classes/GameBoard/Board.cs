@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
+using GameClient.Classes.Extensions;
 using GameClient.Interfaces;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
@@ -14,7 +14,6 @@ namespace GameClient.Classes.GameBoard
     public class Board : ISprite
     {
         #region Fields
-        public PieceGenerator _pieceGenerator;
         private Block[][] _grid;
         private double _delayCurrent;
         private readonly Application _application;
@@ -23,6 +22,7 @@ namespace GameClient.Classes.GameBoard
 
         #region Properties
         public TetrisGame Game { get; set; }
+        public PieceGenerator PieceGenerator;
         public int Rows { get; set; }
         public int Columns { get; set; }
         public int UpdateDelay { get; set; }
@@ -45,11 +45,12 @@ namespace GameClient.Classes.GameBoard
             Columns = boardInformation.Columns;
             UpdateDelay = boardInformation.Speed;
             BackgroundColor = boardInformation.BackgroundColor;
-            Texture = CreateBoardTexture(Game.GraphicsDevice, BackgroundColor);
 
             Bounds = new Rectangle(position.X, position.Y,
                                    Columns * boardInformation.BlockSize.Width,
                                    Rows * boardInformation.BlockSize.Height);
+            
+            Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
 
             InitializeGameGrid();
             InitializePieceGenerator(_application.Configuration.Pieces,
@@ -62,27 +63,6 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Public Methods
-        public void Update(GameTime gameTime)
-        {
-            if (_application.IsRunning && IsDelayExpired(gameTime))
-            {
-                UpdateBoard();
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            spriteBatch.Draw(Texture, Bounds, BackgroundColor);
-            foreach (Block[] column in _grid)
-            {
-                foreach (Block block in column.Where(block => block != null))
-                {
-                    block.Draw(spriteBatch, gameTime);
-                }
-            }
-            CurrentPiece.Draw(spriteBatch, gameTime);
-        }
-
         public bool IsEmptyAt(Point position)
         {
             return !(position.X < 0 ||
@@ -94,7 +74,7 @@ namespace GameClient.Classes.GameBoard
 
         public Piece GetNextPiece()
         {
-            return _pieceGenerator.GetPiece();
+            return PieceGenerator.GetPiece();
         }
         #endregion
 
@@ -142,6 +122,31 @@ namespace GameClient.Classes.GameBoard
         #endregion
 
 
+        #region ISprite Implementation
+        public void Update(GameTime gameTime)
+        {
+            if (_application.IsRunning && IsDelayExpired(gameTime))
+            {
+                UpdateBoard();
+                CurrentPiece.Update(gameTime);
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            spriteBatch.Draw(Texture, Bounds, BackgroundColor);
+            foreach (Block[] column in _grid)
+            {
+                foreach (Block block in column.Where(block => block != null))
+                {
+                    block.Draw(spriteBatch, gameTime);
+                }
+            }
+            CurrentPiece.Draw(spriteBatch, gameTime);
+        }
+        #endregion
+
+
         #region Internal Implementation
         private void InitializeGameGrid()
         {
@@ -152,9 +157,9 @@ namespace GameClient.Classes.GameBoard
             }
         }
 
-        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors, Size blockSize)
+        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
         {
-            _pieceGenerator = new PieceGenerator(this, pieces, colors, blockSize);
+            PieceGenerator = new PieceGenerator(this, pieces, colors, blockSize);
         }
         
         private void UpdateBoard()
@@ -246,10 +251,11 @@ namespace GameClient.Classes.GameBoard
             }
         }
 
-        private static Texture2D CreateBoardTexture(GraphicsDevice graphicsDevice, Color color)
+        private Texture2D CreateTexture(GraphicsDevice graphicsDevice, Rectangle bounds, Color color)
         {
-            var texture = new Texture2D(graphicsDevice, 1, 1);
-            texture.SetData(new[] { color });
+            var texture = new Texture2D(graphicsDevice, bounds.Width, bounds.Height);
+            texture.FillWithColor(color);
+            texture.AddBorder(Color.Black, 1);
             return texture;
         }
         #endregion
