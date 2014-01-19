@@ -64,6 +64,8 @@
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
     <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />
+    <Compile Include="Classes\GameBoard\PieceBase.cs" />
+    <Compile Include="Classes\GameBoard\PreviewPiece.cs" />
     <Compile Include="Classes\Inputs\KeyAction.cs" />
     <Compile Include="Classes\Inputs\InputManager.cs" />
     <Compile Include="Classes\Inputs\KeyHeldAction.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Classes\GameBoard\Score.cs" />
     <Compile Include="Classes\PreviewPanel.cs" />
     <Compile Include="Classes\ScoreBoard.cs" />
+    <Compile Include="Classes\SoundManager.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Classes\Utilities\StaticRandom.cs" />
     <Compile Include="Classes\TetrisGame.cs" />

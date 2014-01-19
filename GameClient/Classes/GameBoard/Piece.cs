@@ -62,10 +62,16 @@ namespace GameClient.Classes.GameBoard
 
         public void DropAllTheWay()
         {
+            bool droppedOnce = false;
             while (DropByOne())
             {
+                droppedOnce = true;
                 // TODO: KG - Move Increment Value to Configuration
                 Board.Game.Score.IncrementBy(1);
+            }
+            if (droppedOnce)
+            {
+                Board.UpdateBoard();
             }
         }
 
@@ -73,7 +79,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(-1, 0, 0))
             {
-
+                Board.Game.SoundManager.Play("Move",(float)0.25);
             }
         }
 
@@ -81,7 +87,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(1, 0, 0))
             {
-
+                Board.Game.SoundManager.Play("Move", (float)0.25);
             }
         }
 
@@ -89,7 +95,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(0, 0, 3))
             {
-                
+                Board.Game.SoundManager.Play("Rotate", (float)0.25);
             }
         }
 
@@ -97,7 +103,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(0, 0, 1))
             {
-                
+                Board.Game.SoundManager.Play("Rotate", (float)0.25);
             }
         }
         #endregion
@@ -135,28 +141,6 @@ namespace GameClient.Classes.GameBoard
                 }
             }
             return moved;
-        }
-        #endregion
-    }
-
-    public class PreviewPiece : ISprite
-    {
-        #region Constructor
-        public PreviewPiece()
-        {
-
-        }
-        #endregion
-
-
-        #region Implementation of ISprite
-        public void Update(GameTime gameTime)
-        {
-        }
-
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            
         }
         #endregion
     }

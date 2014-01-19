@@ -76,15 +76,52 @@ namespace GameClient.Classes.GameBoard
         {
             return PieceGenerator.GetPiece();
         }
+
+        public void StoreCurrentPiece()
+        {
+            var model = CurrentPiece.Model[CurrentPiece.RotationIndex];
+            var position = CurrentPiece.Position;
+            for (int i = 0; i < model.Length; i++)
+            {
+                var current = model[i];
+                _grid[Math.Max(current.X + position.X, 0)][Math.Max(current.Y + position.Y, 0)] = CurrentPiece.Blocks[i];
+            }
+        }
+
+        public void UpdateBoard()
+        {
+            bool ran = CurrentPiece.DropByOne();
+            if (!ran)
+            {
+                StoreCurrentPiece();
+                RemoveCompletedLines();
+                if (!IsGameOver())
+                {
+                    Game.SoundManager.Play("Drop", (float)0.5);
+                    CurrentPiece = GetNextPiece();
+                }
+            }
+        }
         #endregion
 
 
         #region Player Commands
-        public void DropPiece()
+        public void DropPieceAllTheWay()
         {
             if (!IsGameOver() && _application.IsRunning)
             {
                 CurrentPiece.DropAllTheWay();
+            }
+        }
+
+        public void DropPieceByOne()
+        {
+            if (!IsGameOver() && _application.IsRunning)
+            {
+                if (CurrentPiece.DropByOne())
+                {
+                    Game.Score.IncrementBy(1);
+                }
             }
         }
 
@@ -106,7 +143,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateLeft()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            //if (!IsGameOver() && _application.IsRunning)
             {
                 CurrentPiece.RotateLeft();
             }
@@ -114,7 +151,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateRight()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            //if (!IsGameOver() && _application.IsRunning)
             {
                 CurrentPiece.RotateRight();
             }
@@ -127,8 +164,8 @@ namespace GameClient.Classes.GameBoard
         {
             if (_application.IsRunning && IsDelayExpired(gameTime))
             {
-                UpdateBoard();
                 CurrentPiece.Update(gameTime);
+                UpdateBoard();
             }
         }
 
@@ -161,20 +198,6 @@ namespace GameClient.Classes.GameBoard
         {
             PieceGenerator = new PieceGenerator(this, pieces, colors, blockSize);
         }
-        
-        private void UpdateBoard()
-        {
-            bool ran = CurrentPiece.DropByOne();
-            if (!ran)
-            {
-                StoreCurrentPiece();
-                RemoveCompletedLines();
-                if (!IsGameOver())
-                {
-                    CurrentPiece = GetNextPiece();
-                }
-            }
-        }
 
         private bool IsDelayExpired(GameTime time)
         {
@@ -193,20 +216,9 @@ namespace GameClient.Classes.GameBoard
             return ret;
         }
 
-        private void StoreCurrentPiece()
-        {
-            var model = CurrentPiece.Model[CurrentPiece.RotationIndex];
-            var position = CurrentPiece.Position;
-            for (int i = 0; i < model.Length; i++)
-            {
-                var current = model[i];
-                _grid[Math.Max(current.X + position.X, 0)][Math.Max(current.Y + position.Y, 0)] = CurrentPiece.Blocks[i];
-            }
-        }
-
         private void RemoveCompletedLines()
         {
-            int removedLines = 0;
+            int removedLinesCount = 0;
             for (int rowIndex = 1; rowIndex < _grid[0].Length; rowIndex++)
             {
                 if (_grid.All(column => column[rowIndex] != null))
@@ -215,12 +227,20 @@ namespace GameClient.Classes.GameBoard
                     DropLinesByOne(rowIndex);
                     // TODO: KG - Move Increment Value to Configuration
                     Game.Score.IncrementBy(10);
-                    removedLines++;
+                    removedLinesCount++;
                 }
             }
-            // TODO: KG - Bonus for Tetris (4 Blocks) - Refactor
-            int bonusCount = removedLines / 4;
-            Game.Score.IncrementBy(bonusCount * 10);
+            if (removedLinesCount > 0)
+            {
+                //var pitch = (float)0.33 * (Math.Max(removedLinesCount - 1, 0));
+                Game.SoundManager.Play("Remove", (float)1.0);
+                
+                // TODO: KG - Move bonus value to config
+                if (removedLinesCount >= 4)
+                {
+                    Game.Score.IncrementBy(10);
+                }
+            }
         }
 
         private void DropLinesByOne(int rowIndex)
