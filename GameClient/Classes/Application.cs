@@ -37,11 +37,6 @@ namespace GameClient.Classes
         #endregion
 
 
-        #region Fields
-
-        #endregion
-
-
         #region Properties
         public ClientInformation Client { get; set; }
         public Configuration Configuration { get; set; }

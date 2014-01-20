@@ -6,26 +6,26 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 // TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
-// TODO: KG - Tuning: Add more Error Handling
+// TODO: KG - Tuning: Add more Error Handling.
 // TODO: KG - Tuning: Optimize Score
 // TODO: KG - Bug: Fix Pieces Randomization.
 // TODO: KG - Bug: ?Fix Shape Rotation Against Wall. (Should Move it Away From Wall but remember where it was if rotating again)
 // TODO: KG - Bug: ?Fix L Shape Rotation.
-// TODO: KG - Bug: Fix ScoreBoard Font.
+// TODO: KG - Bug: Fix ScoreBoard Font Display.
+// TODO: KG - +Feature: Auto Update.
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed.
-// TODO: KG - Feature: Show More Next Pieces (Maybe 2 or 3).
-// TODO: KG - Feature: Show a Preview of the Piece Position if Dropped.
 // TODO: KG - Feature: Change Pieces colors when leveling.
+// TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
+// TODO: KG - Feature: Show a Preview of the Piece Position if Dropped.
 // TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
-// TODO: KG - Feature: Holds the CurrentPiece into a buffer so you can use it later. (Will switch with the CurrentPiece at this time) (Default Key: Shift)
-// TODO: KG - Feature: Auto Update.
+// TODO: KG - Feature: Hold the CurrentPiece into a buffer so you can use it later. (Will switch with the CurrentPiece at this time) (Default Key: Shift)
 // TODO: KG - Feature: Game Reset.
+// TODO: KG - Feature: Add Pause Menu. (Default Key: P)
 // TODO: KG - Feature: Game Over Handling.
 // TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Game Options. (Windows Form Project, Maybe)
-// TODO: KG - Feature: Add Musics (Should create those myself)
-// TODO: KG - Feature: Add Pause Menu. (Default Key: P)
+// TODO: KG - Feature: Add Musics. (Should create those myself)
 
 namespace GameClient.Classes.Core
 {
