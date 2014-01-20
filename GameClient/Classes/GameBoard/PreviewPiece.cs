@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
 
 namespace GameClient.Classes.GameBoard

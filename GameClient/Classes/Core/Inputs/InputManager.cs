@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace GameClient.Classes.Inputs
+namespace GameClient.Classes.Core.Inputs
 {
     /// <summary>
     /// InputManager is an XNA/MonoGame utility class that allows you to register inputs

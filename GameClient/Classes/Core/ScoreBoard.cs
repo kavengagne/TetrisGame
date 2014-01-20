@@ -1,12 +1,10 @@
 ﻿using GameClient.Classes.Extensions;
 using GameClient.Classes.GameBoard;
-using GameClient.Interfaces;
+using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Color = Microsoft.Xna.Framework.Color;
-using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace GameClient.Classes
+namespace GameClient.Classes.Core
 {
     public class ScoreBoard : ISprite
     {

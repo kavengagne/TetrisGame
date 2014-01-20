@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Interfaces
+namespace GameClient.Classes.Interfaces
 {
     public interface ISprite
     {

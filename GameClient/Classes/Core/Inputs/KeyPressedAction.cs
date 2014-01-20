@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace GameClient.Classes.Inputs
+namespace GameClient.Classes.Core.Inputs
 {
     internal class KeyPressedAction : KeyAction
     {

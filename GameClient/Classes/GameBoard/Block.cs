@@ -1,6 +1,6 @@
 ﻿using System;
 using GameClient.Classes.Extensions;
-using GameClient.Interfaces;
+using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Color = Microsoft.Xna.Framework.Color;

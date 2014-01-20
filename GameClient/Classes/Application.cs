@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using GameClient.Classes.Core;
 using GameClient.Classes.Extensions;
 using GameConfiguration.Classes;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 
 namespace GameClient.Classes

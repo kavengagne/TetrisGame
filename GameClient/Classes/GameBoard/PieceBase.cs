@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using GameClient.Interfaces;
+using GameClient.Classes.Core;
+using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

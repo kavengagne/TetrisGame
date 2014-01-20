@@ -1,10 +1,9 @@
 ﻿using GameClient.Classes.Extensions;
-using GameClient.Classes.GameBoard;
-using GameClient.Interfaces;
+using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Classes
+namespace GameClient.Classes.Core
 {
     public class PreviewPanel : ISprite
     {

@@ -1,20 +1,18 @@
-﻿using GameClient.Classes.GameBoard;
-using GameClient.Classes.Inputs;
+﻿using GameClient.Classes.Core.Inputs;
+using GameClient.Classes.GameBoard;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Point = Microsoft.Xna.Framework.Point;
-
 
 // TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
 // TODO: KG - Tuning: Add more Error Handling
 // TODO: KG - Tuning: Optimize Score
+// TODO: KG - Bug: Fix ScoreBoard Alignment.
 // TODO: KG - Bug: Fix Pieces Randomization.
-// TODO: KG - Bug: Fix PreviewPanel Piece Position.
 // TODO: KG - Bug: ?Fix Shape Rotation Against Wall. (Should Move it Away From Wall but remember where it was if rotating again)
 // TODO: KG - Bug: ?Fix L Shape Rotation.
-// TODO: KG - Bug: Fix ScoreBoard Font and Alignment.
+// TODO: KG - Bug: Fix ScoreBoard Font.
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed.
 // TODO: KG - Feature: Show More Next Pieces (Maybe 2 or 3).
@@ -30,7 +28,7 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: Add Musics (Should create those myself)
 // TODO: KG - Feature: Add Pause Menu. (Default Key: P)
 
-namespace GameClient.Classes
+namespace GameClient.Classes.Core
 {
     public class TetrisGame : Game
     {

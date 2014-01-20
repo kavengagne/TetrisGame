@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using GameClient.Classes.GameBoard;
 using GameClient.Classes.Utilities;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
-using Color = Microsoft.Xna.Framework.Color;
 
-namespace GameClient.Classes.GameBoard
+namespace GameClient.Classes.Core
 {
     public class PieceGenerator
     {
