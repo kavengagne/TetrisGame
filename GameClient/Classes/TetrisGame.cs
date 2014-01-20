@@ -9,6 +9,8 @@ using Point = Microsoft.Xna.Framework.Point;
 
 // TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
 // TODO: KG - Tuning: Add more Error Handling
+// TODO: KG - Tuning: Optimize Score
+// TODO: KG - Bug: Fix Pieces Randomization.
 // TODO: KG - Bug: Fix PreviewPanel Piece Position.
 // TODO: KG - Bug: ?Fix Shape Rotation Against Wall. (Should Move it Away From Wall but remember where it was if rotating again)
 // TODO: KG - Bug: ?Fix L Shape Rotation.
@@ -147,6 +149,7 @@ namespace GameClient.Classes
 
         private void InitializePreviewPanel()
         {
+            // TODO: KG - Move to config or something
             var bounds = new Rectangle(Board.Bounds.X + Board.Bounds.Width + 5, 40, 100, 100);
             PreviewPanel = new PreviewPanel(this, bounds, _application.Configuration.Board.BackgroundColor);
         }

@@ -89,6 +89,7 @@ namespace GameClient.Classes.GameBoard
                 {
                     Game.SoundManager.Play("Drop", (float)0.5);
                     CurrentPiece = Game.GetNextPiece();
+                    CurrentPiece.UpdateBlocksPositions(Bounds.Location);
                 }
             }
         }
@@ -237,7 +238,10 @@ namespace GameClient.Classes.GameBoard
                     column[row] = column[row - 1];
                     if (column[row] != null)
                     {
-                        column[row].Y += column[row].Bounds.Height;
+                        column[row].Bounds = new Rectangle(column[row].Bounds.X,
+                                                           column[row].Bounds.Y + _application.Configuration.Board.BlockSize.Height,
+                                                           column[row].Bounds.Width,
+                                                           column[row].Bounds.Height);
                     }
                     column[row - 1] = null;
                 }

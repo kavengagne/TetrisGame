@@ -54,7 +54,7 @@ namespace GameClient.Classes.GameBoard
         {
             //var newX = X * Bounds.Width + Piece.Position.X * Bounds.Width + Piece.Game.Board.Bounds.X;
             //var newY = Y * Bounds.Height + Piece.Position.Y * Bounds.Height + Piece.Game.Board.Bounds.Y;
-            spriteBatch.Draw(Texture, new Rectangle(X, Y, Bounds.Width, Bounds.Height), Color);
+            spriteBatch.Draw(Texture, Bounds, Color);
         }
         #endregion
 

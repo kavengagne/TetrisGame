@@ -100,6 +100,7 @@ namespace GameClient.Classes.GameBoard
         {
             //var color = _colors[StaticRandom.Next(0, _colors.Length)];
             var modelIndex = StaticRandom.Next(0, _pieces.Length);
+            //var modelIndex = 2;
             var model = new PieceModel(_pieces[modelIndex]);
             var rotationIndex = StaticRandom.Next(0, model.Length);
             return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex, _blockSize);

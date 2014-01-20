@@ -24,7 +24,7 @@ namespace GameClient.Classes.GameBoard
         public int IncrementBy(int value)
         {
             value = Math.Max(Math.Abs(value), 0);
-            Console.WriteLine("before: {0}, after: {1}", Points, Points + value);
+            //Console.WriteLine("before: {0}, after: {1}", Points, Points + value);
             return Points += value;
         }
 

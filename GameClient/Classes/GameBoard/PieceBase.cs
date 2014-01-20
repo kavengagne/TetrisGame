@@ -8,6 +8,7 @@ namespace GameClient.Classes.GameBoard
     public abstract class PieceBase : ISprite
     {
         #region Properties
+        protected TetrisGame Game { get; set; }
         public Point Position { get; protected set; }
         public Color Color { get; protected set; }
         public Block[] Blocks { get; protected set; }
@@ -58,7 +59,7 @@ namespace GameClient.Classes.GameBoard
             }
         }
 
-        protected abstract void UpdateBlocksPositions(Point offset);
+        public abstract void UpdateBlocksPositions(Point offset);
         #endregion
     }
 }

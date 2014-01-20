@@ -1,24 +1,17 @@
-﻿using System.Diagnostics;
-using GameClient.Interfaces;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace GameClient.Classes.GameBoard
 {
-    public class PreviewPiece : PieceBase
+    public class PreviewPiece : PieceBase, IDisposable
     {
-        #region Fields
-        private readonly TetrisGame _game;
-        #endregion
-
-
         #region Constructor
         public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Rectangle blockSize)
             : base(color, model, rotationIndex, blockSize)
         {
-            _game = game;
-
-            SetPiecePosition();
+            Game = game;
         }
         #endregion
 
@@ -26,17 +19,33 @@ namespace GameClient.Classes.GameBoard
         #region Overrides of PieceBase
         public override void Update(GameTime gameTime)
         {
-            UpdateBlocksPositions(_game.PreviewPanel.Bounds.Location);
+            SetPiecePosition();
+            UpdateBlocksPositions(Game.PreviewPanel.Bounds.Location);
             base.Update(gameTime);
         }
 
-        protected override void UpdateBlocksPositions(Point offset)
+        public override void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
             for (int i = 0; i < Blocks.Length; i++)
             {
-                Blocks[i].X = positions[i].X * Blocks[i].Bounds.Width + Position.X + offset.X;
-                Blocks[i].Y = positions[i].Y * Blocks[i].Bounds.Height + Position.Y + offset.Y;
+                Blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X + offset.X,
+                                                 positions[i].Y * BlockSize.Height + Position.Y + offset.Y,
+                                                 BlockSize.Width, BlockSize.Height);
+            }
+        }
+        #endregion
+
+
+        #region Implementation of IDisposable
+        public void Dispose()
+        {
+            foreach (var block in Blocks)
+            {
+                if (block != null)
+                {
+                    block.Dispose();
+                }
             }
         }
         #endregion
@@ -45,12 +54,15 @@ namespace GameClient.Classes.GameBoard
         #region Internal Implementation
         private void SetPiecePosition()
         {
-            Debug.WriteLine("Piece");
-            foreach (var block in Blocks)
-            {
-                Debug.WriteLine("X:{0}, Y:{1}", block.X, block.Y);
-            }
-            Position = new Point(30, 30);
+            int spanLeft = Math.Abs(Blocks.Min(block => block.X));
+            int spanTop = Math.Abs(Blocks.Min(block => block.Y));
+            int width = Blocks.GroupBy(block => block.X).Count() * BlockSize.Width;
+            int height = Blocks.GroupBy(block => block.Y).Count() * BlockSize.Width;
+            Debug.WriteLine("spanLeft:{0}, spanTop:{1}, width:{2}, height:{3}",
+                            spanLeft, spanTop, width, height);
+            var newX = (Game.PreviewPanel.Bounds.Width - width) / 2 + spanLeft * BlockSize.Width;
+            var newY = (Game.PreviewPanel.Bounds.Height - height) / 2 + spanTop * BlockSize.Height;
+            Position = new Point(newX, newY);
         }
         #endregion
     }

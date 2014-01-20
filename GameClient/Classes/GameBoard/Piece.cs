@@ -1,40 +1,16 @@
-﻿using System.Collections.Generic;
-using GameClient.Interfaces;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Color = Microsoft.Xna.Framework.Color;
+﻿using Microsoft.Xna.Framework;
 using Point = Microsoft.Xna.Framework.Point;
 
 namespace GameClient.Classes.GameBoard
 {
     public class Piece : PieceBase
     {
-        #region Properties
-        public TetrisGame Game { get; set; }
-        #endregion
-
 
         #region Constructors
-        public Piece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Rectangle blockSize)
-            : base(color, model, rotationIndex, blockSize)
+        public Piece(TetrisGame game, PreviewPiece previewPiece)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
         {
-            Game = game;
-            Position = new Point(5, 0);
-            /*
-            Color = color;
-            Model = model;
-            RotationIndex = 0;
-            if (rotationIndex >= 0 && rotationIndex < model.Length)
-            {
-                RotationIndex = rotationIndex;
-            }
-            BlockSize = blockSize;
-            CreateBlocks(model[RotationIndex]);
-            */
-        }
-
-        public Piece(TetrisGame game, PreviewPiece previewPiece) : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
-        {
+            previewPiece.Dispose();
             Game = game;
             Position = new Point(5, 0);
         }
@@ -47,13 +23,14 @@ namespace GameClient.Classes.GameBoard
             UpdateBlocksPositions(Game.Board.Bounds.Location);
         }
 
-        protected override void UpdateBlocksPositions(Point offset)
+        public override void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
             for (int i = 0; i < Blocks.Length; i++)
             {
-                Blocks[i].X = positions[i].X * Blocks[i].Bounds.Width + Position.X * Blocks[i].Bounds.Width + offset.X;
-                Blocks[i].Y = positions[i].Y * Blocks[i].Bounds.Height + Position.Y * Blocks[i].Bounds.Height + offset.Y;
+                Blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X * BlockSize.Width + offset.X,
+                                                 positions[i].Y * BlockSize.Height + Position.Y * BlockSize.Height + offset.Y,
+                                                 BlockSize.Width, BlockSize.Height);
             }
         }
         #endregion
