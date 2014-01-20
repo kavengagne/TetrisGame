@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Input;
 // TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
 // TODO: KG - Tuning: Add more Error Handling
 // TODO: KG - Tuning: Optimize Score
-// TODO: KG - Bug: Fix ScoreBoard Alignment.
 // TODO: KG - Bug: Fix Pieces Randomization.
 // TODO: KG - Bug: ?Fix Shape Rotation Against Wall. (Should Move it Away From Wall but remember where it was if rotating again)
 // TODO: KG - Bug: ?Fix L Shape Rotation.

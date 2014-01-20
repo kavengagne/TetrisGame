@@ -1,4 +1,5 @@
-﻿using GameClient.Classes.Extensions;
+﻿using System.Diagnostics;
+using GameClient.Classes.Extensions;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
@@ -14,7 +15,7 @@ namespace GameClient.Classes.Core
         private readonly Rectangle _bounds;
         private readonly Color _backgroundColor;
         private readonly SpriteFont _font;
-        private readonly Vector2 _textPosition;
+        private Vector2 _textPosition;
         #endregion
 
 
@@ -48,13 +49,17 @@ namespace GameClient.Classes.Core
         #region ISprite Implementation
         public void Update(GameTime gameTime)
         {
+            var textSize = _font.MeasureString(Score.ToString());
+            _textPosition = new Vector2(textSize.X / 2, textSize.Y / 2);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, _bounds, _backgroundColor);
-            spriteBatch.DrawString(_font, Score.ToString(), _textPosition, Color.Black, 0, new Vector2(0,0), (float)0.5, SpriteEffects.None, 0);
-            //spriteBatch.DrawString(_font, _game.Score.ToString(), _textPosition, Color.Black);
+            spriteBatch.DrawString(_font, Score.ToString(),
+                                   new Vector2(_bounds.Center.X, _bounds.Center.Y),
+                                   Color.Black, 0, _textPosition,
+                                   0.5f, SpriteEffects.None, 0.0f);
         }
         #endregion
 

@@ -59,8 +59,6 @@ namespace GameClient.Classes.GameBoard
             int spanTop = Math.Abs(Blocks.Min(block => block.Y));
             int width = Blocks.GroupBy(block => block.X).Count() * BlockSize.Width;
             int height = Blocks.GroupBy(block => block.Y).Count() * BlockSize.Width;
-            Debug.WriteLine("spanLeft:{0}, spanTop:{1}, width:{2}, height:{3}",
-                            spanLeft, spanTop, width, height);
             var newX = (Game.PreviewPanel.Bounds.Width - width) / 2 + spanLeft * BlockSize.Width;
             var newY = (Game.PreviewPanel.Bounds.Height - height) / 2 + spanTop * BlockSize.Height;
             Position = new Point(newX, newY);
