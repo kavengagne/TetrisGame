@@ -1,7 +1,7 @@
 TetrisGame
 ==========
 
-This is a Tetris Game developed in C#/Monogame.
+This is a Tetris Game developed in C# with the Monogame framework.
 
 
 License
