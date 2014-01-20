@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using GameClient.Classes.Core;
 using GameClient.Classes.Extensions;
+using GameClient.Classes.Utilities;
 using GameConfiguration.Classes;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
@@ -51,7 +52,14 @@ namespace GameClient.Classes
             if (!IsRunning)
             {
                 LoadConfiguration();
-                StartGame();
+                if (IsGameVersionOutdated())
+                {
+                    StartUpdater();
+                }
+                else
+                {
+                    StartGame();
+                }
             }
         }
 
@@ -67,6 +75,19 @@ namespace GameClient.Classes
         {
             Client = ConfigurationLoader.GetClientConfiguration();
             Configuration = ConfigurationLoader.GetServerConfiguration(Client);
+        }
+
+        private bool IsGameVersionOutdated()
+        {
+            var versionComparer = new VersionComparer(Client.Version, Configuration.Game.ClientVersion);
+            return versionComparer.Result == VersionComparerResult.Outdated
+                || versionComparer.Result == VersionComparerResult.Invalid;
+        }
+
+        private void StartUpdater()
+        {
+            // TODO: KG - Call external process to handle software update.
+            MessageBox.Show("Call Updater Here");
         }
 
         private void StartGame()

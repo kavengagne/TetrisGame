@@ -7,6 +7,9 @@ namespace GameConfiguration.DataObjects
     public struct ClientInformation
     {
         [JsonProperty]
+        public string Version { get; set; }
+
+        [JsonProperty]
         public string ServerAddress { get; set; }
 
         [JsonProperty]

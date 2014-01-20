@@ -12,7 +12,7 @@ namespace GameServer.App_Start
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                new { controller = "Play", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

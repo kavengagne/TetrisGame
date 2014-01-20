@@ -1,7 +1,7 @@
 ﻿{
   "Game": {
-    "BackgroundColor": {"B":237,"G":149,"R":100,"A":255},
-    "Version": "0.1.0"
+    "ClientVersion": "0.002",
+    "BackgroundColor": {"B":237,"G":149,"R":100,"A":255}
   },
   "Board": {
     "Rows": 25,
