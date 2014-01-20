@@ -12,7 +12,7 @@ namespace GameClient.Classes
     public class SoundManager
     {
         #region Fields
-        private Dictionary<string, SoundEffect> _effects;
+        private readonly Dictionary<string, SoundEffect> _effects;
         #endregion
 
 

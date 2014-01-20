@@ -16,5 +16,8 @@ namespace GameConfiguration.DataObjects
 
         [JsonProperty]
         public int RotationsCount { get; set; }
+
+        [JsonIgnore]
+        public Color Color { get; set; }
     }
 }

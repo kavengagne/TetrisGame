@@ -15,21 +15,21 @@ namespace GameClient.Classes.GameBoard
         public int X { get; set; }
         public int Y { get; set; }
         public Rectangle Bounds { get; set; }
-        public Piece Piece { get; set; }
+        public PieceBase Piece { get; set; }
         public Color Color { get; set; }
         public Texture2D Texture { get; set; }
         #endregion
 
 
         #region Constructors
-        public Block(Piece piece, Point position, Rectangle bounds, Color color)
+        public Block(PieceBase piece, Point position, Rectangle bounds, Color color)
         {
             Piece = piece;
             X = position.X;
             Y = position.Y;
             Bounds = bounds;
             Color = color;
-            Texture = CreateTexture(piece.Board.Game.GraphicsDevice, bounds, color);
+            Texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, color);
         }
         #endregion
 
@@ -52,9 +52,9 @@ namespace GameClient.Classes.GameBoard
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            var newX = X * Bounds.Width + Piece.Position.X * Bounds.Width + Piece.Board.Bounds.X;
-            var newY = Y * Bounds.Height + Piece.Position.Y * Bounds.Height + Piece.Board.Bounds.Y;
-            spriteBatch.Draw(Texture, new Rectangle(newX, newY, Bounds.Width, Bounds.Height), Color);
+            //var newX = X * Bounds.Width + Piece.Position.X * Bounds.Width + Piece.Game.Board.Bounds.X;
+            //var newY = Y * Bounds.Height + Piece.Position.Y * Bounds.Height + Piece.Game.Board.Bounds.Y;
+            spriteBatch.Draw(Texture, new Rectangle(X, Y, Bounds.Width, Bounds.Height), Color);
         }
         #endregion
 

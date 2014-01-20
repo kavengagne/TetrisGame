@@ -22,7 +22,6 @@ namespace GameClient.Classes.GameBoard
 
         #region Properties
         public TetrisGame Game { get; set; }
-        public PieceGenerator PieceGenerator;
         public int Rows { get; set; }
         public int Columns { get; set; }
         public int UpdateDelay { get; set; }
@@ -38,7 +37,6 @@ namespace GameClient.Classes.GameBoard
         {
             _application = Application.Instance;
             Game = game;
-            Game.Score = new Score();
 
             var boardInformation = _application.Configuration.Board;
             Rows = boardInformation.Rows;
@@ -53,11 +51,8 @@ namespace GameClient.Classes.GameBoard
             Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
 
             InitializeGameGrid();
-            InitializePieceGenerator(_application.Configuration.Pieces,
-                                     _application.Configuration.PiecesColors,
-                                     _application.Configuration.Board.BlockSize);
 
-            CurrentPiece = GetNextPiece();
+            CurrentPiece = game.GetNextPiece();
         }
         #endregion
 
@@ -70,11 +65,6 @@ namespace GameClient.Classes.GameBoard
                      position.X >= _grid.Length ||
                      position.Y >= _grid[0].Length ||
                      _grid[position.X][position.Y] != null);
-        }
-
-        public Piece GetNextPiece()
-        {
-            return PieceGenerator.GetPiece();
         }
 
         public void StoreCurrentPiece()
@@ -98,7 +88,7 @@ namespace GameClient.Classes.GameBoard
                 if (!IsGameOver())
                 {
                     Game.SoundManager.Play("Drop", (float)0.5);
-                    CurrentPiece = GetNextPiece();
+                    CurrentPiece = Game.GetNextPiece();
                 }
             }
         }
@@ -120,7 +110,7 @@ namespace GameClient.Classes.GameBoard
             {
                 if (CurrentPiece.DropByOne())
                 {
-                    Game.Score.IncrementBy(1);
+                    Game.ScoreBoard.IncrementScoreBy(1);
                 }
             }
         }
@@ -194,11 +184,6 @@ namespace GameClient.Classes.GameBoard
             }
         }
 
-        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
-        {
-            PieceGenerator = new PieceGenerator(this, pieces, colors, blockSize);
-        }
-
         private bool IsDelayExpired(GameTime time)
         {
             _delayCurrent += time.ElapsedGameTime.TotalMilliseconds;
@@ -226,7 +211,7 @@ namespace GameClient.Classes.GameBoard
                     DeleteLine(rowIndex);
                     DropLinesByOne(rowIndex);
                     // TODO: KG - Move Increment Value to Configuration
-                    Game.Score.IncrementBy(10);
+                    Game.ScoreBoard.IncrementScoreBy(10);
                     removedLinesCount++;
                 }
             }
@@ -238,7 +223,7 @@ namespace GameClient.Classes.GameBoard
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)
                 {
-                    Game.Score.IncrementBy(10);
+                    Game.ScoreBoard.IncrementScoreBy(10);
                 }
             }
         }
@@ -252,7 +237,7 @@ namespace GameClient.Classes.GameBoard
                     column[row] = column[row - 1];
                     if (column[row] != null)
                     {
-                        column[row].Y++;
+                        column[row].Y += column[row].Bounds.Height;
                     }
                     column[row - 1] = null;
                 }

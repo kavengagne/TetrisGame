@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using GameClient.Classes.Utilities;
@@ -12,21 +13,23 @@ namespace GameClient.Classes.GameBoard
     public class PieceGenerator
     {
         #region Fields
-        private readonly Board _board;
+        private readonly TetrisGame _game;
         private readonly PieceInformation[] _pieces;
-        private readonly Color[] _colors;
+        private Color[] _colors;
         private readonly Rectangle _blockSize;
-        private Piece _nextPiece;
+        private PreviewPiece _nextPiece;
         #endregion
 
 
         #region Constructors
-        public PieceGenerator(Board board, PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
+        public PieceGenerator(TetrisGame game, PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
         {
-            _board = board;
+            _game = game;
             _pieces = pieces;
             _colors = colors;
             _blockSize = blockSize;
+
+            DeterminePiecesColors();
 
             _nextPiece = GetRandomPiece();
 
@@ -48,7 +51,7 @@ namespace GameClient.Classes.GameBoard
             }
             foreach (var colorName in colorNames)
             {
-                //Console.WriteLine("{0} = {1}", colorName.Key, colorName.Value);
+                Console.WriteLine("{0} = {1}", colorName.Key, colorName.Value);
             }
         }
         #endregion
@@ -60,7 +63,7 @@ namespace GameClient.Classes.GameBoard
             return ConsumedPiece();
         }
 
-        public Piece PeekNextPiece()
+        public PreviewPiece PeekNextPiece()
         {
             return _nextPiece;
         }
@@ -68,19 +71,45 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Internal Implementation
-        private Piece GetRandomPiece()
+        private void DeterminePiecesColors()
         {
-            var color = _colors[StaticRandom.Next(0, _colors.Length)];
-            var model = new PieceModel(_pieces[StaticRandom.Next(0, _pieces.Length)]);
+            _colors = GetShuffledColors();
+            for (int i = 0; i < _pieces.Length; i++)
+            {
+                _pieces[i].Color = _colors[i];
+            }
+        }
+
+        private Color[] GetShuffledColors()
+        {
+            var randNumbers = new List<int>();
+            foreach (var color in _colors)
+            {
+                int num;
+                do
+                {
+                    num = StaticRandom.Next(0, _colors.Length);
+                }
+                while (randNumbers.Contains(num));
+                randNumbers.Add(num);
+            }
+            return randNumbers.Select(item => _colors[item]).ToArray();
+        }
+
+        private PreviewPiece GetRandomPiece()
+        {
+            //var color = _colors[StaticRandom.Next(0, _colors.Length)];
+            var modelIndex = StaticRandom.Next(0, _pieces.Length);
+            var model = new PieceModel(_pieces[modelIndex]);
             var rotationIndex = StaticRandom.Next(0, model.Length);
-            return new Piece(_board, color, model, rotationIndex, _blockSize);
+            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex, _blockSize);
         }
 
         private Piece ConsumedPiece()
         {
             var resultPiece = _nextPiece;
             _nextPiece = GetRandomPiece();
-            return resultPiece;
+            return new Piece(_game, resultPiece);
         }
         #endregion
     }

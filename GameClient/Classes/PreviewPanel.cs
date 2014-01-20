@@ -10,19 +10,21 @@ namespace GameClient.Classes
     {
         #region Fields
         private readonly TetrisGame _game;
-        private readonly Board _board;
         private readonly Texture2D _texture;
-        private readonly Rectangle _bounds;
         private readonly Color _backgroundColor;
         #endregion
 
 
+        #region Properties
+        public Rectangle Bounds { get; set; }
+        #endregion
+
+
         #region Constructors
-        public PreviewPanel(TetrisGame game, Board board, Rectangle bounds, Color backgroundColor)
+        public PreviewPanel(TetrisGame game, Rectangle bounds, Color backgroundColor)
         {
             _game = game;
-            _board = board;
-            _bounds = bounds;
+            Bounds = bounds;
             _backgroundColor = backgroundColor;
             _texture = CreateTexture(_game.GraphicsDevice, bounds, backgroundColor);
         }
@@ -32,13 +34,13 @@ namespace GameClient.Classes
         #region Public Methods
         public void Update(GameTime gameTime)
         {
-            
+            _game.PeekNextPiece().Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            _board.PieceGenerator.PeekNextPiece().Draw(spriteBatch, gameTime);
-            spriteBatch.Draw(_texture, _bounds, _backgroundColor);
+            spriteBatch.Draw(_texture, Bounds, _backgroundColor);
+            _game.PeekNextPiece().Draw(spriteBatch, gameTime);
         }
         #endregion
 
