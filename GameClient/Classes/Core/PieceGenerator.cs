@@ -87,7 +87,7 @@ namespace GameClient.Classes.Core
                 int num;
                 do
                 {
-                    num = StaticRandom.Next(0, _colors.Length);
+                    num = StaticRandom.Next(_colors.Length);
                 }
                 while (randNumbers.Contains(num));
                 randNumbers.Add(num);
@@ -98,10 +98,10 @@ namespace GameClient.Classes.Core
         private PreviewPiece GetRandomPiece()
         {
             //var color = _colors[StaticRandom.Next(0, _colors.Length)];
-            var modelIndex = StaticRandom.Next(0, _pieces.Length);
+            var modelIndex = StaticRandom.Next(_pieces.Length);
             //var modelIndex = 2;
             var model = new PieceModel(_pieces[modelIndex]);
-            var rotationIndex = StaticRandom.Next(0, model.Length);
+            var rotationIndex = StaticRandom.Next(model.Length);
             return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex, _blockSize);
         }
 

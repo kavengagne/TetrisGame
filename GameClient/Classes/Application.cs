@@ -52,14 +52,14 @@ namespace GameClient.Classes
             if (!IsRunning)
             {
                 LoadConfiguration();
-                if (IsGameVersionOutdated())
-                {
-                    StartUpdater();
-                }
-                else
-                {
-                    StartGame();
-                }
+                //if (IsGameVersionOutdated())
+                //{
+                //    StartUpdater();
+                //}
+                //else
+                //{
+                StartGame();
+                //}
             }
         }
 
