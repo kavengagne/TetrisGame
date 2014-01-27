@@ -111,7 +111,7 @@ namespace GameClient.Classes.GameBoard
             {
                 if (CurrentPiece.DropByOne())
                 {
-                    Game.ScoreBoard.IncrementScoreBy(1);
+                    Game.ScoreBoard.IncrementPointsBy(1);
                 }
             }
         }
@@ -212,7 +212,8 @@ namespace GameClient.Classes.GameBoard
                     DeleteLine(rowIndex);
                     DropLinesByOne(rowIndex);
                     // TODO: KG - Move Increment Value to Configuration
-                    Game.ScoreBoard.IncrementScoreBy(10);
+                    Game.ScoreBoard.IncrementPointsBy(10);
+                    Game.ScoreBoard.IncrementLinesBy(1);
                     removedLinesCount++;
                 }
             }
@@ -224,7 +225,7 @@ namespace GameClient.Classes.GameBoard
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)
                 {
-                    Game.ScoreBoard.IncrementScoreBy(10);
+                    Game.ScoreBoard.IncrementPointsBy(10);
                 }
             }
         }

@@ -55,7 +55,7 @@ namespace GameClient.Classes.GameBoard
             {
                 droppedOnce = true;
                 // TODO: KG - Move Increment Value to Configuration
-                Game.ScoreBoard.IncrementScoreBy(1);
+                Game.ScoreBoard.IncrementPointsBy(1);
             }
             if (droppedOnce)
             {

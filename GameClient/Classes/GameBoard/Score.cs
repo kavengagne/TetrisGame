@@ -5,32 +5,35 @@ namespace GameClient.Classes.GameBoard
 {
     public class Score
     {
-        public int Points
-        {
-            get;
-            private set;
-        }
+        #region Properties
+        public int Points { get; private set; }
+        public int Lines { get; private set; }
+        #endregion
 
-        public Score(int initialScore = 0)
-        {
-            Points = initialScore;
-        }
 
-        public override string ToString()
+        #region Constructor
+        public Score(int initialPoints = 0, int initialLines = 0)
         {
-            return Points.ToString(CultureInfo.InvariantCulture);
+            Points = initialPoints;
+            Lines = initialLines;
         }
+        #endregion
 
-        public int IncrementBy(int value)
+
+        #region Public Methods
+        public int IncrementPointsBy(int value)
         {
-            value = Math.Max(Math.Abs(value), 0);
+            value = Math.Abs(value);
             //Console.WriteLine("before: {0}, after: {1}", Points, Points + value);
             return Points += value;
         }
 
-        public int DecrementBy(int value = 1)
+        public int IncrementLinesBy(int value)
         {
-            return Points = Math.Max(Points - Math.Abs(value), 0);
+            value = Math.Abs(value);
+            //Console.WriteLine("before: {0}, after: {1}", Lines, Lines + value);
+            return Lines += value;
         }
+        #endregion
     }
 }

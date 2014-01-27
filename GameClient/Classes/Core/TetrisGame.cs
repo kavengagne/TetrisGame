@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 // TODO: KG - +Feature: Auto Update.
 // TODO: KG - Feature: Game Main Screen.
 // TODO: KG - Feature: Line Counter.
+// TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Create Installer Project.
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
@@ -155,7 +156,7 @@ namespace GameClient.Classes.Core
         private void InitializeScoreBoard()
         {
             // TODO: KG - Move to config or something
-            var bounds = new Rectangle(Board.Bounds.X + Board.Bounds.Width + 5, 40 + 100 + 5, 100, 100);
+            var bounds = new Rectangle(Board.Bounds.X + Board.Bounds.Width + 5, 40 + 100 + 5, 100, 110);
             ScoreBoard = new ScoreBoard(this, bounds, _application.Configuration.Board.BackgroundColor);
         }
 
