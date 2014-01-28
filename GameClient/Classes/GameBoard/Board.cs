@@ -5,9 +5,6 @@ using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Color = Microsoft.Xna.Framework.Color;
-using Point = Microsoft.Xna.Framework.Point;
-using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace GameClient.Classes.GameBoard
 {

@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using GameClient.Classes.Extensions;
-using GameClient.Classes.GameBoard;
 using GameClient.Classes.Interfaces;
+using GameClient.Classes.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -34,6 +33,7 @@ namespace GameClient.Classes.Core
             _texture = CreateTexture(_game.GraphicsDevice, bounds, backgroundColor);
             _font = _game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
             Score = new Score();
+            Score.LinesUpdated += ChangeGameBackgroundColor;
         }
         #endregion
 
@@ -86,6 +86,21 @@ namespace GameClient.Classes.Core
 
 
         #region Internal Implementation
+        private void ChangeGameBackgroundColor(Score score, int updateValue)
+        {
+            // TODO: KG - Move to configuration.
+            const int divider = 10;
+            int oldValue = score.Lines - updateValue;
+            int oldTenth = oldValue / divider;
+            int newTenth = score.Lines / divider;
+            if (newTenth > oldTenth)
+            {
+                Application.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
+                                                                                    StaticRandom.Next(256),
+                                                                                    StaticRandom.Next(256));
+            }
+        }
+
         private Texture2D CreateTexture(GraphicsDevice graphicsDevice, Rectangle bounds, Color color)
         {
             var texture = new Texture2D(graphicsDevice, bounds.Width, bounds.Height);

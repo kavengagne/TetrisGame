@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using GameClient.Classes.Core.Inputs;
+﻿using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
 using GameConfiguration.DataObjects;

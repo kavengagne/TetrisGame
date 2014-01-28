@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
-using System.Reflection.Emit;
 using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
-using Point = Microsoft.Xna.Framework.Point;
 
 namespace GameClient.Classes.GameBoard
 {

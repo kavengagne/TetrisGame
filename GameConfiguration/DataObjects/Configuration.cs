@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace GameConfiguration.DataObjects
 {
-    public struct Configuration
+    public class Configuration
     {
         [JsonProperty]
         public GameInformation Game { get; set; }
