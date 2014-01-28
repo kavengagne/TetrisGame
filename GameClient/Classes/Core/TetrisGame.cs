@@ -1,5 +1,7 @@
-﻿using GameClient.Classes.Core.Inputs;
+﻿using System.Collections.Generic;
+using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.GameBoard;
+using GameClient.Classes.ParticleSystem;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,7 +14,6 @@ using Microsoft.Xna.Framework.Input;
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
 // TODO: KG - +Feature: Auto Update.
 // TODO: KG - Feature: Game Main Screen.
-// TODO: KG - Feature: Line Counter.
 // TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Create Installer Project.
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
@@ -25,8 +26,8 @@ using Microsoft.Xna.Framework.Input;
 // TODO: KG - Feature: Game Reset.
 // TODO: KG - Feature: Add Pause Menu. (Default Key: P)
 // TODO: KG - Feature: Game Over Handling.
-// TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Game Options. (Windows Form Project, Maybe)
+// TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Add Musics. (Should create those myself)
 
 namespace GameClient.Classes.Core
@@ -40,6 +41,7 @@ namespace GameClient.Classes.Core
 
 
         #region Properties
+        public ParticleEngine ParticleEngine { get; set; }
         public PieceGenerator PieceGenerator { get; set; }
         public Board Board { get; set; }
         public PreviewPanel PreviewPanel { get; set; }
@@ -82,6 +84,14 @@ namespace GameClient.Classes.Core
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            //var textures = new List<Texture2D>
+            //{
+            //    Content.Load<Texture2D>("Graphics/circle"),
+            //    Content.Load<Texture2D>("Graphics/star"),
+            //    Content.Load<Texture2D>("Graphics/diamond")
+            //};
+            //ParticleEngine = new ParticleEngine(textures, new Vector2(400, 240));
         }
 
         protected override void UnloadContent()
@@ -95,6 +105,8 @@ namespace GameClient.Classes.Core
             Board.Update(gameTime);
             PreviewPanel.Update(gameTime);
             ScoreBoard.Update(gameTime);
+            //ParticleEngine.EmitterLocation = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            //ParticleEngine.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -106,6 +118,7 @@ namespace GameClient.Classes.Core
             PreviewPanel.Draw(_spriteBatch, gameTime);
             ScoreBoard.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
+            //ParticleEngine.Draw(_spriteBatch, gameTime);
             base.Draw(gameTime);
         }
         #endregion

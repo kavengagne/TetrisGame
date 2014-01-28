@@ -36,7 +36,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -99,6 +99,8 @@
     <Compile Include="Classes\Core\ScoreBoard.cs" />
     <Compile Include="Classes\Core\SoundManager.cs" />
     <Compile Include="Classes\Interfaces\ISprite.cs" />
+    <Compile Include="Classes\ParticleSystem\Particle.cs" />
+    <Compile Include="Classes\ParticleSystem\ParticleEngine.cs" />
     <Compile Include="Classes\Utilities\StaticRandom.cs" />
     <Compile Include="Classes\Core\TetrisGame.cs" />
     <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
