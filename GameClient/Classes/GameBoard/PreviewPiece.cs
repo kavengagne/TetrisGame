@@ -13,6 +13,13 @@ namespace GameClient.Classes.GameBoard
         {
             Game = game;
         }
+
+        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Rectangle blockSize, Point position)
+            : base(color, model, rotationIndex, blockSize)
+        {
+            Game = game;
+            Position = position;
+        }
         #endregion
 
 
