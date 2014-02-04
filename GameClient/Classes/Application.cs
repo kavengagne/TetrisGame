@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using GameClient.Classes.Core;
@@ -51,15 +53,23 @@ namespace GameClient.Classes
         {
             if (!IsRunning)
             {
-                LoadConfiguration();
-                //if (IsGameVersionOutdated())
-                //{
-                //    StartUpdater();
-                //}
-                //else
-                //{
-                StartGame();
-                //}
+                try
+                {
+                    LoadConfiguration();
+                    //if (IsGameVersionOutdated())
+                    //{
+                    //    StartUpdater();
+                    //}
+                    //else
+                    //{
+                    StartGame();
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    File.WriteAllText("error_log.txt", ex.ToString());
+                    Process.Start("error_log.txt");
+                }
             }
         }
 
