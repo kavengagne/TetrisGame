@@ -59,7 +59,13 @@ namespace GameClient.Classes.Core
         #region Public Methods
         public Piece GetPiece()
         {
+            _game.CanExchangePiece = true;
             return ConsumedPiece();
+        }
+
+        public void SetNextPiece(PreviewPiece piece)
+        {
+            _nextPiece = piece;
         }
 
         public PreviewPiece PeekNextPiece()

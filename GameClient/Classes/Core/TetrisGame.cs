@@ -5,29 +5,31 @@ using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Point = Microsoft.Xna.Framework.Point;
 
+// TODO: KG - Feature: Server Statistics Logging
+// TODO: KG - Feature: Client-Side Scoreboard
+// TODO: KG - Feature: Game Options. (Windows Form Project, NOT)
+// TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
 // TODO: KG - Tuning: Add more Error Handling.
-// TODO: KG - Tuning: Optimize Score
-// TODO: KG - Bug: ?Fix L Shape Rotation.
+// TODO: KG - Tuning: Optimize Score. (Wikipedia: Tetris)
+// TODO: KG - Bug: Add OpenAL to Release Bundle.
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
-// TODO: KG - +Feature: Auto Update.
+// TODO: KG - Feature: Auto Update.
+// TODO: KG - Feature: Create Installer Project.
 // TODO: KG - Feature: Game Main Screen.
 // TODO: KG - Feature: Add Help Feature. (Default Key: H)
-// TODO: KG - Feature: Create Installer Project.
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
 // TODO: KG - Feature: Change Pieces colors when leveling.
 // TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
 // TODO: KG - Feature: Show a Preview of the Piece Position if Dropped.
-// TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
-// TODO: KG - Feature: Hold the CurrentPiece into a buffer so you can use it later. (Will switch with the CurrentPiece at this time) (Default Key: Shift)
 // TODO: KG - Feature: Game Reset.
 // TODO: KG - Feature: Add Pause Menu. (Default Key: P)
 // TODO: KG - Feature: Game Over Handling.
-// TODO: KG - Feature: Game Options. (Windows Form Project, Maybe)
-// TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Add Musics. (Should create those myself)
+// TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
 
 namespace GameClient.Classes.Core
 {
@@ -47,6 +49,7 @@ namespace GameClient.Classes.Core
         public ScoreBoard ScoreBoard { get; set; }
         public SoundManager SoundManager { get; set; }
         public InputManager InputManager { get; set; }
+        public bool CanExchangePiece { get; set; }
         #endregion
 
 
@@ -175,6 +178,7 @@ namespace GameClient.Classes.Core
         private void RegisterUserInputs()
         {
             InputManager.RegisterKeyPressed(Keys.P, TogglePause);
+            InputManager.RegisterKeyPressed(Keys.LeftShift, ExchangePiece);
             InputManager.RegisterKeyPressed(Keys.Space, Board.DropPieceAllTheWay);
             InputManager.RegisterKeyPressed(Keys.Up, Board.RotateLeft);
             InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
@@ -191,6 +195,24 @@ namespace GameClient.Classes.Core
         {
             _application.IsRunning = !_application.IsRunning;
             SoundManager.Play("Pause");
+            //TogglePauseMenu();
+        }
+
+        private void ExchangePiece()
+        {
+            if (CanExchangePiece)
+            {
+                // Save Board.CurrentPiece in TemporaryPiece.
+                var tempPiece = new PreviewPiece(this, Board.CurrentPiece.Color, Board.CurrentPiece.Model,
+                                                 Board.CurrentPiece.RotationIndex, Board.CurrentPiece.BlockSize,
+                                                 Board.CurrentPiece.Position);
+                // Save NextPiece to CurrentPiece.
+                Board.CurrentPiece = new Piece(this, PieceGenerator.PeekNextPiece(), Board.CurrentPiece.Position);
+                // Save TemporaryPiece to NextPiece.
+                PieceGenerator.SetNextPiece(tempPiece);
+                // Set Flag to Prevent Another Exchange.
+                CanExchangePiece = false;
+            }
         }
         #endregion
     }
