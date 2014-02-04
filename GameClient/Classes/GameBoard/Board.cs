@@ -131,7 +131,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateLeft()
         {
-            //if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.IsRunning)
             {
                 CurrentPiece.RotateLeft();
             }
@@ -139,7 +139,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateRight()
         {
-            //if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.IsRunning)
             {
                 CurrentPiece.RotateRight();
             }
