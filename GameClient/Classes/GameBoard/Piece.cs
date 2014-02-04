@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GameClient.Classes.GameBoard
 {
     public class Piece : PieceBase
     {
+        #region Properties
+        public Block[] ShadowBlocks { get; set; }
+        #endregion
+
+
         #region Constructors
         public Piece(TetrisGame game, PreviewPiece previewPiece)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
@@ -15,6 +22,17 @@ namespace GameClient.Classes.GameBoard
             previewPiece.Dispose();
             Game = game;
             Position = new Point(5, 0);
+            CreateShadowBlocks(Model[RotationIndex]);
+        }
+
+        public Piece(TetrisGame game, PreviewPiece previewPiece, Point position)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
+        {
+            previewPiece.Dispose();
+            Game = game;
+            Position = position;
+            CreateShadowBlocks(Model[RotationIndex]);
+            Rotate(0);
         }
         #endregion
 
@@ -28,12 +46,18 @@ namespace GameClient.Classes.GameBoard
         public override void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
-            for (int i = 0; i < Blocks.Length; i++)
+            var shadowPositions = positions.Select(pos => new Point(pos.X, pos.Y + GetShadowDeltaY(positions))).ToList();
+            UpdatePositions(Blocks, offset, positions);
+            UpdatePositions(ShadowBlocks, offset, shadowPositions);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (var shadowBlock in ShadowBlocks)
             {
-                Blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X * BlockSize.Width + offset.X,
-                                                 positions[i].Y * BlockSize.Height + Position.Y * BlockSize.Height + offset.Y,
-                                                 BlockSize.Width, BlockSize.Height);
+                shadowBlock.Draw(spriteBatch, gameTime);
             }
+            base.Draw(spriteBatch, gameTime);
         }
         #endregion
 
@@ -94,27 +118,6 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Internal Implementation
-        //private bool Move(int deltaX, int deltaY, int deltaRotation)
-        //{
-        //    bool moved = true;
-        //    var positions = Model[(RotationIndex + deltaRotation) % Model.Length];
-        //    foreach (var pos in positions)
-        //    {
-        //        var expectedPosition = new Point(pos.X + deltaX + Position.X, pos.Y + deltaY + Position.Y);
-        //        if (!Game.Board.IsEmptyAt(expectedPosition))
-        //        {
-        //            moved = false;
-        //        }
-        //    }
-        //    if (moved)
-        //    {
-        //        Position = new Point(Position.X + deltaX, Position.Y + deltaY);
-        //        RotationIndex = (RotationIndex + deltaRotation) % Model.Length;
-        //        UpdateBlocksPositions(Game.Board.Bounds.Location);
-        //    }
-        //    return moved;
-        //}
-        
         private bool Move(int deltaX, int deltaY)
         {
             bool moved = true;
@@ -162,6 +165,44 @@ namespace GameClient.Classes.GameBoard
         {
             int deltaRight = enumerable.Max(pos => pos.X) - (columnsCount - 1);
             return deltaRight < 0 ? 0 : deltaRight;
+        }
+
+        private void CreateShadowBlocks(IList<Point> positions)
+        {
+            ShadowBlocks = new Block[positions.Count];
+            for (int i = 0; i < ShadowBlocks.Length; i++)
+            {
+                ShadowBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor);
+            }
+        }
+
+        private void UpdatePositions(IList<Block> blocks, Point offset, IList<Point> positions)
+        {
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X * BlockSize.Width + offset.X,
+                                                 positions[i].Y * BlockSize.Height + Position.Y * BlockSize.Height + offset.Y,
+                                                 BlockSize.Width, BlockSize.Height);
+            }
+        }
+
+        private int GetShadowDeltaY(IList<Point> positions)
+        {
+            bool canMove = true;
+            int deltaY = 0;
+            while (canMove)
+            {
+                deltaY++;
+                foreach (var pos in positions)
+                {
+                    var expectedPosition = new Point(pos.X + Position.X, pos.Y + deltaY + Position.Y);
+                    if (!Game.Board.IsEmptyAt(expectedPosition))
+                    {
+                        canMove = false;
+                    }
+                }
+            }
+            return Math.Max(--deltaY, 0);
         }
         #endregion
     }
