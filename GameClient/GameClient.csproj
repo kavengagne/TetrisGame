@@ -36,7 +36,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -81,6 +81,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\Application.cs" />
+    <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
     <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />
@@ -101,7 +102,7 @@
     <Compile Include="Classes\Interfaces\ISprite.cs" />
     <Compile Include="Classes\ParticleSystem\Particle.cs" />
     <Compile Include="Classes\ParticleSystem\ParticleEngine.cs" />
-    <Compile Include="Classes\Utilities\StaticRandom.cs" />
+    <Compile Include="Classes\Core\Randomizer\StaticRandom.cs" />
     <Compile Include="Classes\Core\TetrisGame.cs" />
     <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
     <Compile Include="Classes\Utilities\VersionComparer.cs" />

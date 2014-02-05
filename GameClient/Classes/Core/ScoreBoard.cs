@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
 using GameClient.Classes.Utilities;
