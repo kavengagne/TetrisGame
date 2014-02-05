@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameClient.Classes.Utilities
+namespace GameClient.Classes.Core.Randomizer
 {
     public static class StaticRandom
     {
