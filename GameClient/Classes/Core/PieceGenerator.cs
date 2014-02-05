@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.Utilities;
 using GameConfiguration.DataObjects;
@@ -17,6 +18,7 @@ namespace GameClient.Classes.Core
         private Color[] _colors;
         private readonly Rectangle _blockSize;
         private PreviewPiece _nextPiece;
+        private RandomBag _randomBag;
         #endregion
 
 
@@ -27,6 +29,7 @@ namespace GameClient.Classes.Core
             _pieces = pieces;
             _colors = colors;
             _blockSize = blockSize;
+            _randomBag = new RandomBag(pieces.Length);
 
             DeterminePiecesColors();
 
@@ -103,12 +106,9 @@ namespace GameClient.Classes.Core
 
         private PreviewPiece GetRandomPiece()
         {
-            //var color = _colors[StaticRandom.Next(0, _colors.Length)];
-            var modelIndex = StaticRandom.Next(_pieces.Length);
-            //var modelIndex = 2;
+            var modelIndex = _randomBag.Next();
             var model = new PieceModel(_pieces[modelIndex]);
-            var rotationIndex = StaticRandom.Next(model.Length);
-            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex, _blockSize);
+            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, 0, _blockSize);
         }
 
         private Piece ConsumedPiece()
