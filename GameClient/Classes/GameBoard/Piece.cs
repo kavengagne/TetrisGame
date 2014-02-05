@@ -11,7 +11,7 @@ namespace GameClient.Classes.GameBoard
     public class Piece : PieceBase
     {
         #region Properties
-        public Block[] ShadowBlocks { get; set; }
+        public Block[] GhostBlocks { get; set; }
         #endregion
 
 
@@ -22,7 +22,7 @@ namespace GameClient.Classes.GameBoard
             previewPiece.Dispose();
             Game = game;
             Position = new Point(5, 0);
-            CreateShadowBlocks(Model[RotationIndex]);
+            CreateGhostBlocks(Model[RotationIndex]);
         }
 
         public Piece(TetrisGame game, PreviewPiece previewPiece, Point position)
@@ -31,7 +31,7 @@ namespace GameClient.Classes.GameBoard
             previewPiece.Dispose();
             Game = game;
             Position = position;
-            CreateShadowBlocks(Model[RotationIndex]);
+            CreateGhostBlocks(Model[RotationIndex]);
             Rotate(0);
         }
         #endregion
@@ -46,16 +46,16 @@ namespace GameClient.Classes.GameBoard
         public override void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
-            var shadowPositions = positions.Select(pos => new Point(pos.X, pos.Y + GetShadowDeltaY(positions))).ToList();
+            var ghostPositions = positions.Select(pos => new Point(pos.X, pos.Y + GetGhostDeltaY(positions))).ToList();
             UpdatePositions(Blocks, offset, positions);
-            UpdatePositions(ShadowBlocks, offset, shadowPositions);
+            UpdatePositions(GhostBlocks, offset, ghostPositions);
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (var shadowBlock in ShadowBlocks)
+            foreach (var ghostBlock in GhostBlocks)
             {
-                shadowBlock.Draw(spriteBatch, gameTime);
+                ghostBlock.Draw(spriteBatch, gameTime);
             }
             base.Draw(spriteBatch, gameTime);
         }
@@ -167,12 +167,12 @@ namespace GameClient.Classes.GameBoard
             return deltaRight < 0 ? 0 : deltaRight;
         }
 
-        private void CreateShadowBlocks(IList<Point> positions)
+        private void CreateGhostBlocks(IList<Point> positions)
         {
-            ShadowBlocks = new Block[positions.Count];
-            for (int i = 0; i < ShadowBlocks.Length; i++)
+            GhostBlocks = new Block[positions.Count];
+            for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                ShadowBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor);
+                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor);
             }
         }
 
@@ -186,7 +186,7 @@ namespace GameClient.Classes.GameBoard
             }
         }
 
-        private int GetShadowDeltaY(IList<Point> positions)
+        private int GetGhostDeltaY(IList<Point> positions)
         {
             bool canMove = true;
             int deltaY = 0;
