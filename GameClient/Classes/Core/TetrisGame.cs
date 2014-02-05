@@ -7,26 +7,32 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Point = Microsoft.Xna.Framework.Point;
 
-// TODO: KG - Feature: Server Statistics Logging
-// TODO: KG - Feature: Client-Side Scoreboard
-// TODO: KG - Feature: Game Options. (Windows Form Project, NOT)
+
+// TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Create HoldPanel)
+// TODO: KG - Bug: Improve Ghost Piece look.
+// TODO: KG - Bug: Change Board Background Color.
+// TODO: KG - Bug: Make Pieces Colors Consistents.
+// TODO: KG - Feature: Game Main Screen.
+// TODO: KG - Feature: Server Statistics Logging.
+// TODO: KG - Feature: Client-Side Scoreboard.
+// TODO: KG - Feature: Add Game Time.
+// TODO: KG - Feature: Game Options.
 // TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
-// TODO: KG - Tuning: Add more delay before Storing Piece to array. This will allow players to get a chance to move the piece before it locks.
+// TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
+// TODO: KG - Feature: Add small delay after moving piece. This will allow players to place the piece before it locks.
 // TODO: KG - Tuning: Add more Error Handling.
 // TODO: KG - Tuning: Optimize Score. (Wikipedia: Tetris)
 // TODO: KG - Bug: Add OpenAL to Release Bundle.
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
 // TODO: KG - Feature: Auto Update.
 // TODO: KG - Feature: Create Installer Project.
-// TODO: KG - Feature: Game Main Screen.
 // TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
-// TODO: KG - Feature: Change Pieces colors when leveling.
-// TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
-// TODO: KG - Feature: Show a Preview of the Piece Position if Dropped.
+// TODO: KG - Feature?: Change Game Theme when leveling.
 // TODO: KG - Feature: Game Reset.
-// TODO: KG - Feature: Add Pause Menu. (Default Key: P)
+// TODO: KG - Feature: Add Pause Menu. (Default Key: Escape)
 // TODO: KG - Feature: Game Over Handling.
 // TODO: KG - Feature: Add Musics. (Should create those myself)
 // TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
