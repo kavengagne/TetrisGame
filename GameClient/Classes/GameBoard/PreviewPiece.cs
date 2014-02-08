@@ -8,14 +8,14 @@ namespace GameClient.Classes.GameBoard
     public class PreviewPiece : PieceBase, IDisposable
     {
         #region Constructor
-        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Rectangle blockSize)
-            : base(color, model, rotationIndex, blockSize)
+        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex)
+            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
         {
             Game = game;
         }
 
-        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Rectangle blockSize, Point position)
-            : base(color, model, rotationIndex, blockSize)
+        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Point position)
+            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
         {
             Game = game;
             Position = position;

@@ -18,6 +18,9 @@ namespace GameConfiguration.DataObjects
         public Rectangle BlockSize { get; set; }
 
         [JsonProperty]
+        public Rectangle PreviewBlockSize { get; set; }
+
+        [JsonProperty]
         public int Speed { get; set; }
     }
 }
