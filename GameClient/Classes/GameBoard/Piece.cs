@@ -17,7 +17,8 @@ namespace GameClient.Classes.GameBoard
 
         #region Constructors
         public Piece(TetrisGame game, PreviewPiece previewPiece)
-            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
+                   Application.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Game = game;
@@ -26,7 +27,8 @@ namespace GameClient.Classes.GameBoard
         }
 
         public Piece(TetrisGame game, PreviewPiece previewPiece, Point position)
-            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, previewPiece.BlockSize)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
+                   Application.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Game = game;
@@ -172,7 +174,7 @@ namespace GameClient.Classes.GameBoard
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor);
+                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor, Color.Gray);
             }
         }
 

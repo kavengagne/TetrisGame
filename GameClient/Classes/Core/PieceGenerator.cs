@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.GameBoard;
-using GameClient.Classes.Utilities;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 
@@ -16,19 +15,17 @@ namespace GameClient.Classes.Core
         private readonly TetrisGame _game;
         private readonly PieceInformation[] _pieces;
         private Color[] _colors;
-        private readonly Rectangle _blockSize;
         private PreviewPiece _nextPiece;
-        private RandomBag _randomBag;
+        private readonly RandomBag _randomBag;
         #endregion
 
 
         #region Constructors
-        public PieceGenerator(TetrisGame game, PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
+        public PieceGenerator(TetrisGame game, PieceInformation[] pieces, Color[] colors)
         {
             _game = game;
             _pieces = pieces;
             _colors = colors;
-            _blockSize = blockSize;
             _randomBag = new RandomBag(pieces.Length);
 
             DeterminePiecesColors();
@@ -108,7 +105,7 @@ namespace GameClient.Classes.Core
         {
             var modelIndex = _randomBag.Next();
             var model = new PieceModel(_pieces[modelIndex]);
-            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, 0, _blockSize);
+            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex: 0);
         }
 
         private Piece ConsumedPiece()

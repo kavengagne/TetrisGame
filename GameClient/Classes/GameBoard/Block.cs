@@ -13,30 +13,37 @@ namespace GameClient.Classes.GameBoard
         public int Y { get; set; }
         public Rectangle Bounds { get; set; }
         public PieceBase Piece { get; set; }
-        public Color Color { get; set; }
+        public Color BackgroundColor { get; set; }
+        public Color BorderColor { get; set; }
         public Texture2D Texture { get; set; }
         #endregion
 
 
         #region Constructors
-        public Block(PieceBase piece, Point position, Rectangle bounds, Color color)
+        public Block(PieceBase piece, Point position, Rectangle bounds, Color backgroundColor)
+            : this(piece, position, bounds, backgroundColor, Color.Black)
+        {
+        }
+
+        public Block(PieceBase piece, Point position, Rectangle bounds, Color backgroundColor, Color borderColor)
         {
             Piece = piece;
             X = position.X;
             Y = position.Y;
             Bounds = bounds;
-            Color = color;
-            Texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, color);
+            BackgroundColor = backgroundColor;
+            BorderColor = borderColor;
+            Texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, backgroundColor, borderColor);
         }
         #endregion
 
 
         #region Internal Implementation
-        private Texture2D CreateTexture(GraphicsDevice graphicsDevice, Rectangle bounds, Color color)
+        private Texture2D CreateTexture(GraphicsDevice graphicsDevice, Rectangle bounds, Color backgroundColor, Color borderColor)
         {
             var texture = new Texture2D(graphicsDevice, bounds.Width, bounds.Height);
-            texture.FillWithColor(color);
-            texture.AddBorder(Color.Black, 1);
+            texture.FillWithColor(backgroundColor);
+            texture.AddBorder(borderColor, 1);
             return texture;
         }
         #endregion
@@ -51,7 +58,7 @@ namespace GameClient.Classes.GameBoard
         {
             //var newX = X * Bounds.Width + Piece.Position.X * Bounds.Width + Piece.Game.Board.Bounds.X;
             //var newY = Y * Bounds.Height + Piece.Position.Y * Bounds.Height + Piece.Game.Board.Bounds.Y;
-            spriteBatch.Draw(Texture, Bounds, Color);
+            spriteBatch.Draw(Texture, Bounds, BackgroundColor);
         }
         #endregion
 

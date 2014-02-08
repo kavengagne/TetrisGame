@@ -30,7 +30,7 @@ namespace GameClient.Classes.GameBoard
                 RotationIndex = rotationIndex;
             }
             BlockSize = blockSize;
-            CreateBlocks(model[RotationIndex]);
+            CreateBlocks(Model[RotationIndex]);
         }
         #endregion
 
