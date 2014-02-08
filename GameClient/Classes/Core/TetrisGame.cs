@@ -13,6 +13,7 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Bug: Improve Ghost Piece look.
 // TODO: KG - Bug: Change Board Background Color.
 // TODO: KG - Bug: Make Pieces Colors Consistents.
+// TODO: KG - Bug: Correct Pieces Starting Position.
 // TODO: KG - Feature: Game Main Screen.
 // TODO: KG - Feature: Server Statistics Logging.
 // TODO: KG - Feature: Client-Side Scoreboard.
@@ -21,8 +22,11 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
 // TODO: KG - Feature: Add small delay after moving piece. This will allow players to place the piece before it locks.
+// TODO: KG - Tuning: Redesing the GameBoard. (Handle Panel Positioning and Borders)
 // TODO: KG - Tuning: Add more Error Handling.
-// TODO: KG - Tuning: Optimize Score. (Wikipedia: Tetris)
+// TODO: KG - Tuning: Optimize Score. http://en.wikipedia.org/wiki/Tetris
+// TODO: KG - Tuning: Implement T-Spin Bonus. http://harddrop.com/wiki/T-Spin
+// TODO: KG - Tuning: Make sure RandomBag is implemented as detailed in: http://harddrop.com/wiki/Random_Generator
 // TODO: KG - Bug: Add OpenAL to Release Bundle.
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
 // TODO: KG - Feature: Auto Update.
@@ -30,7 +34,7 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
-// TODO: KG - Feature?: Change Game Theme when leveling.
+// TODO: KG - Feature: Change Game Theme when leveling.
 // TODO: KG - Feature: Game Reset.
 // TODO: KG - Feature: Add Pause Menu. (Default Key: Escape)
 // TODO: KG - Feature: Game Over Handling.
@@ -158,7 +162,7 @@ namespace GameClient.Classes.Core
 
         private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
         {
-            PieceGenerator = new PieceGenerator(this, pieces, colors, blockSize);
+            PieceGenerator = new PieceGenerator(this, pieces, colors);
         }
 
         private void InitializeTetrisBoard()
@@ -206,12 +210,11 @@ namespace GameClient.Classes.Core
 
         private void ExchangePiece()
         {
-            if (CanExchangePiece)
+            if (_application.IsRunning && CanExchangePiece)
             {
                 // Save Board.CurrentPiece in TemporaryPiece.
                 var tempPiece = new PreviewPiece(this, Board.CurrentPiece.Color, Board.CurrentPiece.Model,
-                                                 Board.CurrentPiece.RotationIndex, Board.CurrentPiece.BlockSize,
-                                                 Board.CurrentPiece.Position);
+                                                 Board.CurrentPiece.RotationIndex, Board.CurrentPiece.Position);
                 // Save NextPiece to CurrentPiece.
                 Board.CurrentPiece = new Piece(this, PieceGenerator.PeekNextPiece(), Board.CurrentPiece.Position);
                 // Save TemporaryPiece to NextPiece.
