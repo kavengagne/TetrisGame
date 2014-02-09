@@ -29,3 +29,5 @@ _ReSharper*/
 [Pp]ackages/
 [Ii]nstallation/
 [Gg]ame[Ss]erver/[Cc]lient/
+*.sdf
+*.mdf
