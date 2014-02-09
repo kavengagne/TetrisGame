@@ -3,7 +3,6 @@ using System.Globalization;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
-using GameClient.Classes.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -96,7 +95,7 @@ namespace GameClient.Classes.Core
             int newTenth = score.Lines / divider;
             if (newTenth > oldTenth)
             {
-                Application.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
+                App.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
                                                                                     StaticRandom.Next(256),
                                                                                     StaticRandom.Next(256));
             }

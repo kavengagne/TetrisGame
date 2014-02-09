@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using GameConfiguration.Classes;
 using Microsoft.Xna.Framework;
+using Newtonsoft.Json;
 
 namespace GameConfiguration.DataObjects
 {
@@ -15,9 +16,11 @@ namespace GameConfiguration.DataObjects
         public Color BackgroundColor { get; set; }
 
         [JsonProperty]
+        [JsonConverter(typeof(RectangleJsonConverter))]
         public Rectangle BlockSize { get; set; }
 
         [JsonProperty]
+        [JsonConverter(typeof(RectangleJsonConverter))]
         public Rectangle PreviewBlockSize { get; set; }
 
         [JsonProperty]

@@ -9,13 +9,13 @@ namespace GameClient.Classes.GameBoard
     {
         #region Constructor
         public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex)
-            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
         {
             Game = game;
         }
 
         public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Point position)
-            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
         {
             Game = game;
             Position = position;

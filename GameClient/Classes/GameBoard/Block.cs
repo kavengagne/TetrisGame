@@ -33,7 +33,7 @@ namespace GameClient.Classes.GameBoard
             Bounds = bounds;
             BackgroundColor = backgroundColor;
             BorderColor = borderColor;
-            Texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, backgroundColor, borderColor);
+            Texture = CreateTexture(App.Instance.Game.GraphicsDevice, bounds, backgroundColor, borderColor);
         }
         #endregion
 

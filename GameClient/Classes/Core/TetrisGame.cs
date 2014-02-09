@@ -46,12 +46,14 @@ namespace GameClient.Classes.Core
     public class TetrisGame : Game
     {
         #region Fields
-        private SpriteBatch _spriteBatch;
-        private readonly Application _application;
+        private readonly App _application;
+        private GraphicsDeviceManager _graphics;
         #endregion
 
 
         #region Properties
+        public bool IsRunning { get; set; }
+        public SpriteBatch SpriteBatch { get; set; }
         public ParticleEngine ParticleEngine { get; set; }
         public PieceGenerator PieceGenerator { get; set; }
         public Board Board { get; set; }
@@ -66,7 +68,14 @@ namespace GameClient.Classes.Core
         #region Constructors
         public TetrisGame()
         {
-            _application = Application.Instance;
+            _application = App.Instance;
+            _application.Game = this;
+            _graphics = new GraphicsDeviceManager(this)
+            {
+                // TODO: KG - Find how to make this useful.
+                //PreferredBackBufferWidth = _application.Client.WindowWidth,
+                //PreferredBackBufferHeight = _application.Client.WindowHeight
+            };
             Content.RootDirectory = "Content";
         }
         #endregion
@@ -75,27 +84,27 @@ namespace GameClient.Classes.Core
         #region Methods Overrides
         protected override void Initialize()
         {
+            Window.Title = _application.Client.WindowName;
+
             InitializeSoundManager();
             InitializeInputManager();
             //InitializeTextureManager();
-            
+
             InitializePieceGenerator(_application.Configuration.Pieces,
-                                     _application.Configuration.PiecesColors,
-                                     _application.Configuration.Board.BlockSize);
+                                     _application.Configuration.PiecesColors);
 
             InitializeTetrisBoard();
             InitializePreviewPanel();
             InitializeScoreBoard();
 
             RegisterUserInputs();
-            _application.IsRunning = true;
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
             
             //var textures = new List<Texture2D>
             //{
@@ -125,11 +134,11 @@ namespace GameClient.Classes.Core
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(_application.Configuration.Game.BackgroundColor);
-            _spriteBatch.Begin();
-            Board.Draw(_spriteBatch, gameTime);
-            PreviewPanel.Draw(_spriteBatch, gameTime);
-            ScoreBoard.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
+            SpriteBatch.Begin();
+            Board.Draw(SpriteBatch, gameTime);
+            PreviewPanel.Draw(SpriteBatch, gameTime);
+            ScoreBoard.Draw(SpriteBatch, gameTime);
+            SpriteBatch.End();
             //ParticleEngine.Draw(_spriteBatch, gameTime);
             base.Draw(gameTime);
         }
@@ -160,7 +169,7 @@ namespace GameClient.Classes.Core
             InputManager = new InputManager();
         }
 
-        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors, Rectangle blockSize)
+        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors)
         {
             PieceGenerator = new PieceGenerator(this, pieces, colors);
         }
@@ -198,19 +207,25 @@ namespace GameClient.Classes.Core
             InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 100);
             // TODO: KG - Restart Game (With Confirmation)
             // TODO: KG - Quit Game (With Confirmation)
-            InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
+            InputManager.RegisterKeyPressed(Keys.Escape, App.Exit);
+            InputManager.RegisterKeyPressed(Keys.R, RestartGame);
+        }
+
+        private void RestartGame()
+        {
+            Board.Reset();
         }
 
         private void TogglePause()
         {
-            _application.IsRunning = !_application.IsRunning;
+            _application.Game.IsRunning = !_application.Game.IsRunning;
             SoundManager.Play("Pause");
             //TogglePauseMenu();
         }
 
         private void ExchangePiece()
         {
-            if (_application.IsRunning && CanExchangePiece)
+            if (_application.Game.IsRunning && CanExchangePiece)
             {
                 // Save Board.CurrentPiece in TemporaryPiece.
                 var tempPiece = new PreviewPiece(this, Board.CurrentPiece.Color, Board.CurrentPiece.Model,

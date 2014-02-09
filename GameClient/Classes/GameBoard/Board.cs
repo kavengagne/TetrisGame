@@ -13,7 +13,7 @@ namespace GameClient.Classes.GameBoard
         #region Fields
         private Block[][] _grid;
         private double _delayCurrent;
-        private readonly Application _application;
+        private readonly App _application;
         #endregion
 
 
@@ -32,7 +32,7 @@ namespace GameClient.Classes.GameBoard
         #region Constructors
         public Board(TetrisGame game, Point position)
         {
-            _application = Application.Instance;
+            _application = App.Instance;
             Game = game;
 
             var boardInformation = _application.Configuration.Board;
@@ -96,7 +96,7 @@ namespace GameClient.Classes.GameBoard
         #region Player Commands
         public void DropPieceAllTheWay()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 CurrentPiece.DropAllTheWay();
             }
@@ -104,7 +104,7 @@ namespace GameClient.Classes.GameBoard
 
         public void DropPieceByOne()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 if (CurrentPiece.DropByOne())
                 {
@@ -115,7 +115,7 @@ namespace GameClient.Classes.GameBoard
 
         public void MoveLeft()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 CurrentPiece.MoveLeft();
             }
@@ -123,7 +123,7 @@ namespace GameClient.Classes.GameBoard
 
         public void MoveRight()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 CurrentPiece.MoveRight();
             }
@@ -131,7 +131,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateLeft()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 CurrentPiece.RotateLeft();
             }
@@ -139,7 +139,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateRight()
         {
-            if (!IsGameOver() && _application.IsRunning)
+            if (!IsGameOver() && _application.Game.IsRunning)
             {
                 CurrentPiece.RotateRight();
             }
@@ -150,7 +150,7 @@ namespace GameClient.Classes.GameBoard
         #region ISprite Implementation
         public void Update(GameTime gameTime)
         {
-            if (_application.IsRunning && IsDelayExpired(gameTime))
+            if (_application.Game.IsRunning && IsDelayExpired(gameTime))
             {
                 CurrentPiece.Update(gameTime);
                 UpdateBoard();
@@ -173,6 +173,11 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Internal Implementation
+        public void Reset()
+        {
+            InitializeGameGrid();
+        }
+
         private void InitializeGameGrid()
         {
             _grid = new Block[Columns][];
@@ -202,7 +207,8 @@ namespace GameClient.Classes.GameBoard
         private void RemoveCompletedLines()
         {
             int removedLinesCount = 0;
-            for (int rowIndex = 1; rowIndex < _grid[0].Length; rowIndex++)
+            int gridRowsCount = _grid[0].Length;
+            for (int rowIndex = 1; rowIndex < gridRowsCount; rowIndex++)
             {
                 if (_grid.All(column => column[rowIndex] != null))
                 {

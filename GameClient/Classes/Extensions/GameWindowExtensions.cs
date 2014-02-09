@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-
+﻿
 // Taken from http://projectdrake.net/blog/2013/03/31/tutorial-setting-window-position-in-xnamonogame/
 // Thank you Eniko :)
 namespace GameClient.Classes.Extensions
@@ -8,7 +6,7 @@ namespace GameClient.Classes.Extensions
     public static class GameWindowExtensions
     {
         #region Public Methods
-        public static void SetPosition(this GameWindow window, Point position)
+        /*public static void SetPosition(this GameWindow window, Point position)
         {
             OpenTK.GameWindow otkWindow = GetForm(window);
             if (otkWindow != null)
@@ -16,8 +14,8 @@ namespace GameClient.Classes.Extensions
                 otkWindow.X = position.X;
                 otkWindow.Y = position.Y;
             }
-        }
-
+        }*/
+        /*
         public static OpenTK.GameWindow GetForm(this GameWindow gameWindow)
         {
             Type type = typeof(OpenTKGameWindow);
@@ -25,7 +23,7 @@ namespace GameClient.Classes.Extensions
             if (field != null)
                 return field.GetValue(gameWindow) as OpenTK.GameWindow;
             return null;
-        } 
+        } */
         #endregion
     }
 }

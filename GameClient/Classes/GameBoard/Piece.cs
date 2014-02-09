@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
@@ -18,7 +17,7 @@ namespace GameClient.Classes.GameBoard
         #region Constructors
         public Piece(TetrisGame game, PreviewPiece previewPiece)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.Instance.Configuration.Board.BlockSize)
+                   App.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Game = game;
@@ -28,7 +27,7 @@ namespace GameClient.Classes.GameBoard
 
         public Piece(TetrisGame game, PreviewPiece previewPiece, Point position)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.Instance.Configuration.Board.BlockSize)
+                   App.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Game = game;
@@ -174,7 +173,7 @@ namespace GameClient.Classes.GameBoard
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor, Color.Gray);
+                GhostBlocks[i] = new Block(this, positions[i], BlockSize, App.Instance.Configuration.Board.BackgroundColor, Color.Gray);
             }
         }
 
