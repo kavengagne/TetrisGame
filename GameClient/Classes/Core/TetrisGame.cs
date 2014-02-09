@@ -10,8 +10,7 @@ using Point = Microsoft.Xna.Framework.Point;
 
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
 // TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Create HoldPanel)
-// TODO: KG - Bug: Improve Ghost Piece look.
-// TODO: KG - Bug: Change Board Background Color.
+// TODO: KG - Bug: Change Board Background Color or Image.
 // TODO: KG - Bug: Make Pieces Colors Consistents.
 // TODO: KG - Bug: Correct Pieces Starting Position.
 // TODO: KG - Feature: Game Main Screen.
@@ -23,6 +22,7 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
 // TODO: KG - Feature: Add small delay after moving piece. This will allow players to place the piece before it locks.
 // TODO: KG - Tuning: Redesing the GameBoard. (Handle Panel Positioning and Borders)
+// TODO: KG - Tuning: Improve Ghost Piece look.
 // TODO: KG - Tuning: Add more Error Handling.
 // TODO: KG - Tuning: Optimize Score. http://en.wikipedia.org/wiki/Tetris
 // TODO: KG - Tuning: Implement T-Spin Bonus. http://harddrop.com/wiki/T-Spin
