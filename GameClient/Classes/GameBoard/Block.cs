@@ -1,5 +1,6 @@
 ﻿using System;
 using GameClient.Classes.Extensions;
+using GameClient.Classes.GameBoard.Pieces;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

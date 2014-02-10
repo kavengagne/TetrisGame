@@ -4,18 +4,19 @@ using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Classes.GameBoard
+namespace GameClient.Classes.GameBoard.Pieces
 {
     public abstract class PieceBase : ISprite
     {
         #region Properties
-        protected TetrisGame Game { get; set; }
+        protected Board Board { get; set; }
         public Point Position { get; protected set; }
         public Color Color { get; protected set; }
         public Block[] Blocks { get; protected set; }
         public PieceModel Model { get; protected set; }
         public int RotationIndex { get; protected set; }
         public Rectangle BlockSize { get; protected set; }
+        public SoundManager SoundManager { get; set; }
         #endregion
 
 
@@ -31,6 +32,7 @@ namespace GameClient.Classes.GameBoard
             }
             BlockSize = blockSize;
             CreateBlocks(Model[RotationIndex]);
+            SoundManager = App.Instance.Game.SoundManager;
         }
         #endregion
 

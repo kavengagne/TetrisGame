@@ -5,7 +5,7 @@ using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Classes.GameBoard
+namespace GameClient.Classes.GameBoard.Pieces
 {
     public class Piece : PieceBase
     {
@@ -15,22 +15,23 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Constructors
-        public Piece(TetrisGame game, PreviewPiece previewPiece)
+        public Piece(Board board, PreviewPiece previewPiece)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
                    App.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
-            Game = game;
+            Board = board;
             Position = new Point(5, 0);
             CreateGhostBlocks(Model[RotationIndex]);
+            Rotate(0);
         }
 
-        public Piece(TetrisGame game, PreviewPiece previewPiece, Point position)
+        public Piece(Board board, PreviewPiece previewPiece, Point position)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
                    App.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
-            Game = game;
+            Board = board;
             Position = position;
             CreateGhostBlocks(Model[RotationIndex]);
             Rotate(0);
@@ -41,10 +42,10 @@ namespace GameClient.Classes.GameBoard
         #region Overrides of PieceBase
         public override void Update(GameTime gameTime)
         {
-            UpdateBlocksPositions(Game.Board.Bounds.Location);
+            UpdateBlocksPositions(Board.Bounds.Location);
         }
 
-        public override void UpdateBlocksPositions(Point offset)
+        public override sealed void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
             var ghostPositions = positions.Select(pos => new Point(pos.X, pos.Y + GetGhostDeltaY(positions))).ToList();
@@ -76,11 +77,11 @@ namespace GameClient.Classes.GameBoard
             {
                 droppedOnce = true;
                 // TODO: KG - Move Increment Value to Configuration
-                Game.ScoreBoard.IncrementPointsBy(1);
+                Board.ScoreBoard.IncrementPointsBy(1);
             }
             if (droppedOnce)
             {
-                Game.Board.UpdateBoard();
+                Board.UpdateBoard();
             }
         }
 
@@ -88,7 +89,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(-1, 0))
             {
-                Game.SoundManager.Play("Move",(float)0.25);
+                SoundManager.Play("Move",(float)0.25);
             }
         }
 
@@ -96,7 +97,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Move(1, 0))
             {
-                Game.SoundManager.Play("Move", (float)0.25);
+                SoundManager.Play("Move", (float)0.25);
             }
         }
 
@@ -104,7 +105,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Rotate(deltaRotation: 3))
             {
-                Game.SoundManager.Play("Rotate", (float)0.25);
+                SoundManager.Play("Rotate", (float)0.25);
             }
         }
 
@@ -112,7 +113,7 @@ namespace GameClient.Classes.GameBoard
         {
             if (Rotate(deltaRotation: 1))
             {
-                Game.SoundManager.Play("Rotate", (float)0.25);
+                SoundManager.Play("Rotate", (float)0.25);
             }
         }
         #endregion
@@ -126,7 +127,7 @@ namespace GameClient.Classes.GameBoard
             foreach (var pos in positions)
             {
                 var expectedPosition = new Point(pos.X + deltaX + Position.X, pos.Y + deltaY + Position.Y);
-                if (!Game.Board.IsEmptyAt(expectedPosition))
+                if (!Board.IsEmptyAt(expectedPosition))
                 {
                     moved = false;
                 }
@@ -134,7 +135,7 @@ namespace GameClient.Classes.GameBoard
             if (moved)
             {
                 Position = new Point(Position.X + deltaX, Position.Y + deltaY);
-                UpdateBlocksPositions(Game.Board.Bounds.Location);
+                UpdateBlocksPositions(Board.Bounds.Location);
             }
             return moved;
         }
@@ -144,15 +145,15 @@ namespace GameClient.Classes.GameBoard
             var positions = Model[(RotationIndex + deltaRotation) % Model.Length];
             var enumerable = positions.Select(pos => new Point(pos.X + Position.X, pos.Y + Position.Y)).ToArray();
             var deltaLeft = GetDeltaLeft(enumerable);
-            var deltaRight = GetDeltaRight(enumerable, Game.Board.Columns);
+            var deltaRight = GetDeltaRight(enumerable, Board.Columns);
             var realPositions = enumerable.Select(pos => new Point(pos.X + deltaLeft - deltaRight, pos.Y));
-            if (realPositions.Any(pos => !Game.Board.IsEmptyAt(pos)))
+            if (realPositions.Any(pos => !Board.IsEmptyAt(pos)))
             {
                 return false;
             }
             Position = new Point(Position.X + deltaLeft - deltaRight, Position.Y);
             RotationIndex = (RotationIndex + deltaRotation) % Model.Length;
-            UpdateBlocksPositions(Game.Board.Bounds.Location);
+            UpdateBlocksPositions(Board.Bounds.Location);
             return true;
         }
 
@@ -197,7 +198,7 @@ namespace GameClient.Classes.GameBoard
                 foreach (var pos in positions)
                 {
                     var expectedPosition = new Point(pos.X + Position.X, pos.Y + deltaY + Position.Y);
-                    if (!Game.Board.IsEmptyAt(expectedPosition))
+                    if (!Board.IsEmptyAt(expectedPosition))
                     {
                         canMove = false;
                     }

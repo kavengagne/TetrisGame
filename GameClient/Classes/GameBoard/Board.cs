@@ -2,7 +2,9 @@
 using System.Linq;
 using GameClient.Classes.Core;
 using GameClient.Classes.Extensions;
+using GameClient.Classes.GameBoard.Pieces;
 using GameClient.Classes.Interfaces;
+using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -25,7 +27,11 @@ namespace GameClient.Classes.GameBoard
         public Color BackgroundColor { get; set; }
         public Texture2D Texture { get; set; }
         public Rectangle Bounds { get; set; }
+        public PieceGenerator PieceGenerator { get; set; }
+        public PreviewPanel PreviewPanel { get; set; }
+        public ScoreBoard ScoreBoard { get; set; }
         public Piece CurrentPiece { get; set; }
+        public bool CanExchangePiece { get; set; }
         #endregion
 
 
@@ -47,9 +53,7 @@ namespace GameClient.Classes.GameBoard
             
             Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
 
-            InitializeGameGrid();
-
-            CurrentPiece = game.GetNextPiece();
+            Reset();
         }
         #endregion
 
@@ -85,7 +89,7 @@ namespace GameClient.Classes.GameBoard
                 if (!IsGameOver())
                 {
                     Game.SoundManager.Play("Drop", (float)0.5);
-                    CurrentPiece = Game.GetNextPiece();
+                    CurrentPiece = GetNextPiece();
                     CurrentPiece.UpdateBlocksPositions(Bounds.Location);
                 }
             }
@@ -94,6 +98,33 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Player Commands
+        public void Reset()
+        {
+            InitializeGameGrid();
+            InitializePreviewPanel();
+            InitializePieceGenerator(_application.Configuration.Pieces,
+                                     _application.Configuration.PiecesColors);
+            InitializeScoreBoard();
+            CurrentPiece = GetNextPiece();
+            CurrentPiece.UpdateBlocksPositions(Bounds.Location);
+        }
+
+        public void ExchangePiece()
+        {
+            if (_application.Game.IsRunning && CanExchangePiece)
+            {
+                // Save Board.CurrentPiece in TemporaryPiece.
+                var tempPiece = new PreviewPiece(this, CurrentPiece.Color, CurrentPiece.Model,
+                                                 CurrentPiece.RotationIndex, CurrentPiece.Position);
+                // Save NextPiece to CurrentPiece.
+                CurrentPiece = new Piece(this, PieceGenerator.PeekNextPiece(), CurrentPiece.Position);
+                // Save TemporaryPiece to NextPiece.
+                PieceGenerator.SetNextPiece(tempPiece);
+                // Set Flag to Prevent Another Exchange.
+                CanExchangePiece = false;
+            }
+        }
+
         public void DropPieceAllTheWay()
         {
             if (!IsGameOver() && _application.Game.IsRunning)
@@ -108,7 +139,7 @@ namespace GameClient.Classes.GameBoard
             {
                 if (CurrentPiece.DropByOne())
                 {
-                    Game.ScoreBoard.IncrementPointsBy(1);
+                    ScoreBoard.IncrementPointsBy(1);
                 }
             }
         }
@@ -154,6 +185,8 @@ namespace GameClient.Classes.GameBoard
             {
                 CurrentPiece.Update(gameTime);
                 UpdateBoard();
+                PreviewPanel.Update(gameTime);
+                ScoreBoard.Update(gameTime);
             }
         }
 
@@ -168,14 +201,30 @@ namespace GameClient.Classes.GameBoard
                 }
             }
             CurrentPiece.Draw(spriteBatch, gameTime);
+            PreviewPanel.Draw(spriteBatch, gameTime);
+            ScoreBoard.Draw(spriteBatch, gameTime);
         }
         #endregion
 
 
         #region Internal Implementation
-        public void Reset()
+        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors)
         {
-            InitializeGameGrid();
+            PieceGenerator = new PieceGenerator(this, pieces, colors);
+        }
+
+        private void InitializePreviewPanel()
+        {
+            // TODO: KG - Move to config or something
+            var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40, 100, 100);
+            PreviewPanel = new PreviewPanel(this, bounds, _application.Configuration.Board.BackgroundColor);
+        }
+
+        private void InitializeScoreBoard()
+        {
+            // TODO: KG - Move to config or something
+            var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40 + 100 + 5, 100, 110);
+            ScoreBoard = new ScoreBoard(this, bounds, _application.Configuration.Board.BackgroundColor);
         }
 
         private void InitializeGameGrid()
@@ -185,6 +234,16 @@ namespace GameClient.Classes.GameBoard
             {
                 _grid[i] = new Block[Rows];
             }
+        }
+
+        private Piece GetNextPiece()
+        {
+            return PieceGenerator.GetPiece();
+        }
+
+        public PreviewPiece PeekNextPiece()
+        {
+            return PieceGenerator.PeekNextPiece();
         }
 
         private bool IsDelayExpired(GameTime time)
@@ -215,20 +274,20 @@ namespace GameClient.Classes.GameBoard
                     DeleteLine(rowIndex);
                     DropLinesByOne(rowIndex);
                     // TODO: KG - Move Increment Value to Configuration
-                    Game.ScoreBoard.IncrementPointsBy(10);
-                    Game.ScoreBoard.IncrementLinesBy(1);
+                    ScoreBoard.IncrementPointsBy(10);
+                    ScoreBoard.IncrementLinesBy(1);
                     removedLinesCount++;
                 }
             }
             if (removedLinesCount > 0)
             {
                 //var pitch = (float)0.33 * (Math.Max(removedLinesCount - 1, 0));
-                Game.SoundManager.Play("Remove", (float)1.0);
+                Game.SoundManager.Play("Remove");
                 
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)
                 {
-                    Game.ScoreBoard.IncrementPointsBy(10);
+                    ScoreBoard.IncrementPointsBy(10);
                 }
             }
         }

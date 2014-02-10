@@ -1,14 +1,15 @@
-﻿using GameClient.Classes.Extensions;
+﻿using GameClient.Classes.Core;
+using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Classes.Core
+namespace GameClient.Classes.GameBoard
 {
     public class PreviewPanel : ISprite
     {
         #region Fields
-        private readonly TetrisGame _game;
+        private readonly Board _board;
         private readonly Texture2D _texture;
         private readonly Color _backgroundColor;
         #endregion
@@ -20,12 +21,12 @@ namespace GameClient.Classes.Core
 
 
         #region Constructors
-        public PreviewPanel(TetrisGame game, Rectangle bounds, Color backgroundColor)
+        public PreviewPanel(Board board, Rectangle bounds, Color backgroundColor)
         {
-            _game = game;
+            _board = board;
             Bounds = bounds;
             _backgroundColor = backgroundColor;
-            _texture = CreateTexture(_game.GraphicsDevice, bounds, backgroundColor);
+            _texture = CreateTexture(App.Instance.Game.GraphicsDevice, bounds, backgroundColor);
         }
         #endregion
 
@@ -33,13 +34,13 @@ namespace GameClient.Classes.Core
         #region Public Methods
         public void Update(GameTime gameTime)
         {
-            _game.PeekNextPiece().Update(gameTime);
+            _board.PeekNextPiece().Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, Bounds, _backgroundColor);
-            _game.PeekNextPiece().Draw(spriteBatch, gameTime);
+            _board.PeekNextPiece().Draw(spriteBatch, gameTime);
         }
         #endregion
 

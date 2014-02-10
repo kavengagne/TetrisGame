@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Globalization;
+using GameClient.Classes.Core;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameClient.Classes.Core
+namespace GameClient.Classes.GameBoard
 {
     public class ScoreBoard : ISprite
     {
         #region Fields
-        private readonly TetrisGame _game;
+        private readonly Board _board;
         private readonly Texture2D _texture;
         private readonly Rectangle _bounds;
         private readonly Color _backgroundColor;
@@ -25,13 +26,13 @@ namespace GameClient.Classes.Core
 
 
         #region Constructors
-        public ScoreBoard(TetrisGame game, Rectangle bounds, Color backgroundColor)
+        public ScoreBoard(Board board, Rectangle bounds, Color backgroundColor)
         {
-            _game = game;
+            _board = board;
             _bounds = bounds;
             _backgroundColor = backgroundColor;
-            _texture = CreateTexture(_game.GraphicsDevice, bounds, backgroundColor);
-            _font = _game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
+            _texture = CreateTexture(App.Instance.Game.GraphicsDevice, bounds, backgroundColor);
+            _font = App.Instance.Game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
             Score = new Score();
             Score.LinesUpdated += ChangeGameBackgroundColor;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 
-namespace GameClient.Classes.GameBoard
+namespace GameClient.Classes.GameBoard.Pieces
 {
     public class PieceModel : IEnumerable<Point[]>
     {

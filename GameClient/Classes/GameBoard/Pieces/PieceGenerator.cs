@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using GameClient.Classes.Core;
 using GameClient.Classes.Core.Randomizer;
-using GameClient.Classes.GameBoard;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 
-namespace GameClient.Classes.Core
+namespace GameClient.Classes.GameBoard.Pieces
 {
     public class PieceGenerator
     {
         #region Fields
-        private readonly TetrisGame _game;
+        private readonly Board _board;
         private readonly PieceInformation[] _pieces;
         private Color[] _colors;
         private PreviewPiece _nextPiece;
@@ -21,9 +21,9 @@ namespace GameClient.Classes.Core
 
 
         #region Constructors
-        public PieceGenerator(TetrisGame game, PieceInformation[] pieces, Color[] colors)
+        public PieceGenerator(Board board, PieceInformation[] pieces, Color[] colors)
         {
-            _game = game;
+            _board = board;
             _pieces = pieces;
             _colors = colors;
             _randomBag = new RandomBag(pieces.Length);
@@ -59,7 +59,7 @@ namespace GameClient.Classes.Core
         #region Public Methods
         public Piece GetPiece()
         {
-            _game.CanExchangePiece = true;
+            _board.CanExchangePiece = true;
             return ConsumedPiece();
         }
 
@@ -105,14 +105,14 @@ namespace GameClient.Classes.Core
         {
             var modelIndex = _randomBag.Next();
             var model = new PieceModel(_pieces[modelIndex]);
-            return new PreviewPiece(_game, _pieces[modelIndex].Color, model, rotationIndex: 0);
+            return new PreviewPiece(_board, _pieces[modelIndex].Color, model, rotationIndex: 0);
         }
 
         private Piece ConsumedPiece()
         {
             var resultPiece = _nextPiece;
             _nextPiece = GetRandomPiece();
-            return new Piece(_game, resultPiece);
+            return new Piece(_board, resultPiece);
         }
         #endregion
     }

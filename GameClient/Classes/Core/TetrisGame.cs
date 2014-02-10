@@ -1,7 +1,6 @@
 ﻿using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
-using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -55,13 +54,10 @@ namespace GameClient.Classes.Core
         public bool IsRunning { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public ParticleEngine ParticleEngine { get; set; }
-        public PieceGenerator PieceGenerator { get; set; }
         public Board Board { get; set; }
-        public PreviewPanel PreviewPanel { get; set; }
-        public ScoreBoard ScoreBoard { get; set; }
         public SoundManager SoundManager { get; set; }
         public InputManager InputManager { get; set; }
-        public bool CanExchangePiece { get; set; }
+        public Matrix SpriteScale { get; set; }
         #endregion
 
 
@@ -72,9 +68,8 @@ namespace GameClient.Classes.Core
             _application.Game = this;
             _graphics = new GraphicsDeviceManager(this)
             {
-                // TODO: KG - Find how to make this useful.
-                //PreferredBackBufferWidth = _application.Client.WindowWidth,
-                //PreferredBackBufferHeight = _application.Client.WindowHeight
+                PreferredBackBufferWidth = _application.Client.WindowWidth,
+                PreferredBackBufferHeight = _application.Client.WindowHeight
             };
             Content.RootDirectory = "Content";
         }
@@ -88,14 +83,8 @@ namespace GameClient.Classes.Core
 
             InitializeSoundManager();
             InitializeInputManager();
-            //InitializeTextureManager();
-
-            InitializePieceGenerator(_application.Configuration.Pieces,
-                                     _application.Configuration.PiecesColors);
 
             InitializeTetrisBoard();
-            InitializePreviewPanel();
-            InitializeScoreBoard();
 
             RegisterUserInputs();
 
@@ -105,7 +94,8 @@ namespace GameClient.Classes.Core
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
             //var textures = new List<Texture2D>
             //{
             //    Content.Load<Texture2D>("Graphics/circle"),
@@ -122,10 +112,11 @@ namespace GameClient.Classes.Core
 
         protected override void Update(GameTime gameTime)
         {
+            SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            //Console.WriteLine("w:{0}, h:{1}", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
             InputManager.HandleInputs(gameTime);
             Board.Update(gameTime);
-            PreviewPanel.Update(gameTime);
-            ScoreBoard.Update(gameTime);
             //ParticleEngine.EmitterLocation = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             //ParticleEngine.Update(gameTime);
             base.Update(gameTime);
@@ -134,10 +125,8 @@ namespace GameClient.Classes.Core
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(_application.Configuration.Game.BackgroundColor);
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(0, null, null, null, null, null, SpriteScale);
             Board.Draw(SpriteBatch, gameTime);
-            PreviewPanel.Draw(SpriteBatch, gameTime);
-            ScoreBoard.Draw(SpriteBatch, gameTime);
             SpriteBatch.End();
             //ParticleEngine.Draw(_spriteBatch, gameTime);
             base.Draw(gameTime);
@@ -146,15 +135,7 @@ namespace GameClient.Classes.Core
 
 
         #region Public Methods
-        public Piece GetNextPiece()
-        {
-            return PieceGenerator.GetPiece();
-        }
 
-        public PreviewPiece PeekNextPiece()
-        {
-            return PieceGenerator.PeekNextPiece();
-        }
         #endregion
 
 
@@ -169,42 +150,23 @@ namespace GameClient.Classes.Core
             InputManager = new InputManager();
         }
 
-        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors)
-        {
-            PieceGenerator = new PieceGenerator(this, pieces, colors);
-        }
-
         private void InitializeTetrisBoard()
         {
             // TODO: KG - Move to config or something
             Board = new Board(this, new Point(40, 40));
         }
 
-        private void InitializePreviewPanel()
-        {
-            // TODO: KG - Move to config or something
-            var bounds = new Rectangle(Board.Bounds.X + Board.Bounds.Width + 5, 40, 100, 100);
-            PreviewPanel = new PreviewPanel(this, bounds, _application.Configuration.Board.BackgroundColor);
-        }
-
-        private void InitializeScoreBoard()
-        {
-            // TODO: KG - Move to config or something
-            var bounds = new Rectangle(Board.Bounds.X + Board.Bounds.Width + 5, 40 + 100 + 5, 100, 110);
-            ScoreBoard = new ScoreBoard(this, bounds, _application.Configuration.Board.BackgroundColor);
-        }
-
         private void RegisterUserInputs()
         {
             InputManager.RegisterKeyPressed(Keys.P, TogglePause);
-            InputManager.RegisterKeyPressed(Keys.LeftShift, ExchangePiece);
+            InputManager.RegisterKeyPressed(Keys.LeftShift, Board.ExchangePiece);
             InputManager.RegisterKeyPressed(Keys.Space, Board.DropPieceAllTheWay);
             InputManager.RegisterKeyPressed(Keys.Up, Board.RotateLeft);
             InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
             InputManager.RegisterKeyPressed(Keys.Down, Board.DropPieceByOne, true, 100);
             // TODO: KG - Adjust left/right speed
-            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 100);
-            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 100);
+            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 120);
+            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 120);
             // TODO: KG - Restart Game (With Confirmation)
             // TODO: KG - Quit Game (With Confirmation)
             InputManager.RegisterKeyPressed(Keys.Escape, App.Exit);
@@ -213,6 +175,7 @@ namespace GameClient.Classes.Core
 
         private void RestartGame()
         {
+
             Board.Reset();
         }
 
@@ -223,20 +186,12 @@ namespace GameClient.Classes.Core
             //TogglePauseMenu();
         }
 
-        private void ExchangePiece()
+        private Matrix GetSpriteScale(int width, int height)
         {
-            if (_application.Game.IsRunning && CanExchangePiece)
-            {
-                // Save Board.CurrentPiece in TemporaryPiece.
-                var tempPiece = new PreviewPiece(this, Board.CurrentPiece.Color, Board.CurrentPiece.Model,
-                                                 Board.CurrentPiece.RotationIndex, Board.CurrentPiece.Position);
-                // Save NextPiece to CurrentPiece.
-                Board.CurrentPiece = new Piece(this, PieceGenerator.PeekNextPiece(), Board.CurrentPiece.Position);
-                // Save TemporaryPiece to NextPiece.
-                PieceGenerator.SetNextPiece(tempPiece);
-                // Set Flag to Prevent Another Exchange.
-                CanExchangePiece = false;
-            }
+            float xScale = (float)width / _application.Client.WindowWidth;
+            float yScale = (float)height / _application.Client.WindowHeight;
+            float chosenScale = (width > height) ? yScale : xScale;
+            return Matrix.CreateScale(chosenScale, chosenScale, 1);
         }
         #endregion
     }

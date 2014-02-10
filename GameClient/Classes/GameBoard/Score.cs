@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameClient.Classes.Core
+namespace GameClient.Classes.GameBoard
 {
     public class Score
     {

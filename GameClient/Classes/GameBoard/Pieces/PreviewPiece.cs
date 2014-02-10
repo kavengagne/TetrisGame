@@ -3,22 +3,26 @@ using System.Linq;
 using GameClient.Classes.Core;
 using Microsoft.Xna.Framework;
 
-namespace GameClient.Classes.GameBoard
+namespace GameClient.Classes.GameBoard.Pieces
 {
     public class PreviewPiece : PieceBase, IDisposable
     {
         #region Constructor
-        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex)
+        public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex)
             : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
         {
-            Game = game;
+            Board = board;
+            SetPiecePosition();
+            UpdateBlocksPositions(board.PreviewPanel.Bounds.Location);
         }
 
-        public PreviewPiece(TetrisGame game, Color color, PieceModel model, int rotationIndex, Point position)
+        public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex, Point position)
             : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
         {
-            Game = game;
+            Board = board;
             Position = position;
+            SetPiecePosition();
+            UpdateBlocksPositions(board.PreviewPanel.Bounds.Location);
         }
         #endregion
 
@@ -27,11 +31,11 @@ namespace GameClient.Classes.GameBoard
         public override void Update(GameTime gameTime)
         {
             SetPiecePosition();
-            UpdateBlocksPositions(Game.PreviewPanel.Bounds.Location);
+            UpdateBlocksPositions(Board.PreviewPanel.Bounds.Location);
             base.Update(gameTime);
         }
 
-        public override void UpdateBlocksPositions(Point offset)
+        public override sealed void UpdateBlocksPositions(Point offset)
         {
             var positions = Model[RotationIndex];
             for (int i = 0; i < Blocks.Length; i++)
@@ -65,8 +69,8 @@ namespace GameClient.Classes.GameBoard
             int spanTop = Math.Abs(Blocks.Min(block => block.Y));
             int width = Blocks.GroupBy(block => block.X).Count() * BlockSize.Width;
             int height = Blocks.GroupBy(block => block.Y).Count() * BlockSize.Width;
-            var newX = (Game.PreviewPanel.Bounds.Width - width) / 2 + spanLeft * BlockSize.Width;
-            var newY = (Game.PreviewPanel.Bounds.Height - height) / 2 + spanTop * BlockSize.Height;
+            var newX = (Board.PreviewPanel.Bounds.Width - width) / 2 + spanLeft * BlockSize.Width;
+            var newY = (Board.PreviewPanel.Bounds.Height - height) / 2 + spanTop * BlockSize.Height;
             Position = new Point(newX, newY);
         }
         #endregion
