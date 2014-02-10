@@ -37,7 +37,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -96,19 +96,19 @@
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
     <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />
-    <Compile Include="Classes\GameBoard\PieceBase.cs" />
-    <Compile Include="Classes\GameBoard\PreviewPiece.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceBase.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PreviewPiece.cs" />
     <Compile Include="Classes\Core\Inputs\KeyAction.cs" />
     <Compile Include="Classes\Core\Inputs\InputManager.cs" />
     <Compile Include="Classes\Core\Inputs\KeyHeldAction.cs" />
     <Compile Include="Classes\Core\Inputs\KeyReleasedAction.cs" />
     <Compile Include="Classes\Core\Inputs\KeyPressedAction.cs" />
-    <Compile Include="Classes\Core\PieceGenerator.cs" />
-    <Compile Include="Classes\GameBoard\Piece.cs" />
-    <Compile Include="Classes\GameBoard\PieceModel.cs" />
-    <Compile Include="Classes\Core\Score.cs" />
-    <Compile Include="Classes\Core\PreviewPanel.cs" />
-    <Compile Include="Classes\Core\ScoreBoard.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceGenerator.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\Piece.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceModel.cs" />
+    <Compile Include="Classes\GameBoard\Score.cs" />
+    <Compile Include="Classes\GameBoard\PreviewPanel.cs" />
+    <Compile Include="Classes\GameBoard\ScoreBoard.cs" />
     <Compile Include="Classes\Core\SoundManager.cs" />
     <Compile Include="Classes\Interfaces\ISprite.cs" />
     <Compile Include="Classes\ParticleSystem\Particle.cs" />
@@ -116,23 +116,15 @@
     <Compile Include="Classes\Core\Randomizer\StaticRandom.cs" />
     <Compile Include="Classes\Core\TetrisGame.cs" />
     <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
-    <Compile Include="Classes\Core\PageSwitcher\ISwitchable.cs" />
-    <Compile Include="Classes\Core\PageSwitcher\PageSwitcherWindow.xaml.cs">
-      <DependentUpon>PageSwitcherWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\Core\PageSwitcher\Switcher.cs" />
-    <Compile Include="Pages\MainMenuPage.xaml.cs">
-      <DependentUpon>MainMenuPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Core\XnaWpf\GamePanel.xaml.cs">
       <DependentUpon>GamePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Core\XnaWpf\GameReflector.cs" />
-    <Compile Include="Pages\GamePage.xaml.cs">
-      <DependentUpon>GamePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\GamePageModel.cs" />
+    <Compile Include="Views\GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -189,19 +181,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Classes\Core\PageSwitcher\PageSwitcherWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\MainMenuPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Classes\Core\XnaWpf\GamePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\GamePage.xaml">
+    <Page Include="Views\GameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

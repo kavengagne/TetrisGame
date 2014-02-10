@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using GameClient.Classes.Core;
-using GameClient.Classes.Core.PageSwitcher;
-using GameClient.Models;
-using GameClient.Pages;
 using GameConfiguration.Classes;
 using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;

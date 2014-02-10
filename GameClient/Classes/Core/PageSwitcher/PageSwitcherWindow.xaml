@@ -1,5 +1,0 @@
-﻿<Window x:Class="GameClient.Classes.Core.PageSwitcher.PageSwitcherWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TetrisGame" Width="600" Height="800" ResizeMode="NoResize" WindowStyle="ToolWindow">
-</Window>
