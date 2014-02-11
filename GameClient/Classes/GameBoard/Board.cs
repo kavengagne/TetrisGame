@@ -15,7 +15,7 @@ namespace GameClient.Classes.GameBoard
         #region Fields
         private Block[][] _grid;
         private double _delayCurrent;
-        private readonly App _application;
+        private readonly Application _application;
         #endregion
 
 
@@ -38,7 +38,7 @@ namespace GameClient.Classes.GameBoard
         #region Constructors
         public Board(TetrisGame game, Point position)
         {
-            _application = App.Instance;
+            _application = Application.Instance;
             Game = game;
 
             var boardInformation = _application.Configuration.Board;

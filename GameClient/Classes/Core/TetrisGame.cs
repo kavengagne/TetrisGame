@@ -1,4 +1,5 @@
-﻿using GameClient.Classes.Core.Inputs;
+﻿using System;
+using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
 using Microsoft.Xna.Framework;
@@ -8,11 +9,15 @@ using Point = Microsoft.Xna.Framework.Point;
 
 
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - Bug: Correct Scaling Calculation Code.
+// TODO: KG - Feature: Finish Game Reset.
 // TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Create HoldPanel)
 // TODO: KG - Bug: Change Board Background Color or Image.
 // TODO: KG - Bug: Make Pieces Colors Consistents.
 // TODO: KG - Bug: Correct Pieces Starting Position.
+// TODO: KG - Tuning: Make sure RandomBag is implemented as detailed in: http://harddrop.com/wiki/Random_Generator
 // TODO: KG - Feature: Game Main Screen.
+// TODO: KG - Feature: Share Game with Friends.
 // TODO: KG - Feature: Server Statistics Logging.
 // TODO: KG - Feature: Client-Side Scoreboard.
 // TODO: KG - Feature: Add Game Time.
@@ -20,21 +25,18 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
 // TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
 // TODO: KG - Feature: Add small delay after moving piece. This will allow players to place the piece before it locks.
-// TODO: KG - Tuning: Redesing the GameBoard. (Handle Panel Positioning and Borders)
+// TODO: KG - Tuning: Redesign the GameBoard.
 // TODO: KG - Tuning: Improve Ghost Piece look.
 // TODO: KG - Tuning: Add more Error Handling.
 // TODO: KG - Tuning: Optimize Score. http://en.wikipedia.org/wiki/Tetris
 // TODO: KG - Tuning: Implement T-Spin Bonus. http://harddrop.com/wiki/T-Spin
-// TODO: KG - Tuning: Make sure RandomBag is implemented as detailed in: http://harddrop.com/wiki/Random_Generator
 // TODO: KG - Bug: Add OpenAL to Release Bundle.
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
 // TODO: KG - Feature: Auto Update.
 // TODO: KG - Feature: Create Installer Project.
 // TODO: KG - Feature: Add Help Feature. (Default Key: H)
-// TODO: KG - Feature: Add FullScreen Support. (Using Scaling)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
 // TODO: KG - Feature: Change Game Theme when leveling.
-// TODO: KG - Feature: Game Reset.
 // TODO: KG - Feature: Add Pause Menu. (Default Key: Escape)
 // TODO: KG - Feature: Game Over Handling.
 // TODO: KG - Feature: Add Musics. (Should create those myself)
@@ -45,8 +47,8 @@ namespace GameClient.Classes.Core
     public class TetrisGame : Game
     {
         #region Fields
-        private readonly App _application;
-        private GraphicsDeviceManager _graphics;
+        private readonly Application _application;
+        private readonly GraphicsDeviceManager _graphics;
         #endregion
 
 
@@ -64,8 +66,9 @@ namespace GameClient.Classes.Core
         #region Constructors
         public TetrisGame()
         {
-            _application = App.Instance;
+            _application = Application.Instance;
             _application.Game = this;
+            // ReSharper disable once UnusedVariable
             _graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = _application.Client.WindowWidth,
@@ -165,12 +168,13 @@ namespace GameClient.Classes.Core
             InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
             InputManager.RegisterKeyPressed(Keys.Down, Board.DropPieceByOne, true, 100);
             // TODO: KG - Adjust left/right speed
-            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 120);
-            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 120);
+            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 110);
+            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 110);
             // TODO: KG - Restart Game (With Confirmation)
             // TODO: KG - Quit Game (With Confirmation)
-            InputManager.RegisterKeyPressed(Keys.Escape, App.Exit);
+            InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
             InputManager.RegisterKeyPressed(Keys.R, RestartGame);
+            InputManager.RegisterKeyPressed(Keys.F, _graphics.ToggleFullScreen);
         }
 
         private void RestartGame()

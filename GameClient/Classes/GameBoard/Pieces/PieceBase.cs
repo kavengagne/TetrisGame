@@ -32,7 +32,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             }
             BlockSize = blockSize;
             CreateBlocks(Model[RotationIndex]);
-            SoundManager = App.Instance.Game.SoundManager;
+            SoundManager = Application.Instance.Game.SoundManager;
         }
         #endregion
 

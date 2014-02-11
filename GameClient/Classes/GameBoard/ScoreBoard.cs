@@ -31,8 +31,8 @@ namespace GameClient.Classes.GameBoard
             _board = board;
             _bounds = bounds;
             _backgroundColor = backgroundColor;
-            _texture = CreateTexture(App.Instance.Game.GraphicsDevice, bounds, backgroundColor);
-            _font = App.Instance.Game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
+            _texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, backgroundColor);
+            _font = Application.Instance.Game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
             Score = new Score();
             Score.LinesUpdated += ChangeGameBackgroundColor;
         }
@@ -96,7 +96,7 @@ namespace GameClient.Classes.GameBoard
             int newTenth = score.Lines / divider;
             if (newTenth > oldTenth)
             {
-                App.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
+                Application.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
                                                                                     StaticRandom.Next(256),
                                                                                     StaticRandom.Next(256));
             }

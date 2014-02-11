@@ -9,7 +9,7 @@ namespace GameClient.Classes.GameBoard.Pieces
     {
         #region Constructor
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex)
-            : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
         {
             Board = board;
             SetPiecePosition();
@@ -17,7 +17,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         }
 
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex, Point position)
-            : base(color, model, rotationIndex, App.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
         {
             Board = board;
             Position = position;

@@ -17,7 +17,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         #region Constructors
         public Piece(Board board, PreviewPiece previewPiece)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   App.Instance.Configuration.Board.BlockSize)
+                   Application.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Board = board;
@@ -28,7 +28,7 @@ namespace GameClient.Classes.GameBoard.Pieces
 
         public Piece(Board board, PreviewPiece previewPiece, Point position)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   App.Instance.Configuration.Board.BlockSize)
+                   Application.Instance.Configuration.Board.BlockSize)
         {
             previewPiece.Dispose();
             Board = board;
@@ -174,7 +174,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(this, positions[i], BlockSize, App.Instance.Configuration.Board.BackgroundColor, Color.Gray);
+                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor, Color.Gray);
             }
         }
 
