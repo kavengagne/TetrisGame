@@ -79,9 +79,17 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\Application.cs" />
     <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
+    <Compile Include="Classes\Extensions\StringBuilderExtFormat.cs" />
+    <Compile Include="Classes\Extensions\StringBuilderExtNumeric.cs" />
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
     <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />

@@ -8,10 +8,16 @@ using Microsoft.Xna.Framework.Input;
 using Point = Microsoft.Xna.Framework.Point;
 
 
+// TODO: KG - URGENT: SEPARATE GHOST PIECE FROM PIECE.
+// TODO: KG - Design: Change all ISprite to DrawableGameComponent.
+// TODO: KG - Design: Remove ISprite Interface.
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - Bug: Fix Objects Life Cycle Issues.
 // TODO: KG - Bug: Correct Scaling Calculation Code.
-// TODO: KG - Feature: Finish Game Reset.
-// TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Create HoldPanel)
+// TODO: KG - Feature: Finish Game Reset. (Add Confirmation)
+// TODO: KG - Feature: Finish Game Quit. (Add Confirmation)
+// TODO: KG - Feature: Integrate WPF Components inside XNA. (For Menus and Configurations / Statistics Widgets)
+// TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Should Reset Piece Position to 0) (Create HoldPanel)
 // TODO: KG - Bug: Change Board Background Color or Image.
 // TODO: KG - Bug: Make Pieces Colors Consistents.
 // TODO: KG - Bug: Correct Pieces Starting Position.
@@ -72,8 +78,11 @@ namespace GameClient.Classes.Core
             _graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = _application.Client.WindowWidth,
-                PreferredBackBufferHeight = _application.Client.WindowHeight
+                PreferredBackBufferHeight = _application.Client.WindowHeight,
+                PreferMultiSampling = true,
+                SynchronizeWithVerticalRetrace = true
             };
+            IsMouseVisible = true;
             Content.RootDirectory = "Content";
         }
         #endregion
@@ -83,14 +92,10 @@ namespace GameClient.Classes.Core
         protected override void Initialize()
         {
             Window.Title = _application.Client.WindowName;
-
             InitializeSoundManager();
             InitializeInputManager();
-
             InitializeTetrisBoard();
-
             RegisterUserInputs();
-
             base.Initialize();
         }
 
@@ -179,7 +184,6 @@ namespace GameClient.Classes.Core
 
         private void RestartGame()
         {
-
             Board.Reset();
         }
 
