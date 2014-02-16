@@ -5,11 +5,11 @@ using Microsoft.Xna.Framework;
 
 namespace GameClient.Classes.GameBoard.Pieces
 {
-    public class PreviewPiece : PieceBase, IDisposable
+    public class PreviewPiece : PieceBase
     {
         #region Constructor
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex)
-            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Application.GetInstance().Configuration.Board.PreviewBlockSize)
         {
             Board = board;
             SetPiecePosition();
@@ -17,7 +17,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         }
 
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex, Point position)
-            : base(color, model, rotationIndex, Application.Instance.Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Application.GetInstance().Configuration.Board.PreviewBlockSize)
         {
             Board = board;
             Position = position;
@@ -43,20 +43,6 @@ namespace GameClient.Classes.GameBoard.Pieces
                 Blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X + offset.X,
                                                  positions[i].Y * BlockSize.Height + Position.Y + offset.Y,
                                                  BlockSize.Width, BlockSize.Height);
-            }
-        }
-        #endregion
-
-
-        #region Implementation of IDisposable
-        public void Dispose()
-        {
-            foreach (var block in Blocks)
-            {
-                if (block != null)
-                {
-                    block.Dispose();
-                }
             }
         }
         #endregion

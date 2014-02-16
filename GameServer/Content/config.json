@@ -1,8 +1,4 @@
 ﻿{
-  "Game": {
-    "ClientVersion": "0.002",
-    "BackgroundColor": "100, 149, 237, 255"
-  },
   "Board": {
     "Rows": 25,
     "Columns": 10,

@@ -15,17 +15,22 @@ namespace GameClient.Classes
     public sealed class Application
     {
         #region Singleton Pattern
-        private static readonly Application ApplicationInstance = new Application();
-
-        public static Application Instance
+        private static Application Instance { get; set; }
+        
+        public static Application GetInstance()
         {
-            get { return ApplicationInstance; }
+            return Instance ?? (Instance = new Application());
         }
+        #endregion
 
-        static Application()
-        {
-        }
 
+        #region Properties
+        public ClientInformation Client { get; set; }
+        public Configuration Configuration { get; set; }
+        #endregion
+
+
+        #region Constructor
         private Application()
         {
             // TODO: KG - Remove Mocking Data Here
@@ -36,13 +41,6 @@ namespace GameClient.Classes
             };
             Console.WriteLine(JsonConvert.SerializeObject(col));
         }
-        #endregion
-
-
-        #region Properties
-        public ClientInformation Client { get; set; }
-        public Configuration Configuration { get; set; }
-        public TetrisGame Game { get; set; }
         #endregion
 
 
@@ -63,7 +61,7 @@ namespace GameClient.Classes
 
         public static void Exit()
         {
-            Instance.Game.Exit();
+            TetrisGame.GetInstance().Exit();
         }
         #endregion
 
@@ -77,15 +75,15 @@ namespace GameClient.Classes
 
         private void StartGame()
         {
-            Game = new TetrisGame();
+            var game = TetrisGame.GetInstance();
 
-            Game.Window.Title = Client.WindowName;
-            Game.Window.SetLocation(
+            game.Window.Title = Client.WindowName;
+            game.Window.SetLocation(
                 new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width - Client.WindowWidth) / 2, 20));
-            Game.Window.SetMinimumSize(new System.Drawing.Size(816, 639));
-            Game.Window.AllowUserResizing = true;
+            game.Window.SetMinimumSize(new System.Drawing.Size(816, 639));
+            game.Window.AllowUserResizing = true;
 
-            Game.Run();
+            game.Run();
         }
         #endregion
     }

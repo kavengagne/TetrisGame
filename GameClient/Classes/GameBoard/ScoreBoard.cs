@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using GameClient.Classes.Core;
-using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
@@ -31,10 +30,10 @@ namespace GameClient.Classes.GameBoard
             _board = board;
             _bounds = bounds;
             _backgroundColor = backgroundColor;
-            _texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, backgroundColor);
-            _font = Application.Instance.Game.Content.Load<SpriteFont>("Fonts/ScoreBoard");
+            _texture = CreateTexture(TetrisGame.GetInstance().GraphicsDevice, bounds, backgroundColor);
+            _font = TetrisGame.GetInstance().Content.Load<SpriteFont>("Fonts/ScoreBoard");
             Score = new Score();
-            Score.LinesUpdated += ChangeGameBackgroundColor;
+            Score.LinesUpdated += TetrisGame.GetInstance().ChangeGameBackgroundColor;
         }
         #endregion
 
@@ -87,21 +86,6 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Internal Implementation
-        private void ChangeGameBackgroundColor(Score score, int updateValue)
-        {
-            // TODO: KG - Move to configuration.
-            const int divider = 10;
-            int oldValue = score.Lines - updateValue;
-            int oldTenth = oldValue / divider;
-            int newTenth = score.Lines / divider;
-            if (newTenth > oldTenth)
-            {
-                Application.Instance.Configuration.Game.BackgroundColor = new Color(StaticRandom.Next(256),
-                                                                                    StaticRandom.Next(256),
-                                                                                    StaticRandom.Next(256));
-            }
-        }
-
         private Texture2D CreateTexture(GraphicsDevice graphicsDevice, Rectangle bounds, Color color)
         {
             var texture = new Texture2D(graphicsDevice, bounds.Width, bounds.Height);

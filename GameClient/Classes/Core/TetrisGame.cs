@@ -1,5 +1,6 @@
-﻿using System;
-using GameClient.Classes.Core.Inputs;
+﻿using GameClient.Classes.Core.Inputs;
+using GameClient.Classes.Core.Managers;
+using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
 using Microsoft.Xna.Framework;
@@ -9,9 +10,8 @@ using Point = Microsoft.Xna.Framework.Point;
 
 
 // TODO: KG - URGENT: SEPARATE GHOST PIECE FROM PIECE.
-// TODO: KG - Design: Change all ISprite to DrawableGameComponent.
-// TODO: KG - Design: Remove ISprite Interface.
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - Bug: Fix Fullscreen Resolution.
 // TODO: KG - Bug: Fix Objects Life Cycle Issues.
 // TODO: KG - Bug: Correct Scaling Calculation Code.
 // TODO: KG - Feature: Finish Game Reset. (Add Confirmation)
@@ -52,38 +52,61 @@ namespace GameClient.Classes.Core
 {
     public class TetrisGame : Game
     {
+        #region Singleton Pattern
+        private static TetrisGame Instance { get; set; }
+
+        public static TetrisGame GetInstance()
+        {
+            return Instance ?? (Instance = new TetrisGame());
+        }
+        #endregion
+
+
         #region Fields
-        private readonly Application _application;
         private readonly GraphicsDeviceManager _graphics;
         #endregion
 
 
         #region Properties
+        public Color BackgroundColor { get; set; }
         public bool IsRunning { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
         public ParticleEngine ParticleEngine { get; set; }
         public Board Board { get; set; }
-        public SoundManager SoundManager { get; set; }
         public InputManager InputManager { get; set; }
         public Matrix SpriteScale { get; set; }
         #endregion
 
 
         #region Constructors
-        public TetrisGame()
+        private TetrisGame()
         {
-            _application = Application.Instance;
-            _application.Game = this;
-            // ReSharper disable once UnusedVariable
             _graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = _application.Client.WindowWidth,
-                PreferredBackBufferHeight = _application.Client.WindowHeight,
+                PreferredBackBufferWidth = Application.GetInstance().Client.WindowWidth,
+                PreferredBackBufferHeight = Application.GetInstance().Client.WindowHeight,
                 PreferMultiSampling = true,
                 SynchronizeWithVerticalRetrace = true
             };
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
+            BackgroundColor = Color.CornflowerBlue;
+        }
+        #endregion
+
+
+        #region Public Methods
+        public void ChangeGameBackgroundColor(Score score, int updateValue)
+        {
+            // TODO: KG - Move to configuration.
+            const int divider = 10;
+            int oldValue = score.Lines - updateValue;
+            int oldTenth = oldValue / divider;
+            int newTenth = score.Lines / divider;
+            if (newTenth > oldTenth)
+            {
+                BackgroundColor = new Color(StaticRandom.Next(256), StaticRandom.Next(256), StaticRandom.Next(256));
+            }
         }
         #endregion
 
@@ -91,10 +114,10 @@ namespace GameClient.Classes.Core
         #region Methods Overrides
         protected override void Initialize()
         {
-            Window.Title = _application.Client.WindowName;
-            InitializeSoundManager();
-            InitializeInputManager();
-            InitializeTetrisBoard();
+            Window.Title = Application.GetInstance().Client.WindowName;
+            InputManager = new InputManager();
+            Board = new Board(this, new Point(40, 40));
+            
             RegisterUserInputs();
             base.Initialize();
         }
@@ -104,13 +127,8 @@ namespace GameClient.Classes.Core
             SpriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
-            //var textures = new List<Texture2D>
-            //{
-            //    Content.Load<Texture2D>("Graphics/circle"),
-            //    Content.Load<Texture2D>("Graphics/star"),
-            //    Content.Load<Texture2D>("Graphics/diamond")
-            //};
-            //ParticleEngine = new ParticleEngine(textures, new Vector2(400, 240));
+            SoundManager.GetInstance();
+            TextureManager.GetInstance();
         }
 
         protected override void UnloadContent()
@@ -132,8 +150,8 @@ namespace GameClient.Classes.Core
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(_application.Configuration.Game.BackgroundColor);
-            SpriteBatch.Begin(0, null, null, null, null, null, SpriteScale);
+            GraphicsDevice.Clear(BackgroundColor);
+            SpriteBatch.Begin(0, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
             Board.Draw(SpriteBatch, gameTime);
             SpriteBatch.End();
             //ParticleEngine.Draw(_spriteBatch, gameTime);
@@ -142,28 +160,7 @@ namespace GameClient.Classes.Core
         #endregion
 
 
-        #region Public Methods
-
-        #endregion
-
-
         #region Internal Implementation
-        private void InitializeSoundManager()
-        {
-            SoundManager = new SoundManager(Content);
-        }
-
-        private void InitializeInputManager()
-        {
-            InputManager = new InputManager();
-        }
-
-        private void InitializeTetrisBoard()
-        {
-            // TODO: KG - Move to config or something
-            Board = new Board(this, new Point(40, 40));
-        }
-
         private void RegisterUserInputs()
         {
             InputManager.RegisterKeyPressed(Keys.P, TogglePause);
@@ -173,8 +170,8 @@ namespace GameClient.Classes.Core
             InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
             InputManager.RegisterKeyPressed(Keys.Down, Board.DropPieceByOne, true, 100);
             // TODO: KG - Adjust left/right speed
-            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 110);
-            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 110);
+            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 120);
+            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 120);
             // TODO: KG - Restart Game (With Confirmation)
             // TODO: KG - Quit Game (With Confirmation)
             InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
@@ -189,15 +186,15 @@ namespace GameClient.Classes.Core
 
         private void TogglePause()
         {
-            _application.Game.IsRunning = !_application.Game.IsRunning;
-            SoundManager.Play("Pause");
+            IsRunning = !IsRunning;
+            SoundManager.GetInstance().Play("Pause");
             //TogglePauseMenu();
         }
 
         private Matrix GetSpriteScale(int width, int height)
         {
-            float xScale = (float)width / _application.Client.WindowWidth;
-            float yScale = (float)height / _application.Client.WindowHeight;
+            float xScale = (float)width / Application.GetInstance().Client.WindowWidth;
+            float yScale = (float)height / Application.GetInstance().Client.WindowHeight;
             float chosenScale = (width > height) ? yScale : xScale;
             return Matrix.CreateScale(chosenScale, chosenScale, 1);
         }

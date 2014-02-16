@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GameClient.Classes.Core;
+using GameClient.Classes.Core.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -17,9 +17,8 @@ namespace GameClient.Classes.GameBoard.Pieces
         #region Constructors
         public Piece(Board board, PreviewPiece previewPiece)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.Instance.Configuration.Board.BlockSize)
+                   Application.GetInstance().Configuration.Board.BlockSize)
         {
-            previewPiece.Dispose();
             Board = board;
             Position = new Point(5, 0);
             CreateGhostBlocks(Model[RotationIndex]);
@@ -28,9 +27,8 @@ namespace GameClient.Classes.GameBoard.Pieces
 
         public Piece(Board board, PreviewPiece previewPiece, Point position)
             : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.Instance.Configuration.Board.BlockSize)
+                   Application.GetInstance().Configuration.Board.BlockSize)
         {
-            previewPiece.Dispose();
             Board = board;
             Position = position;
             CreateGhostBlocks(Model[RotationIndex]);
@@ -89,7 +87,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Move(-1, 0))
             {
-                SoundManager.Play("Move",(float)0.25);
+                SoundManager.GetInstance().Play("Move",(float)0.25);
             }
         }
 
@@ -97,7 +95,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Move(1, 0))
             {
-                SoundManager.Play("Move", (float)0.25);
+                SoundManager.GetInstance().Play("Move", (float)0.25);
             }
         }
 
@@ -105,7 +103,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Rotate(deltaRotation: 3))
             {
-                SoundManager.Play("Rotate", (float)0.25);
+                SoundManager.GetInstance().Play("Rotate", (float)0.25);
             }
         }
 
@@ -113,7 +111,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Rotate(deltaRotation: 1))
             {
-                SoundManager.Play("Rotate", (float)0.25);
+                SoundManager.GetInstance().Play("Rotate", (float)0.25);
             }
         }
         #endregion
@@ -174,7 +172,8 @@ namespace GameClient.Classes.GameBoard.Pieces
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(this, positions[i], BlockSize, Application.Instance.Configuration.Board.BackgroundColor, Color.Gray);
+                GhostBlocks[i] = new Block(positions[i], BlockSize,
+                                           Application.GetInstance().Configuration.Board.BackgroundColor);
             }
         }
 

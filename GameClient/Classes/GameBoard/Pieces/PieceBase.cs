@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GameClient.Classes.Core;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,7 +15,6 @@ namespace GameClient.Classes.GameBoard.Pieces
         public PieceModel Model { get; protected set; }
         public int RotationIndex { get; protected set; }
         public Rectangle BlockSize { get; protected set; }
-        public SoundManager SoundManager { get; set; }
         #endregion
 
 
@@ -32,7 +30,6 @@ namespace GameClient.Classes.GameBoard.Pieces
             }
             BlockSize = blockSize;
             CreateBlocks(Model[RotationIndex]);
-            SoundManager = Application.Instance.Game.SoundManager;
         }
         #endregion
 
@@ -58,7 +55,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             Blocks = new Block[positions.Count];
             for (int i = 0; i < Blocks.Length; i++)
             {
-                Blocks[i] = new Block(this, positions[i], BlockSize, Color);
+                Blocks[i] = new Block(positions[i], BlockSize, Color);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using GameClient.Classes.Core;
+using GameClient.Classes.Core.Managers;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.GameBoard.Pieces;
 using GameClient.Classes.Interfaces;
@@ -15,7 +16,6 @@ namespace GameClient.Classes.GameBoard
         #region Fields
         private Block[][] _grid;
         private double _delayCurrent;
-        private readonly Application _application;
         #endregion
 
 
@@ -38,10 +38,9 @@ namespace GameClient.Classes.GameBoard
         #region Constructors
         public Board(TetrisGame game, Point position)
         {
-            _application = Application.Instance;
             Game = game;
 
-            var boardInformation = _application.Configuration.Board;
+            var boardInformation = Application.GetInstance().Configuration.Board;
             Rows = boardInformation.Rows;
             Columns = boardInformation.Columns;
             UpdateDelay = boardInformation.Speed;
@@ -88,7 +87,7 @@ namespace GameClient.Classes.GameBoard
                 RemoveCompletedLines();
                 if (!IsGameOver())
                 {
-                    Game.SoundManager.Play("Drop", (float)0.5);
+                    SoundManager.GetInstance().Play("Drop", (float)0.5);
                     CurrentPiece = GetNextPiece();
                     CurrentPiece.UpdateBlocksPositions(Bounds.Location);
                 }
@@ -102,8 +101,8 @@ namespace GameClient.Classes.GameBoard
         {
             InitializeGameGrid();
             InitializePreviewPanel();
-            InitializePieceGenerator(_application.Configuration.Pieces,
-                                     _application.Configuration.PiecesColors);
+            InitializePieceGenerator(Application.GetInstance().Configuration.Pieces,
+                                     Application.GetInstance().Configuration.PiecesColors);
             InitializeScoreBoard();
             CurrentPiece = GetNextPiece();
             CurrentPiece.UpdateBlocksPositions(Bounds.Location);
@@ -111,7 +110,7 @@ namespace GameClient.Classes.GameBoard
 
         public void ExchangePiece()
         {
-            if (_application.Game.IsRunning && CanExchangePiece)
+            if (TetrisGame.GetInstance().IsRunning && CanExchangePiece)
             {
                 // Save Board.CurrentPiece in TemporaryPiece.
                 var tempPiece = new PreviewPiece(this, CurrentPiece.Color, CurrentPiece.Model,
@@ -127,7 +126,7 @@ namespace GameClient.Classes.GameBoard
 
         public void DropPieceAllTheWay()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 CurrentPiece.DropAllTheWay();
             }
@@ -135,7 +134,7 @@ namespace GameClient.Classes.GameBoard
 
         public void DropPieceByOne()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 if (CurrentPiece.DropByOne())
                 {
@@ -146,7 +145,7 @@ namespace GameClient.Classes.GameBoard
 
         public void MoveLeft()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 CurrentPiece.MoveLeft();
             }
@@ -154,7 +153,7 @@ namespace GameClient.Classes.GameBoard
 
         public void MoveRight()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 CurrentPiece.MoveRight();
             }
@@ -162,7 +161,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateLeft()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 CurrentPiece.RotateLeft();
             }
@@ -170,7 +169,7 @@ namespace GameClient.Classes.GameBoard
 
         public void RotateRight()
         {
-            if (!IsGameOver() && _application.Game.IsRunning)
+            if (!IsGameOver() && TetrisGame.GetInstance().IsRunning)
             {
                 CurrentPiece.RotateRight();
             }
@@ -181,7 +180,7 @@ namespace GameClient.Classes.GameBoard
         #region ISprite Implementation
         public void Update(GameTime gameTime)
         {
-            if (_application.Game.IsRunning && IsDelayExpired(gameTime))
+            if (TetrisGame.GetInstance().IsRunning && IsDelayExpired(gameTime))
             {
                 CurrentPiece.Update(gameTime);
                 UpdateBoard();
@@ -217,14 +216,14 @@ namespace GameClient.Classes.GameBoard
         {
             // TODO: KG - Move to config or something
             var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40, 100, 100);
-            PreviewPanel = new PreviewPanel(this, bounds, _application.Configuration.Board.BackgroundColor);
+            PreviewPanel = new PreviewPanel(this, bounds, Application.GetInstance().Configuration.Board.BackgroundColor);
         }
 
         private void InitializeScoreBoard()
         {
             // TODO: KG - Move to config or something
             var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40 + 100 + 5, 100, 110);
-            ScoreBoard = new ScoreBoard(this, bounds, _application.Configuration.Board.BackgroundColor);
+            ScoreBoard = new ScoreBoard(this, bounds, Application.GetInstance().Configuration.Board.BackgroundColor);
         }
 
         private void InitializeGameGrid()
@@ -282,7 +281,7 @@ namespace GameClient.Classes.GameBoard
             if (removedLinesCount > 0)
             {
                 //var pitch = (float)0.33 * (Math.Max(removedLinesCount - 1, 0));
-                Game.SoundManager.Play("Remove");
+                SoundManager.GetInstance().Play("Remove");
                 
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)
@@ -302,7 +301,7 @@ namespace GameClient.Classes.GameBoard
                     if (column[row] != null)
                     {
                         column[row].Bounds = new Rectangle(column[row].Bounds.X,
-                                                           column[row].Bounds.Y + _application.Configuration.Board.BlockSize.Height,
+                                                           column[row].Bounds.Y + Application.GetInstance().Configuration.Board.BlockSize.Height,
                                                            column[row].Bounds.Width,
                                                            column[row].Bounds.Height);
                     }
@@ -315,11 +314,7 @@ namespace GameClient.Classes.GameBoard
         {
             foreach (Block[] column in _grid)
             {
-                if (column[rowIndex] != null)
-                {
-                    column[rowIndex].Dispose();
-                    column[rowIndex] = null;
-                }
+                column[rowIndex] = null;
             }
         }
 

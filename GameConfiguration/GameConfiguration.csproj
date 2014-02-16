@@ -54,7 +54,6 @@
     <Compile Include="DataObjects\BoardInformation.cs" />
     <Compile Include="Classes\ConfigurationLoader.cs" />
     <Compile Include="DataObjects\Configuration.cs" />
-    <Compile Include="DataObjects\GameInformation.cs" />
     <Compile Include="DataObjects\PieceInformation.cs" />
     <Compile Include="DataObjects\ClientInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

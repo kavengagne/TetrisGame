@@ -1,10 +1,4 @@
-﻿
-// Taken from http://projectdrake.net/blog/2013/03/31/tutorial-setting-window-position-in-xnamonogame/
-// Thank you Eniko :)
-
-
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 
@@ -27,7 +21,7 @@ namespace GameClient.Classes.Extensions
 
         private static Form GetForm(GameWindow window)
         {
-            var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(window.Handle);
+            var form = (Form)Control.FromHandle(window.Handle);
             return form;
         }
         #endregion

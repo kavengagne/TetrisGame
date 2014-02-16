@@ -26,7 +26,7 @@ namespace GameClient.Classes.GameBoard
             _board = board;
             Bounds = bounds;
             _backgroundColor = backgroundColor;
-            _texture = CreateTexture(Application.Instance.Game.GraphicsDevice, bounds, backgroundColor);
+            _texture = CreateTexture(TetrisGame.GetInstance().GraphicsDevice, bounds, backgroundColor);
         }
         #endregion
 

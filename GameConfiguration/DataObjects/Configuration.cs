@@ -6,9 +6,6 @@ namespace GameConfiguration.DataObjects
     public class Configuration
     {
         [JsonProperty]
-        public GameInformation Game { get; set; }
-
-        [JsonProperty]
         public BoardInformation Board { get; set; }
 
         [JsonProperty]

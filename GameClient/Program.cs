@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using GameClient.Classes;
 
 
@@ -10,9 +12,15 @@ namespace GameClient
         [STAThread]
         static void Main()
         {
-            // ReSharper disable once UnusedVariable
-            var application = Application.Instance;
-            application.Run();
+            try
+            {
+                Application.GetInstance().Run();
+            }
+            catch (Exception ex)
+            {
+                File.WriteAllText("error_log.txt", ex.ToString());
+                Process.Start("error_log.txt");
+            }
         }
     }
 #endif
