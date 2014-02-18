@@ -71,10 +71,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>config</Name>
-    </Content>
     <Compile Include="Graphics\circle.png">
       <Name>circle</Name>
       <Importer>TextureImporter</Importer>

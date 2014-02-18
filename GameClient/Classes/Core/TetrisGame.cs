@@ -1,6 +1,7 @@
 ﻿using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.Core.Managers;
 using GameClient.Classes.Core.Randomizer;
+using GameClient.Classes.Core.Settings;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
 using Microsoft.Xna.Framework;
@@ -83,14 +84,14 @@ namespace GameClient.Classes.Core
         {
             _graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = Application.GetInstance().Client.WindowWidth,
-                PreferredBackBufferHeight = Application.GetInstance().Client.WindowHeight,
+                PreferredBackBufferWidth = Configuration.GetInstance().WindowWidth,
+                PreferredBackBufferHeight = Configuration.GetInstance().WindowHeight,
                 PreferMultiSampling = true,
                 SynchronizeWithVerticalRetrace = true
             };
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
-            BackgroundColor = Color.CornflowerBlue;
+            BackgroundColor = Defaults.Game.BackgroundColor;
         }
         #endregion
 
@@ -114,7 +115,7 @@ namespace GameClient.Classes.Core
         #region Methods Overrides
         protected override void Initialize()
         {
-            Window.Title = Application.GetInstance().Client.WindowName;
+            Window.Title = Defaults.Window.Name;
             InputManager = new InputManager();
             Board = new Board(this, new Point(40, 40));
             
@@ -193,8 +194,8 @@ namespace GameClient.Classes.Core
 
         private Matrix GetSpriteScale(int width, int height)
         {
-            float xScale = (float)width / Application.GetInstance().Client.WindowWidth;
-            float yScale = (float)height / Application.GetInstance().Client.WindowHeight;
+            float xScale = (float)width / Configuration.GetInstance().WindowWidth;
+            float yScale = (float)height / Configuration.GetInstance().WindowHeight;
             float chosenScale = (width > height) ? yScale : xScale;
             return Matrix.CreateScale(chosenScale, chosenScale, 1);
         }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using GameClient.Classes.Core;
+﻿using System.Linq;
 using GameClient.Classes.Core.Randomizer;
-using GameConfiguration.DataObjects;
-using Microsoft.Xna.Framework;
+using GameClient.Classes.Core.Settings;
 
 namespace GameClient.Classes.GameBoard.Pieces
 {
@@ -14,44 +9,21 @@ namespace GameClient.Classes.GameBoard.Pieces
         #region Fields
         private readonly Board _board;
         private readonly PieceInformation[] _pieces;
-        private Color[] _colors;
         private PreviewPiece _nextPiece;
         private readonly RandomBag _randomBag;
         #endregion
 
 
         #region Constructors
-        public PieceGenerator(Board board, PieceInformation[] pieces, Color[] colors)
+        public PieceGenerator(Board board)
         {
             _board = board;
-            _pieces = pieces;
-            _colors = colors;
-            _randomBag = new RandomBag(pieces.Length);
+            _pieces = Defaults.Pieces;
+            _randomBag = new RandomBag(_pieces.Length);
 
-            DeterminePiecesColors();
+            //DeterminePiecesColors();
 
             _nextPiece = GetRandomPiece();
-
-            // TODO: KG - May use this in Piece Editor
-            var colorNames = new Dictionary<String, Color>();
-            foreach (var color in colors)
-            {
-                var properties = typeof(Color).GetProperties(BindingFlags.Static | BindingFlags.Public);
-                var currentColor = color;
-                foreach (var propertyInfo in properties)
-                {
-                    var col = (Color)propertyInfo.GetValue(null);
-                    if (col == currentColor)
-                    {
-                        colorNames.Add(propertyInfo.Name, currentColor);
-                        break;
-                    }
-                }
-            }
-            foreach (var colorName in colorNames)
-            {
-                Console.WriteLine("{0} = {1}", colorName.Key, colorName.Value);
-            }
         }
         #endregion
 
@@ -76,30 +48,30 @@ namespace GameClient.Classes.GameBoard.Pieces
 
 
         #region Internal Implementation
-        private void DeterminePiecesColors()
-        {
-            _colors = GetShuffledColors();
-            for (int i = 0; i < _pieces.Length; i++)
-            {
-                _pieces[i].Color = _colors[i];
-            }
-        }
+        //private void DeterminePiecesColors()
+        //{
+        //    _colors = GetShuffledColors();
+        //    for (int i = 0; i < _pieces.Length; i++)
+        //    {
+        //        _pieces[i].Color = _colors[i];
+        //    }
+        //}
 
-        private Color[] GetShuffledColors()
-        {
-            var randNumbers = new List<int>();
-            foreach (var color in _colors)
-            {
-                int num;
-                do
-                {
-                    num = StaticRandom.Next(_colors.Length);
-                }
-                while (randNumbers.Contains(num));
-                randNumbers.Add(num);
-            }
-            return randNumbers.Select(item => _colors[item]).ToArray();
-        }
+        //private Color[] GetShuffledColors()
+        //{
+        //    var randNumbers = new List<int>();
+        //    foreach (var color in _colors)
+        //    {
+        //        int num;
+        //        do
+        //        {
+        //            num = StaticRandom.Next(_colors.Length);
+        //        }
+        //        while (randNumbers.Contains(num));
+        //        randNumbers.Add(num);
+        //    }
+        //    return randNumbers.Select(item => _colors[item]).ToArray();
+        //}
 
         private PreviewPiece GetRandomPiece()
         {

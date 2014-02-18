@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameClientContent", "GameCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer", "GameServer\GameServer.csproj", "{8827D162-89D7-457E-A00F-2F5709D27652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConfiguration", "GameConfiguration\GameConfiguration.csproj", "{5BD6E439-1ECA-4DB5-A080-93345E5FA012}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7CA1106E-0C8A-436D-8CD3-4D14E1719163}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -58,16 +56,6 @@ Global
 		{8827D162-89D7-457E-A00F-2F5709D27652}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8827D162-89D7-457E-A00F-2F5709D27652}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8827D162-89D7-457E-A00F-2F5709D27652}.Release|x86.ActiveCfg = Release|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{5BD6E439-1ECA-4DB5-A080-93345E5FA012}.Release|x86.ActiveCfg = Release|Any CPU
 		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8F61CA7-A071-4972-AD71-DC8AAB1EBBEA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

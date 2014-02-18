@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GameConfiguration.Classes
+namespace GameClient.Classes.Extensions
 {
     public class RectangleJsonConverter : JsonConverter
     {

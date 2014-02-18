@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameClient.Classes.Core.Managers;
+using GameClient.Classes.Core.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,8 +17,7 @@ namespace GameClient.Classes.GameBoard.Pieces
 
         #region Constructors
         public Piece(Board board, PreviewPiece previewPiece)
-            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.GetInstance().Configuration.Board.BlockSize)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, Defaults.Board.BlockSize)
         {
             Board = board;
             Position = new Point(5, 0);
@@ -26,8 +26,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         }
 
         public Piece(Board board, PreviewPiece previewPiece, Point position)
-            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex,
-                   Application.GetInstance().Configuration.Board.BlockSize)
+            : base(previewPiece.Color, previewPiece.Model, previewPiece.RotationIndex, Defaults.Board.BlockSize)
         {
             Board = board;
             Position = position;
@@ -172,8 +171,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(positions[i], BlockSize,
-                                           Application.GetInstance().Configuration.Board.BackgroundColor);
+                GhostBlocks[i] = new Block(positions[i], BlockSize, Defaults.Board.BackgroundColor);
             }
         }
 

@@ -1,7 +1,0 @@
-﻿{
-  "ServerAddress": "http://kavenserver.no-ip.org:88",
-  "ServerQuery": "/tetris/config",
-  "WindowName": "TetrisGame by Kaven Gagné",
-  "WindowWidth": 800,
-  "WindowHeight": 600
-}

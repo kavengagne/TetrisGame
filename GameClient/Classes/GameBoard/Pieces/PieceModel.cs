@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 
 namespace GameClient.Classes.GameBoard.Pieces

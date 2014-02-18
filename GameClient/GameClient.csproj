@@ -90,13 +90,17 @@
     <Compile Include="Classes\Application.cs" />
     <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
     <Compile Include="Classes\Core\Managers\TextureManager.cs" />
+    <Compile Include="Classes\Core\Settings\Configuration.cs" />
+    <Compile Include="Classes\Core\Settings\Defaults.cs" />
     <Compile Include="Classes\Extensions\ContentManagerExtensions.cs" />
+    <Compile Include="Classes\Extensions\RectangleJsonConverter.cs" />
     <Compile Include="Classes\Extensions\StringBuilderExtFormat.cs" />
     <Compile Include="Classes\Extensions\StringBuilderExtNumeric.cs" />
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
     <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />
     <Compile Include="Classes\GameBoard\Pieces\PieceBase.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceInformation.cs" />
     <Compile Include="Classes\GameBoard\Pieces\PreviewPiece.cs" />
     <Compile Include="Classes\Core\Inputs\KeyAction.cs" />
     <Compile Include="Classes\Core\Inputs\InputManager.cs" />
@@ -118,6 +122,11 @@
     <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
@@ -143,13 +152,16 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <Content Include="Icon.ico" />
     <None Include="GameClient_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -178,10 +190,6 @@
       <Name>GameClientContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{BA902A47-8107-4008-BE30-788A6AB98164}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GameConfiguration\GameConfiguration.csproj">
-      <Project>{5bd6e439-1eca-4db5-a080-93345e5fa012}</Project>
-      <Name>GameConfiguration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

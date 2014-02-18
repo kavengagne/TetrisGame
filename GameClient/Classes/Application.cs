@@ -4,11 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using GameClient.Classes.Core;
+using GameClient.Classes.Core.Settings;
 using GameClient.Classes.Extensions;
-using GameConfiguration.Classes;
-using GameConfiguration.DataObjects;
-using Newtonsoft.Json;
-using Color = Microsoft.Xna.Framework.Color;
 
 namespace GameClient.Classes
 {
@@ -24,22 +21,9 @@ namespace GameClient.Classes
         #endregion
 
 
-        #region Properties
-        public ClientInformation Client { get; set; }
-        public Configuration Configuration { get; set; }
-        #endregion
-
-
         #region Constructor
         private Application()
         {
-            // TODO: KG - Remove Mocking Data Here
-            var col = new[]
-            {
-                Color.Red, Color.LightBlue, Color.White, Color.Yellow,
-                Color.Orange, Color.LightGreen, Color.Pink, Color.Violet
-            };
-            Console.WriteLine(JsonConvert.SerializeObject(col));
         }
         #endregion
 
@@ -69,17 +53,16 @@ namespace GameClient.Classes
         #region Internal Implementation
         private void LoadConfiguration()
         {
-            Client = ConfigurationLoader.GetClientConfiguration();
-            Configuration = ConfigurationLoader.GetServerConfiguration(Client);
+            Configuration.GetInstance();
         }
 
         private void StartGame()
         {
             var game = TetrisGame.GetInstance();
 
-            game.Window.Title = Client.WindowName;
+            game.Window.Title = Defaults.Window.Name;
             game.Window.SetLocation(
-                new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width - Client.WindowWidth) / 2, 20));
+                new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width - Configuration.GetInstance().WindowWidth) / 2, 20));
             game.Window.SetMinimumSize(new System.Drawing.Size(816, 639));
             game.Window.AllowUserResizing = true;
 

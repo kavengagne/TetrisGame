@@ -9,7 +9,7 @@ namespace GameClient.Classes.Core.Managers
 {
     public class TextureManager
     {
-        #region Singleton
+        #region Singleton Pattern
         private static TextureManager Instance { get; set; }
 
         public static TextureManager GetInstance()

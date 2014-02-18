@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using GameClient.Classes.Core;
+using GameClient.Classes.Core.Settings;
 using Microsoft.Xna.Framework;
 
 namespace GameClient.Classes.GameBoard.Pieces
@@ -9,7 +9,7 @@ namespace GameClient.Classes.GameBoard.Pieces
     {
         #region Constructor
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex)
-            : base(color, model, rotationIndex, Application.GetInstance().Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Defaults.Board.PreviewBlockSize)
         {
             Board = board;
             SetPiecePosition();
@@ -17,7 +17,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         }
 
         public PreviewPiece(Board board, Color color, PieceModel model, int rotationIndex, Point position)
-            : base(color, model, rotationIndex, Application.GetInstance().Configuration.Board.PreviewBlockSize)
+            : base(color, model, rotationIndex, Defaults.Board.PreviewBlockSize)
         {
             Board = board;
             Position = position;

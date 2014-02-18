@@ -2,10 +2,10 @@
 using System.Linq;
 using GameClient.Classes.Core;
 using GameClient.Classes.Core.Managers;
+using GameClient.Classes.Core.Settings;
 using GameClient.Classes.Extensions;
 using GameClient.Classes.GameBoard.Pieces;
 using GameClient.Classes.Interfaces;
-using GameConfiguration.DataObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -40,15 +40,14 @@ namespace GameClient.Classes.GameBoard
         {
             Game = game;
 
-            var boardInformation = Application.GetInstance().Configuration.Board;
-            Rows = boardInformation.Rows;
-            Columns = boardInformation.Columns;
-            UpdateDelay = boardInformation.Speed;
-            BackgroundColor = boardInformation.BackgroundColor;
+            Rows = Defaults.Board.Rows;
+            Columns = Defaults.Board.Columns;
+            UpdateDelay = Defaults.Board.Speed;
+            BackgroundColor = Defaults.Board.BackgroundColor;
 
             Bounds = new Rectangle(position.X, position.Y,
-                                   Columns * boardInformation.BlockSize.Width,
-                                   Rows * boardInformation.BlockSize.Height);
+                                   Columns * Defaults.Board.BlockSize.Width,
+                                   Rows * Defaults.Board.BlockSize.Height);
             
             Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
 
@@ -101,8 +100,7 @@ namespace GameClient.Classes.GameBoard
         {
             InitializeGameGrid();
             InitializePreviewPanel();
-            InitializePieceGenerator(Application.GetInstance().Configuration.Pieces,
-                                     Application.GetInstance().Configuration.PiecesColors);
+            PieceGenerator = new PieceGenerator(this);
             InitializeScoreBoard();
             CurrentPiece = GetNextPiece();
             CurrentPiece.UpdateBlocksPositions(Bounds.Location);
@@ -207,23 +205,18 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Internal Implementation
-        private void InitializePieceGenerator(PieceInformation[] pieces, Color[] colors)
-        {
-            PieceGenerator = new PieceGenerator(this, pieces, colors);
-        }
-
         private void InitializePreviewPanel()
         {
             // TODO: KG - Move to config or something
             var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40, 100, 100);
-            PreviewPanel = new PreviewPanel(this, bounds, Application.GetInstance().Configuration.Board.BackgroundColor);
+            PreviewPanel = new PreviewPanel(this, bounds, Defaults.Board.BackgroundColor);
         }
 
         private void InitializeScoreBoard()
         {
             // TODO: KG - Move to config or something
             var bounds = new Rectangle(Bounds.X + Bounds.Width + 5, 40 + 100 + 5, 100, 110);
-            ScoreBoard = new ScoreBoard(this, bounds, Application.GetInstance().Configuration.Board.BackgroundColor);
+            ScoreBoard = new ScoreBoard(this, bounds, Defaults.Board.BackgroundColor);
         }
 
         private void InitializeGameGrid()
@@ -301,7 +294,7 @@ namespace GameClient.Classes.GameBoard
                     if (column[row] != null)
                     {
                         column[row].Bounds = new Rectangle(column[row].Bounds.X,
-                                                           column[row].Bounds.Y + Application.GetInstance().Configuration.Board.BlockSize.Height,
+                                                           column[row].Bounds.Y + Defaults.Board.BlockSize.Height,
                                                            column[row].Bounds.Width,
                                                            column[row].Bounds.Height);
                     }

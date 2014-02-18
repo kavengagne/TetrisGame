@@ -1,19 +1,16 @@
-﻿using System.IO;
-using System.Web;
-using System.Web.Http;
-using GameConfiguration.DataObjects;
-using Newtonsoft.Json;
+﻿using System.Web.Http;
 
 namespace GameServer.Controllers
 {
     public class ConfigController : ApiController
     {
         // GET api/values
-        public Configuration Get()
+        public string Get()
         {
             // TODO: KG - Add error handling
-            var data = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Content/config.json"));
-            return JsonConvert.DeserializeObject<Configuration>(data);
+            //var data = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Content/config.json"));
+            //return JsonConvert.DeserializeObject<Configuration>(data);
+            return "Kaven";
         }
 
         // GET api/values/5
