@@ -12,6 +12,7 @@ using Point = Microsoft.Xna.Framework.Point;
 
 // TODO: KG - URGENT: SEPARATE GHOST PIECE FROM PIECE.
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - Bug: Fix Ghost Piece Color on Black Background.
 // TODO: KG - Bug: Fix Fullscreen Resolution.
 // TODO: KG - Bug: Fix Objects Life Cycle Issues.
 // TODO: KG - Bug: Correct Scaling Calculation Code.
@@ -129,7 +130,6 @@ namespace GameClient.Classes.Core
             SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             SoundManager.GetInstance();
-            TextureManager.GetInstance();
         }
 
         protected override void UnloadContent()
@@ -143,6 +143,7 @@ namespace GameClient.Classes.Core
             //Console.WriteLine("w:{0}, h:{1}", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             InputManager.HandleInputs(gameTime);
+            SoundManager.GetInstance().Update(gameTime);
             Board.Update(gameTime);
             //ParticleEngine.EmitterLocation = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             //ParticleEngine.Update(gameTime);
@@ -188,11 +189,11 @@ namespace GameClient.Classes.Core
         private void TogglePause()
         {
             IsRunning = !IsRunning;
-            SoundManager.GetInstance().Play("Pause");
+            SoundManager.GetInstance().PlaySound("Pause");
             //TogglePauseMenu();
         }
 
-        private Matrix GetSpriteScale(int width, int height)
+        private static Matrix GetSpriteScale(int width, int height)
         {
             float xScale = (float)width / Configuration.GetInstance().WindowWidth;
             float yScale = (float)height / Configuration.GetInstance().WindowHeight;

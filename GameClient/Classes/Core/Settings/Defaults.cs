@@ -34,7 +34,7 @@ namespace GameClient.Classes.Core.Settings
         {
             public static readonly int Rows = 22;
             public static readonly int Columns = 10;
-            public static readonly Color BackgroundColor = Color.White;
+            public static readonly Color BackgroundColor = Color.Black;
             public static readonly Rectangle BlockSize = new Rectangle(0, 0, 20, 20);
             public static readonly Rectangle PreviewBlockSize = new Rectangle(0, 0, 15, 15);
             public static readonly int Speed = 400;

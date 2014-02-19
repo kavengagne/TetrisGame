@@ -86,7 +86,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Move(-1, 0))
             {
-                SoundManager.GetInstance().Play("Move",(float)0.25);
+                SoundManager.GetInstance().PlaySound("Move", 0.25f);
             }
         }
 
@@ -94,7 +94,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Move(1, 0))
             {
-                SoundManager.GetInstance().Play("Move", (float)0.25);
+                SoundManager.GetInstance().PlaySound("Move", 0.25f);
             }
         }
 
@@ -102,7 +102,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Rotate(deltaRotation: 3))
             {
-                SoundManager.GetInstance().Play("Rotate", (float)0.25);
+                SoundManager.GetInstance().PlaySound("Rotate", 0.25f);
             }
         }
 
@@ -110,7 +110,7 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             if (Rotate(deltaRotation: 1))
             {
-                SoundManager.GetInstance().Play("Rotate", (float)0.25);
+                SoundManager.GetInstance().PlaySound("Rotate", (float)0.25);
             }
         }
         #endregion

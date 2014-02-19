@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using GameClient.Classes.Extensions;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
+
 
 namespace GameClient.Classes.Core.Managers
 {
-    public class SoundManager
+    public class SoundManager : IDisposable
     {
         #region Singleton Pattern
         private static SoundManager Instance { get; set; }
@@ -20,46 +19,106 @@ namespace GameClient.Classes.Core.Managers
 
 
         #region Fields
-        private readonly Dictionary<string, SoundEffect> _effects;
+        private readonly AudioEngine _audioEngine;
+        private readonly SoundBank _soundBank;
+        // ReSharper disable once NotAccessedField.Local
+        private WaveBank _waveBank;
+        private Cue _currentMusic;
+        private readonly Cue[] _currentSounds;
         #endregion
 
 
         #region Constructor
         private SoundManager()
         {
-            _effects = LoadSoundEffects(new ContentManager(TetrisGame.GetInstance().Services, "Content"));
+            _audioEngine = new AudioEngine("Content/Sounds/TetrisGame.xgs");
+            _waveBank = new WaveBank(_audioEngine, "Content/Sounds/WaveBank.xwb");
+            _soundBank = new SoundBank(_audioEngine, "Content/Sounds/SoundBank.xsb");
+            _audioEngine.Update();
+            _currentMusic = _soundBank.GetCue("m_Silence");
+            _currentMusic.Stop(AudioStopOptions.Immediate);
+            _currentSounds = new Cue[20];
+            SetMusicVolume(1);
+            SetSoundVolume(1);
         }
         #endregion
 
 
         #region Public Methods
-        public void Play(string soundName, float volume = 1, float pitch = 0, float pan = 0)
+        public void Update(GameTime gameTime)
         {
-            SoundEffect effect;
-            if (_effects.TryGetValue(soundName, out effect))
+            _audioEngine.Update();
+        }
+
+        public void PlaySound(string soundName, float volume = 1)
+        {
+            for (int i = 0; i < 20; i++)
             {
-                int callCount = 1;
-                if (volume > 1)
+                if (_currentSounds[i] == null || !_currentSounds[i].IsPlaying)
                 {
-                    callCount = (int)volume;
-                }
-                for (int i = 0; i < callCount; i++)
-                {
-                    effect.Play(volume, pitch, pan);
+                    _currentSounds[i] = _soundBank.GetCue(soundName);
+                    _currentSounds[i].Play();
+                    break;
                 }
             }
-            else
+        }
+
+        public void PlayMusic(string musicName)
+        {
+            if (string.IsNullOrEmpty(musicName))
             {
-                throw new ArgumentException("Parameter soundName is not valid. Value \"{0}\" does not exist.", soundName);
+                musicName = "m_Silence";
             }
+            if (musicName != _currentMusic.Name)
+            {
+                _currentMusic = _soundBank.GetCue(musicName);
+                _currentMusic.Play();
+            }
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            volume = MathHelper.Clamp(volume, 0.0f, 1f);
+            _audioEngine.GetCategory("Music").SetVolume(volume);
+        }
+
+        public void SetSoundVolume(float volume)
+        {
+            volume = MathHelper.Clamp(volume, 0.0f, 1f);
+            _audioEngine.GetCategory("Default").SetVolume(volume);
         }
         #endregion
 
 
-        #region Internal Implementation
-        private static Dictionary<string, SoundEffect> LoadSoundEffects(ContentManager contentManager)
+        #region Implement IDisposable Interface
+        public void Dispose()
         {
-            return contentManager.LoadContentFolder<SoundEffect>("Sounds");
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~SoundManager()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_audioEngine != null)
+                {
+                    _audioEngine.Dispose();
+                }
+                if (_soundBank != null)
+                {
+                    _soundBank.Dispose();
+                }
+                if (_waveBank != null)
+                {
+                    _waveBank.Dispose();
+                }
+            }
         }
         #endregion
     }

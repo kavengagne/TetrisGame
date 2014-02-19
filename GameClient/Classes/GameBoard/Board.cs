@@ -86,7 +86,7 @@ namespace GameClient.Classes.GameBoard
                 RemoveCompletedLines();
                 if (!IsGameOver())
                 {
-                    SoundManager.GetInstance().Play("Drop", (float)0.5);
+                    SoundManager.GetInstance().PlaySound("Drop", 0.5f);
                     CurrentPiece = GetNextPiece();
                     CurrentPiece.UpdateBlocksPositions(Bounds.Location);
                 }
@@ -274,7 +274,7 @@ namespace GameClient.Classes.GameBoard
             if (removedLinesCount > 0)
             {
                 //var pitch = (float)0.33 * (Math.Max(removedLinesCount - 1, 0));
-                SoundManager.GetInstance().Play("Remove");
+                SoundManager.GetInstance().PlaySound("Remove");
                 
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)

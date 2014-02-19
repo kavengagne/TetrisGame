@@ -16,11 +16,11 @@ namespace GameClient.Classes.GameBoard
         private readonly Rectangle _bounds;
         private readonly Color _backgroundColor;
         private readonly SpriteFont _font;
+        private readonly Score _score;
         #endregion
 
 
         #region Properties
-        public Score Score { get; set; }
         #endregion
 
 
@@ -32,8 +32,8 @@ namespace GameClient.Classes.GameBoard
             _backgroundColor = backgroundColor;
             _texture = CreateTexture(TetrisGame.GetInstance().GraphicsDevice, bounds, backgroundColor);
             _font = TetrisGame.GetInstance().Content.Load<SpriteFont>("Fonts/ScoreBoard");
-            Score = new Score();
-            Score.LinesUpdated += TetrisGame.GetInstance().ChangeGameBackgroundColor;
+            _score = new Score();
+            _score.LinesUpdated += TetrisGame.GetInstance().ChangeGameBackgroundColor;
         }
         #endregion
 
@@ -41,12 +41,12 @@ namespace GameClient.Classes.GameBoard
         #region Public Methods
         public void IncrementPointsBy(int value)
         {
-            Score.IncrementPointsBy(value);
+            _score.IncrementPointsBy(value);
         }
 
         public void IncrementLinesBy(int value)
         {
-            Score.IncrementLinesBy(value);
+            _score.IncrementLinesBy(value);
         }
         #endregion
 
@@ -62,17 +62,17 @@ namespace GameClient.Classes.GameBoard
 
             const string pointsHeader = "Score";
             spriteBatch.DrawString(_font, pointsHeader, new Vector2(_bounds.Center.X, _bounds.Center.Y),
-                                   Color.Black, 0, GetTextPosition(pointsHeader, 1), 0.5f, SpriteEffects.None, 0.0f);
-            var pointsText = Score.Points.ToString(CultureInfo.InvariantCulture);
+                                   Color.White, 0, GetTextPosition(pointsHeader, 1), 0.5f, SpriteEffects.None, 0.0f);
+            var pointsText = _score.Points.ToString(CultureInfo.InvariantCulture);
             spriteBatch.DrawString(_font, pointsText, new Vector2(_bounds.Center.X, _bounds.Center.Y),
-                                   Color.Black, 0, GetTextPosition(pointsText, 2), 0.5f, SpriteEffects.None, 0.0f);
+                                   Color.White, 0, GetTextPosition(pointsText, 2), 0.5f, SpriteEffects.None, 0.0f);
 
             const string linesHeader = "Lines";
             spriteBatch.DrawString(_font, linesHeader, new Vector2(_bounds.Center.X, _bounds.Center.Y),
-                                   Color.Black, 0, GetTextPosition(linesHeader, 3), 0.5f, SpriteEffects.None, 0.0f);
-            var linesText = Score.Lines.ToString(CultureInfo.InvariantCulture);
+                                   Color.White, 0, GetTextPosition(linesHeader, 3), 0.5f, SpriteEffects.None, 0.0f);
+            var linesText = _score.Lines.ToString(CultureInfo.InvariantCulture);
             spriteBatch.DrawString(_font, linesText, new Vector2(_bounds.Center.X, _bounds.Center.Y),
-                                   Color.Black, 0, GetTextPosition(linesText, 4), 0.5f, SpriteEffects.None, 0.0f);
+                                   Color.White, 0, GetTextPosition(linesText, 4), 0.5f, SpriteEffects.None, 0.0f);
         }
 
         private Vector2 GetTextPosition(string text, int lineNumber, int offset = 0)

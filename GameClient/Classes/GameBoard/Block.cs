@@ -1,4 +1,5 @@
-﻿using GameClient.Classes.Core.Managers;
+﻿using GameClient.Classes.Core;
+using GameClient.Classes.Core.Settings;
 using GameClient.Classes.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +8,11 @@ namespace GameClient.Classes.GameBoard
 {
     public class Block : ISprite
     {
+        #region Fields
+        private readonly Texture2D _texture;
+        #endregion
+
+
         #region Properties
         public int X { get; set; }
         public int Y { get; set; }
@@ -22,6 +28,7 @@ namespace GameClient.Classes.GameBoard
             Y = position.Y;
             Bounds = bounds;
             BackgroundColor = backgroundColor;
+            _texture = TetrisGame.GetInstance().Content.Load<Texture2D>(Constants.Textures.Block);
         }
         #endregion
 
@@ -33,7 +40,7 @@ namespace GameClient.Classes.GameBoard
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(TextureManager.GetInstance().Get("block"), Bounds, null, BackgroundColor);
+            spriteBatch.Draw(_texture, Bounds, null, BackgroundColor);
         }
         #endregion
     }

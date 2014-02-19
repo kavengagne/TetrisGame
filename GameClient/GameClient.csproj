@@ -36,7 +36,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>35</ApplicationRevision>
+    <ApplicationRevision>36</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -89,8 +89,8 @@
   <ItemGroup>
     <Compile Include="Classes\Application.cs" />
     <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
-    <Compile Include="Classes\Core\Managers\TextureManager.cs" />
     <Compile Include="Classes\Core\Settings\Configuration.cs" />
+    <Compile Include="Classes\Core\Settings\Contants.cs" />
     <Compile Include="Classes\Core\Settings\Defaults.cs" />
     <Compile Include="Classes\Extensions\ContentManagerExtensions.cs" />
     <Compile Include="Classes\Extensions\RectangleJsonConverter.cs" />
