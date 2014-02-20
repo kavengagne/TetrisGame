@@ -56,6 +56,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             {
                 ghostBlock.Draw(spriteBatch, gameTime);
             }
+            Debug_Draw(spriteBatch, gameTime);
             base.Draw(spriteBatch, gameTime);
         }
         #endregion
@@ -171,7 +172,7 @@ namespace GameClient.Classes.GameBoard.Pieces
             GhostBlocks = new Block[positions.Count];
             for (int i = 0; i < GhostBlocks.Length; i++)
             {
-                GhostBlocks[i] = new Block(positions[i], BlockSize, Defaults.Board.BackgroundColor);
+                GhostBlocks[i] = new Block(positions[i], BlockSize, new Color(0.25f, 0.25f, 0.25f));
             }
         }
 
@@ -204,5 +205,27 @@ namespace GameClient.Classes.GameBoard.Pieces
             return Math.Max(--deltaY, 0);
         }
         #endregion
+
+
+        // TODO: KG - DEBUG - REMOVE THIS
+        private readonly List<Block> _debugBlocks = new List<Block>();
+        private int _debugIndex;
+        private void Debug_Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (var block in _debugBlocks)
+            {
+                block.Bounds = new Rectangle(block.X * BlockSize.Width, block.Y * BlockSize.Height, BlockSize.Width, BlockSize.Height);
+                block.Draw(spriteBatch, gameTime);
+            }
+        }
+
+        public void Debug_AddBlock()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                _debugBlocks.Add(new Block(new Point(_debugIndex % 40, _debugIndex / 40), BlockSize, Color.Pink));
+            }
+            _debugIndex++;
+        }
     }
 }

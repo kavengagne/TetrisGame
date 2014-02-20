@@ -35,18 +35,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sounds\SoundBank.xsb">
+    <None Include="Sounds\SoundBank.xsb">
       <Name>SoundBank</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\TetrisGame.xgs">
+    </None>
+    <None Include="Sounds\TetrisGame.xgs">
       <Name>TetrisGame</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\WaveBank.xwb">
+    </None>
+    <None Include="Sounds\WaveBank.xwb">
       <Name>WaveBank</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Circle.png">

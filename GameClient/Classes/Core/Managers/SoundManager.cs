@@ -22,7 +22,7 @@ namespace GameClient.Classes.Core.Managers
         private readonly AudioEngine _audioEngine;
         private readonly SoundBank _soundBank;
         // ReSharper disable once NotAccessedField.Local
-        private WaveBank _waveBank;
+        private readonly WaveBank _waveBank;
         private Cue _currentMusic;
         private readonly Cue[] _currentSounds;
         #endregion
@@ -38,8 +38,8 @@ namespace GameClient.Classes.Core.Managers
             _currentMusic = _soundBank.GetCue("m_Silence");
             _currentMusic.Stop(AudioStopOptions.Immediate);
             _currentSounds = new Cue[20];
-            SetMusicVolume(1);
-            SetSoundVolume(1);
+            SetMusicVolume(100);
+            SetSoundVolume(100);
         }
         #endregion
 

@@ -10,45 +10,47 @@ using Microsoft.Xna.Framework.Input;
 using Point = Microsoft.Xna.Framework.Point;
 
 
-// TODO: KG - URGENT: SEPARATE GHOST PIECE FROM PIECE.
-// TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
-// TODO: KG - Bug: Fix Ghost Piece Color on Black Background.
-// TODO: KG - Bug: Fix Fullscreen Resolution.
-// TODO: KG - Bug: Fix Objects Life Cycle Issues.
-// TODO: KG - Bug: Correct Scaling Calculation Code.
-// TODO: KG - Feature: Finish Game Reset. (Add Confirmation)
-// TODO: KG - Feature: Finish Game Quit. (Add Confirmation)
-// TODO: KG - Feature: Integrate WPF Components inside XNA. (For Menus and Configurations / Statistics Widgets)
-// TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Should Reset Piece Position to 0) (Create HoldPanel)
-// TODO: KG - Bug: Change Board Background Color or Image.
-// TODO: KG - Bug: Make Pieces Colors Consistents.
 // TODO: KG - Bug: Correct Pieces Starting Position.
-// TODO: KG - Tuning: Make sure RandomBag is implemented as detailed in: http://harddrop.com/wiki/Random_Generator
-// TODO: KG - Feature: Game Main Screen.
+// TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Should Reset Piece Position to 0) (Create HoldPanel)
+// TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
+// TODO: KG - *Tuning: Redesign the GameBoard.
+// TODO: KG - *Tuning: Improve Ghost Piece look.
+// TODO: KG - *Tuning: Change Board Background Color or Image.
+// TODO: KG - *Tuning: Make Pieces Colors Consistents.
+// TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
+// TODO: KG - Bug: Fix Fullscreen Resolution.
+// TODO: KG - Bug: Correct Scaling Calculation Code.
 // TODO: KG - Feature: Share Game with Friends.
 // TODO: KG - Feature: Server Statistics Logging.
 // TODO: KG - Feature: Client-Side Scoreboard.
 // TODO: KG - Feature: Add Game Time.
-// TODO: KG - Feature: Game Options.
 // TODO: KG - Feature: InputManager Key Settings Handling. (Keyboard, Mouse, Xbox Controller)
-// TODO: KG - Feature: Show More Next Pieces. (Maybe 2 or 3)
+// TODO: KG - Feature: InputManager Support for Key Combinations. (Ctrl + Key, Alt + Key, Shift + Key)
 // TODO: KG - Feature: Add small delay after moving piece. This will allow players to place the piece before it locks.
-// TODO: KG - Tuning: Redesign the GameBoard.
-// TODO: KG - Tuning: Improve Ghost Piece look.
 // TODO: KG - Tuning: Add more Error Handling.
 // TODO: KG - Tuning: Optimize Score. http://en.wikipedia.org/wiki/Tetris
 // TODO: KG - Tuning: Implement T-Spin Bonus. http://harddrop.com/wiki/T-Spin
-// TODO: KG - Bug: Add OpenAL to Release Bundle.
+// TODO: KG - Tuning: Implement Following Bonuses: Single, Double, Tetris, BackToBack, T-Spin.
+// TODO: KG - Tuning: Implement Combos x1, x2, x3, x4, ...
 // TODO: KG - Bug: Fix ScoreBoard Font Display.
 // TODO: KG - Feature: Auto Update.
 // TODO: KG - Feature: Create Installer Project.
-// TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Game Levels. Levels increase Game Speed. Level-up after N completed lines.
 // TODO: KG - Feature: Change Game Theme when leveling.
+// TODO: KG - Feature: Add Musics. (Should create those myself)
+// TODO: KG - Feature: Implement Sounds/Voices for Bonuses: Single, Double, Tetris, BackToBack, T-Spin.
+// TODO: KG - Feature: Implement Sounds/Voices for Events: Go!, Game Over, Level Up.
+// TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
+// TODO: KG - Feature: Implement GameState Management.
+// TODO: KG - Feature: Integrate WPF/WinForms Components inside XNA. (For Menus and Configurations / Statistics Widgets)
+// TODO: KG - Feature: Game Main Screen.
+// TODO: KG - Feature: Game Options.
+// TODO: KG - Feature: Add Help Feature. (Default Key: H)
 // TODO: KG - Feature: Add Pause Menu. (Default Key: Escape)
 // TODO: KG - Feature: Game Over Handling.
-// TODO: KG - Feature: Add Musics. (Should create those myself)
-// TODO: KG - Feature: Make Sounds much stronger when performing a Tetris.
+// TODO: KG - Feature: Finish Game Reset. (Add Confirmation)
+// TODO: KG - Feature: Finish Game Quit. (Add Confirmation)
+
 
 namespace GameClient.Classes.Core
 {
@@ -179,6 +181,7 @@ namespace GameClient.Classes.Core
             InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
             InputManager.RegisterKeyPressed(Keys.R, RestartGame);
             InputManager.RegisterKeyPressed(Keys.F, _graphics.ToggleFullScreen);
+            InputManager.RegisterKeyPressed(Keys.Z, Board.CurrentPiece.Debug_AddBlock, true);
         }
 
         private void RestartGame()
