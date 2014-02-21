@@ -35,6 +35,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fonts\MainMenu.spritefont">
+      <Name>MainMenu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="Sounds\SoundBank.xsb">
       <Name>SoundBank</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -66,6 +71,27 @@
     </Compile>
     <Compile Include="Graphics\Block.png">
       <Name>Block</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Blank.png">
+      <Name>Blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Background.png">
+      <Name>Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Gradient.png">
+      <Name>Gradient</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

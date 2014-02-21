@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameClient.Classes.GameBoard.Pieces;
+using Microsoft.Xna.Framework;
 
 namespace GameClient.Classes.Core.Settings
 {
@@ -7,8 +8,8 @@ namespace GameClient.Classes.Core.Settings
         public static class Window
         {
             public static readonly string Name = "TetrisGame Constants";
-            public static readonly int Width = 800;         // Do not access directly
-            public static readonly int Height = 600;        // Do not access directly
+            public static readonly int Width = 800; // Do not access directly
+            public static readonly int Height = 600; // Do not access directly
             public static readonly int MinimumWidth = 800;
             public static readonly int MinimumHeight = 600;
         }
@@ -40,51 +41,51 @@ namespace GameClient.Classes.Core.Settings
             public static readonly int Speed = 400;
         }
 
-        public static readonly GameBoard.Pieces.PieceInformation[] Pieces =
+        public static readonly PieceInformation[] Pieces =
         {
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "I",
                 Positions = new[] { new Point(0, 0), new Point(-1, 0), new Point(1, 0), new Point(2, 0) },
                 RotationsCount = 2,
                 Color = Color.Cyan
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "J",
                 Positions = new[] { new Point(0, 0), new Point(1, 0), new Point(-1, 0), new Point(-1, -1) },
                 RotationsCount = 4,
                 Color = Color.DeepSkyBlue
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "L",
                 Positions = new[] { new Point(0, 0), new Point(-1, 0), new Point(1, 0), new Point(1, -1) },
                 RotationsCount = 4,
                 Color = Color.DarkOrange
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "O",
                 Positions = new[] { new Point(0, 0), new Point(1, 0), new Point(0, 1), new Point(1, 1) },
                 RotationsCount = 1,
                 Color = Color.Yellow
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "S",
                 Positions = new[] { new Point(0, 0), new Point(-1, 0), new Point(0, -1), new Point(1, -1) },
                 RotationsCount = 2,
                 Color = Color.LimeGreen
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "T",
                 Positions = new[] { new Point(0, 0), new Point(-1, 0), new Point(1, 0), new Point(0, -1) },
                 RotationsCount = 4,
                 Color = Color.MediumPurple
             },
-            new GameBoard.Pieces.PieceInformation
+            new PieceInformation
             {
                 Name = "Z",
                 Positions = new[] { new Point(0, 0), new Point(1, 0), new Point(0, -1), new Point(-1, -1) },

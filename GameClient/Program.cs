@@ -3,14 +3,13 @@ using System.Diagnostics;
 using System.IO;
 using GameClient.Classes;
 
-
-namespace GameClient 
+namespace GameClient
 {
 #if WINDOWS || LINUX
     public static class Program
     {
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             try
             {

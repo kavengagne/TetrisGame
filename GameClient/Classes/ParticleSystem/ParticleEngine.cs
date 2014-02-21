@@ -9,9 +9,9 @@ namespace GameClient.Classes.ParticleSystem
     public class ParticleEngine : ISprite
     {
         #region Fields
-        private Random _random;
-        private List<Particle> _particles;
-        private List<Texture2D> _textures;
+        private readonly Random _random;
+        private readonly List<Particle> _particles;
+        private readonly List<Texture2D> _textures;
         #endregion
 
 
@@ -38,7 +38,7 @@ namespace GameClient.Classes.ParticleSystem
             Vector2 position = EmitterLocation;
             var velocity = new Vector2(1f * (float)(_random.NextDouble() * 2 - 1),
                                        1f * (float)(_random.NextDouble() * 2 - 1));
-            float angle = 0;
+            const float angle = 0;
             float angularVelocity = 0.1f * (float)(_random.NextDouble() * 2 - 1);
             var color = new Color((float)_random.NextDouble(),
                                   (float)_random.NextDouble(),
@@ -54,7 +54,7 @@ namespace GameClient.Classes.ParticleSystem
         #region Implementation of ISprite
         public void Update(GameTime gameTime)
         {
-            int total = 10;
+            const int total = 10;
             for (int i = 0; i < total; i++)
             {
                 _particles.Add(GenerateNewParticle());

@@ -6,7 +6,10 @@ namespace GameClient.Classes.Core.Inputs
     internal class KeyPressedAction : KeyAction
     {
         #region Constructors
-        public KeyPressedAction(Action action, bool repeatAction, int delayMilliseconds) : base(action, repeatAction, delayMilliseconds) { }
+        public KeyPressedAction(Action action, bool repeatAction, int delayMilliseconds)
+            : base(action, repeatAction, delayMilliseconds)
+        {
+        }
         #endregion
 
 

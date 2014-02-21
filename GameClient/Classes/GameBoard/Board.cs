@@ -48,7 +48,7 @@ namespace GameClient.Classes.GameBoard
             Bounds = new Rectangle(position.X, position.Y,
                                    Columns * Defaults.Board.BlockSize.Width,
                                    Rows * Defaults.Board.BlockSize.Height);
-            
+
             Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
 
             Reset();
@@ -275,7 +275,7 @@ namespace GameClient.Classes.GameBoard
             {
                 //var pitch = (float)0.33 * (Math.Max(removedLinesCount - 1, 0));
                 SoundManager.GetInstance().PlaySound("Remove");
-                
+
                 // TODO: KG - Move bonus value to config
                 if (removedLinesCount >= 4)
                 {

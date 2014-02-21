@@ -4,11 +4,11 @@ using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Core.Settings;
 using GameClient.Classes.GameBoard;
 using GameClient.Classes.ParticleSystem;
+using GameClient.Classes.Screens;
+using GameClient.Classes.StateManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Point = Microsoft.Xna.Framework.Point;
-
 
 // TODO: KG - Bug: Correct Pieces Starting Position.
 // TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Should Reset Piece Position to 0) (Create HoldPanel)
@@ -50,7 +50,6 @@ using Point = Microsoft.Xna.Framework.Point;
 // TODO: KG - Feature: Game Over Handling.
 // TODO: KG - Feature: Finish Game Reset. (Add Confirmation)
 // TODO: KG - Feature: Finish Game Quit. (Add Confirmation)
-
 
 namespace GameClient.Classes.Core
 {
@@ -94,6 +93,14 @@ namespace GameClient.Classes.Core
             };
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
+
+            var screenManager = new ScreenManager(this);
+            screenManager.TraceEnabled = true;
+            Components.Add(screenManager);
+
+            screenManager.AddScreen(new BackgroundScreen(), null);
+            screenManager.AddScreen(new MainMenuScreen(), null);
+
             BackgroundColor = Defaults.Game.BackgroundColor;
         }
         #endregion
@@ -121,7 +128,7 @@ namespace GameClient.Classes.Core
             Window.Title = Defaults.Window.Name;
             InputManager = new InputManager();
             Board = new Board(this, new Point(40, 40));
-            
+
             RegisterUserInputs();
             base.Initialize();
         }
@@ -144,7 +151,7 @@ namespace GameClient.Classes.Core
             SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             //Console.WriteLine("w:{0}, h:{1}", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
-            InputManager.HandleInputs(gameTime);
+            //InputManager.HandleInputs(gameTime);
             SoundManager.GetInstance().Update(gameTime);
             Board.Update(gameTime);
             //ParticleEngine.EmitterLocation = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
@@ -155,9 +162,9 @@ namespace GameClient.Classes.Core
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(BackgroundColor);
-            SpriteBatch.Begin(0, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
-            Board.Draw(SpriteBatch, gameTime);
-            SpriteBatch.End();
+            //SpriteBatch.Begin(0, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
+            //Board.Draw(SpriteBatch, gameTime);
+            //SpriteBatch.End();
             //ParticleEngine.Draw(_spriteBatch, gameTime);
             base.Draw(gameTime);
         }

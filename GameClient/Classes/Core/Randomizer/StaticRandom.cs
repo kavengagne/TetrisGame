@@ -14,6 +14,7 @@ namespace GameClient.Classes.Core.Randomizer
         {
             return Next(0, to);
         }
+
         public static int Next(int from, int to)
         {
             return RandomNext(from, to);

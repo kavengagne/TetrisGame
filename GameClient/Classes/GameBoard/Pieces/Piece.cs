@@ -180,9 +180,10 @@ namespace GameClient.Classes.GameBoard.Pieces
         {
             for (int i = 0; i < blocks.Count; i++)
             {
-                blocks[i].Bounds = new Rectangle(positions[i].X * BlockSize.Width + Position.X * BlockSize.Width + offset.X,
-                                                 positions[i].Y * BlockSize.Height + Position.Y * BlockSize.Height + offset.Y,
-                                                 BlockSize.Width, BlockSize.Height);
+                blocks[i].Bounds =
+                    new Rectangle(positions[i].X * BlockSize.Width + Position.X * BlockSize.Width + offset.X,
+                                  positions[i].Y * BlockSize.Height + Position.Y * BlockSize.Height + offset.Y,
+                                  BlockSize.Width, BlockSize.Height);
             }
         }
 
@@ -210,11 +211,13 @@ namespace GameClient.Classes.GameBoard.Pieces
         // TODO: KG - DEBUG - REMOVE THIS
         private readonly List<Block> _debugBlocks = new List<Block>();
         private int _debugIndex;
+
         private void Debug_Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             foreach (var block in _debugBlocks)
             {
-                block.Bounds = new Rectangle(block.X * BlockSize.Width, block.Y * BlockSize.Height, BlockSize.Width, BlockSize.Height);
+                block.Bounds = new Rectangle(block.X * BlockSize.Width, block.Y * BlockSize.Height, BlockSize.Width,
+                                             BlockSize.Height);
                 block.Draw(spriteBatch, gameTime);
             }
         }

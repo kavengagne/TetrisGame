@@ -21,7 +21,8 @@ namespace GameClient.Classes.Extensions
             o.WriteTo(writer);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+                                        JsonSerializer serializer)
         {
             var o = JObject.Load(reader);
 

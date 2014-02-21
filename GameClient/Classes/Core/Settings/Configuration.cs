@@ -19,7 +19,7 @@ namespace GameClient.Classes.Core.Settings
         private readonly int _windowWidth;
         private readonly int _windowHeight;
         #endregion
-        
+
 
         #region Properties
         public string ServerAddress

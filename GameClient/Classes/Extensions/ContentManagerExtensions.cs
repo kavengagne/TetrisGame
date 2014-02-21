@@ -12,7 +12,8 @@ namespace GameClient.Classes.Extensions
         public static Dictionary<string, T> LoadContentFolder<T>(this ContentManager contentManager, string folderName)
         {
             var list = new Dictionary<string, T>();
-            var filesList = Directory.EnumerateFiles(Directory.GetCurrentDirectory() + @"\Content\" + folderName, "*.xnb",
+            var filesList = Directory.EnumerateFiles(Directory.GetCurrentDirectory() + @"\Content\" + folderName,
+                                                     "*.xnb",
                                                      SearchOption.AllDirectories);
             foreach (var fileName in filesList)
             {

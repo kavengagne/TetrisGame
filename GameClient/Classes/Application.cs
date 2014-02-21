@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace GameClient.Classes
     {
         #region Singleton Pattern
         private static Application Instance { get; set; }
-        
+
         public static Application GetInstance()
         {
             return Instance ?? (Instance = new Application());
@@ -62,8 +63,8 @@ namespace GameClient.Classes
 
             game.Window.Title = Defaults.Window.Name;
             game.Window.SetLocation(
-                new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width - Configuration.GetInstance().WindowWidth) / 2, 20));
-            game.Window.SetMinimumSize(new System.Drawing.Size(816, 639));
+                new Point((Screen.PrimaryScreen.Bounds.Width - Configuration.GetInstance().WindowWidth) / 2, 20));
+            game.Window.SetMinimumSize(new Size(816, 639));
             game.Window.AllowUserResizing = true;
 
             game.Run();

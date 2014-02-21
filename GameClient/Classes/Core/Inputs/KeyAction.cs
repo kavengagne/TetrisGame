@@ -10,9 +10,8 @@ namespace GameClient.Classes.Core.Inputs
         protected readonly Action Action;
         protected readonly int DelayMilliseconds;
         protected readonly bool RepeatAction;
-
         protected double DelayCurrent;
-        protected bool IsAlreadyTriggered; 
+        protected bool IsAlreadyTriggered;
         #endregion
 
 
@@ -22,7 +21,7 @@ namespace GameClient.Classes.Core.Inputs
             Action = action;
             RepeatAction = repeatAction;
             DelayMilliseconds = delayMilliseconds;
-        } 
+        }
         #endregion
 
 
@@ -48,7 +47,7 @@ namespace GameClient.Classes.Core.Inputs
                 DelayCurrent = 0;
                 IsAlreadyTriggered = false;
             }
-        } 
+        }
         #endregion
 
 

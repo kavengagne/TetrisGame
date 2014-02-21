@@ -7,7 +7,7 @@ namespace GameClient.Classes.Core.Inputs
     {
         #region Fields
         private bool _isKeyPressed;
-        private readonly Action _action; 
+        private readonly Action _action;
         #endregion
 
 
@@ -15,7 +15,7 @@ namespace GameClient.Classes.Core.Inputs
         public KeyReleasedAction(Action action)
         {
             _action = action;
-        } 
+        }
         #endregion
 
 
@@ -34,7 +34,7 @@ namespace GameClient.Classes.Core.Inputs
                     _action.Invoke();
                 }
             }
-        } 
+        }
         #endregion
     }
 }

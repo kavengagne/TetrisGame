@@ -10,7 +10,7 @@ namespace GameClient.Classes.Core.Managers
     {
         #region Singleton Pattern
         private static SoundManager Instance { get; set; }
-        
+
         public static SoundManager GetInstance()
         {
             return Instance ?? (Instance = new SoundManager());
