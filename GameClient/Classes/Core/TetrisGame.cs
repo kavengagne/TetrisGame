@@ -1,4 +1,5 @@
-﻿using GameClient.Classes.Core.Inputs;
+﻿using System;
+using GameClient.Classes.Core.Inputs;
 using GameClient.Classes.Core.Managers;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Core.Settings;
@@ -94,8 +95,7 @@ namespace GameClient.Classes.Core
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
 
-            var screenManager = new ScreenManager(this);
-            screenManager.TraceEnabled = true;
+            var screenManager = new ScreenManager(this) { TraceEnabled = false };
             Components.Add(screenManager);
 
             screenManager.AddScreen(new BackgroundScreen(), null);
@@ -107,7 +107,7 @@ namespace GameClient.Classes.Core
 
 
         #region Public Methods
-        public void ChangeGameBackgroundColor(Score score, int updateValue)
+        public void ChangeBackgroundColor(Score score, int updateValue)
         {
             // TODO: KG - Move to configuration.
             const int divider = 10;
@@ -131,6 +131,12 @@ namespace GameClient.Classes.Core
 
             RegisterUserInputs();
             base.Initialize();
+
+
+            foreach (var piece in Defaults.Pieces)
+            {
+                Console.WriteLine("{0} : {1}", piece.Name, piece.Color);
+            }
         }
 
         protected override void LoadContent()

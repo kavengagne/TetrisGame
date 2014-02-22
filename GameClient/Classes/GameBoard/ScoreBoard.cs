@@ -33,7 +33,7 @@ namespace GameClient.Classes.GameBoard
             _texture = CreateTexture(TetrisGame.GetInstance().GraphicsDevice, bounds, backgroundColor);
             _font = TetrisGame.GetInstance().Content.Load<SpriteFont>("Fonts/ScoreBoard");
             _score = new Score();
-            _score.LinesUpdated += TetrisGame.GetInstance().ChangeGameBackgroundColor;
+            _score.LinesUpdated += TetrisGame.GetInstance().ChangeBackgroundColor;
         }
         #endregion
 
