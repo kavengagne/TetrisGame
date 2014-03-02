@@ -7,7 +7,31 @@ namespace GameServer.App_Start
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                "TetrisApi",
+                "GameStatsApi",
+                "games",
+                new { controller = "Games", action = "games", sessionID = 0 }
+            );
+
+            config.Routes.MapHttpRoute(
+                "UserStatisticsApi",
+                "users/stats/{sessionID}",
+                new { controller = "Users", action = "stats" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "UserManagementApi",
+                "users/{action}/{sessionID}",
+                new { controller = "Users", sessionID = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                "StatisticsApi",
+                "stats/{action}",
+                new { controller = "Statistics" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "DefaultApi",
                 "tetris/{controller}/{id}",
                 new { id = RouteParameter.Optional }
             );

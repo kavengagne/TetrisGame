@@ -6,9 +6,7 @@
 //-----------------------------------------------------------------------------
 
 using System;
-using System.Windows.Forms;
 using GameClient.Classes.Core.Settings;
-using GameClient.Classes.StateManager;
 using GameClient.Classes.StateManager.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;

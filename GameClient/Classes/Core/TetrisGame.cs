@@ -1,6 +1,4 @@
-﻿using System;
-using GameClient.Classes.Core.Inputs;
-using GameClient.Classes.Core.Managers;
+﻿using GameClient.Classes.Core.Managers;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Core.Settings;
 using GameClient.Classes.GameBoard;
@@ -8,9 +6,8 @@ using GameClient.Classes.ParticleSystem;
 using GameClient.Classes.Screens;
 using GameClient.Classes.StateManager;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
+// TODO: KG - Move All Strings to Localization Files.
 // TODO: KG - Bug: Correct Pieces Starting Position.
 // TODO: KG - Bug: Change Hold Behavior. (Should stay in Hold slot until used) (Should Reset Piece Position to 0) (Create HoldPanel)
 // TODO: KG - Adhere to Tetris Guidelines: http://harddrop.com/wiki/Tetris_Guideline
@@ -66,18 +63,10 @@ namespace GameClient.Classes.Core
         #endregion
 
 
-        #region Fields
-        private readonly GraphicsDeviceManager _graphics;
-        #endregion
-
-
         #region Properties
         public Color BackgroundColor { get; set; }
         public bool IsRunning { get; set; }
-        public SpriteBatch SpriteBatch { get; set; }
         public ParticleEngine ParticleEngine { get; set; }
-        public Board Board { get; set; }
-        public InputManager InputManager { get; set; }
         public Matrix SpriteScale { get; set; }
         #endregion
 
@@ -85,7 +74,8 @@ namespace GameClient.Classes.Core
         #region Constructors
         private TetrisGame()
         {
-            _graphics = new GraphicsDeviceManager(this)
+            // ReSharper disable once ObjectCreationAsStatement
+            new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = Configuration.GetInstance().WindowWidth,
                 PreferredBackBufferHeight = Configuration.GetInstance().WindowHeight,
@@ -94,14 +84,13 @@ namespace GameClient.Classes.Core
             };
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
+            BackgroundColor = Defaults.Game.BackgroundColor;
 
             var screenManager = new ScreenManager(this) { TraceEnabled = false };
-            Components.Add(screenManager);
-
             screenManager.AddScreen(new BackgroundScreen(), null);
             screenManager.AddScreen(new MainMenuScreen(), null);
-
-            BackgroundColor = Defaults.Game.BackgroundColor;
+            Components.Add(screenManager);
+            IsRunning = true;
         }
         #endregion
 
@@ -126,24 +115,12 @@ namespace GameClient.Classes.Core
         protected override void Initialize()
         {
             Window.Title = Defaults.Window.Name;
-            InputManager = new InputManager();
-            Board = new Board(this, new Point(40, 40));
-
-            RegisterUserInputs();
             base.Initialize();
-
-
-            foreach (var piece in Defaults.Pieces)
-            {
-                Console.WriteLine("{0} : {1}", piece.Name, piece.Color);
-            }
         }
 
         protected override void LoadContent()
         {
-            SpriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-
             SoundManager.GetInstance();
         }
 
@@ -155,11 +132,8 @@ namespace GameClient.Classes.Core
         protected override void Update(GameTime gameTime)
         {
             SpriteScale = GetSpriteScale(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            //Console.WriteLine("w:{0}, h:{1}", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-
-            //InputManager.HandleInputs(gameTime);
             SoundManager.GetInstance().Update(gameTime);
-            Board.Update(gameTime);
+            //Console.WriteLine("w:{0}, h:{1}", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             //ParticleEngine.EmitterLocation = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             //ParticleEngine.Update(gameTime);
             base.Update(gameTime);
@@ -168,47 +142,12 @@ namespace GameClient.Classes.Core
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(BackgroundColor);
-            //SpriteBatch.Begin(0, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
-            //Board.Draw(SpriteBatch, gameTime);
-            //SpriteBatch.End();
-            //ParticleEngine.Draw(_spriteBatch, gameTime);
             base.Draw(gameTime);
         }
         #endregion
 
 
         #region Internal Implementation
-        private void RegisterUserInputs()
-        {
-            InputManager.RegisterKeyPressed(Keys.P, TogglePause);
-            InputManager.RegisterKeyPressed(Keys.LeftShift, Board.ExchangePiece);
-            InputManager.RegisterKeyPressed(Keys.Space, Board.DropPieceAllTheWay);
-            InputManager.RegisterKeyPressed(Keys.Up, Board.RotateLeft);
-            InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
-            InputManager.RegisterKeyPressed(Keys.Down, Board.DropPieceByOne, true, 100);
-            // TODO: KG - Adjust left/right speed
-            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 120);
-            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 120);
-            // TODO: KG - Restart Game (With Confirmation)
-            // TODO: KG - Quit Game (With Confirmation)
-            InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
-            InputManager.RegisterKeyPressed(Keys.R, RestartGame);
-            InputManager.RegisterKeyPressed(Keys.F, _graphics.ToggleFullScreen);
-            InputManager.RegisterKeyPressed(Keys.Z, Board.CurrentPiece.Debug_AddBlock, true);
-        }
-
-        private void RestartGame()
-        {
-            Board.Reset();
-        }
-
-        private void TogglePause()
-        {
-            IsRunning = !IsRunning;
-            SoundManager.GetInstance().PlaySound("Pause");
-            //TogglePauseMenu();
-        }
-
         private static Matrix GetSpriteScale(int width, int height)
         {
             float xScale = (float)width / Configuration.GetInstance().WindowWidth;

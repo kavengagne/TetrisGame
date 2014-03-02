@@ -21,7 +21,8 @@ namespace GameClient.Classes.Core.Inputs
         #endregion
 
 
-        #region Constructors
+        #region Constructor
+
         #endregion
 
 

@@ -7,6 +7,11 @@
 
 using System;
 using System.Threading;
+using GameClient.Classes.Core;
+using GameClient.Classes.Core.Inputs;
+using GameClient.Classes.Core.Managers;
+using GameClient.Classes.GameBoard;
+using GameClient.Classes.ParticleSystem;
 using GameClient.Classes.StateManager;
 using GameClient.Classes.StateManager.Base;
 using Microsoft.Xna.Framework;
@@ -16,61 +21,50 @@ using Microsoft.Xna.Framework.Input;
 
 namespace GameClient.Classes.Screens
 {
-    /// <summary>
-    /// This screen implements the actual game logic. It is just a
-    /// placeholder to get the idea across: you'll probably want to
-    /// put some more interesting gameplay in here!
-    /// </summary>
     internal class GameplayScreen : GameScreen
     {
         #region Fields
         private ContentManager _content;
-        private SpriteFont _gameFont;
-        private Vector2 _playerPosition = new Vector2(100, 100);
-        private Vector2 _enemyPosition = new Vector2(100, 100);
-        private readonly Random _random = new Random();
         private float _pauseAlpha;
         #endregion
 
 
+        #region Properties
+        public SpriteBatch SpriteBatch { get; set; }
+        public ParticleEngine ParticleEngine { get; set; }
+        public Board Board { get; set; }
+        public InputManager InputManager { get; set; }
+        public Matrix SpriteScale { get; set; }
+        #endregion
+
+
         #region Initialization
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public GameplayScreen()
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
 
-
-        /// <summary>
-        /// Load graphics content for the game.
-        /// </summary>
         public override void LoadContent()
         {
             if (_content == null)
             {
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             }
-            
-            _gameFont = _content.Load<SpriteFont>("Fonts/ScoreBoard");
 
-            // A real game would probably have more content than this sample, so
-            // it would take longer to load. We simulate that by delaying for a
-            // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(1000);
+            Board = new Board();
+            InputManager = new InputManager();
+            RegisterUserInputs();
 
-            // once the load has finished, we use ResetElapsedTime to tell the game's
-            // timing mechanism that we have just finished a very long frame, and that
-            // it should not try to catch up.
+            // TODO: KG - Remove this when game completed.
+            // Simulate loading time to show Loading Screen.
+            Thread.Sleep(3000);
+
+            // Tell the Game that we have just finished a very
+            // long frame, and that it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
         }
-
-
-        /// <summary>
-        /// Unload graphics content used by the game.
-        /// </summary>
+        
         public override void UnloadContent()
         {
             _content.Unload();
@@ -89,6 +83,7 @@ namespace GameClient.Classes.Screens
             base.Update(gameTime, otherScreenHasFocus, false);
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
             if (coveredByOtherScreen)
             {
                 _pauseAlpha = Math.Min(_pauseAlpha + 1f / 32, 1);
@@ -100,26 +95,11 @@ namespace GameClient.Classes.Screens
 
             if (IsActive)
             {
-                // Apply some random jitter to make the enemy move around.
-                const float randomization = 10;
-
-                _enemyPosition.X += (float)(_random.NextDouble() - 0.5) * randomization;
-                _enemyPosition.Y += (float)(_random.NextDouble() - 0.5) * randomization;
-
-                // Apply a stabilizing force to stop the enemy moving off the screen.
-                var targetPosition =
-                    new Vector2(
-                        ScreenManager.GraphicsDevice.Viewport.Width / 2f -
-                        _gameFont.MeasureString("Insert Gameplay Here").X / 2, 200);
-
-                _enemyPosition = Vector2.Lerp(_enemyPosition, targetPosition, 0.05f);
-
-                // TODO: this game isn't very fun! You could probably improve
-                // it by inserting something more interesting in this space :-)
+                Board.Update(gameTime);
+                InputManager.HandleInputs(gameTime);
             }
         }
-
-
+        
         /// <summary>
         /// Lets the game respond to player input. Unlike the Update method,
         /// this will only be called when the gameplay screen is active.
@@ -128,81 +108,32 @@ namespace GameClient.Classes.Screens
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                return;
+            }
+            if (ControllingPlayer == null)
+            {
+                return;
             }
 
-            // Look up inputs for the active player profile.
-            if (ControllingPlayer != null)
+            var playerIndex = (int)ControllingPlayer.Value;
+            KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
+            GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
+
+            // The game pauses either if the user presses the pause button, or if they unplug the active gamepad.
+            bool gamePadDisconnected = !gamePadState.IsConnected && input.GamePadWasConnected[playerIndex];
+            if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
             {
-                var playerIndex = (int)ControllingPlayer.Value;
-
-                KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
-                GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
-
-                // The game pauses either if the user presses the pause button, or if
-                // they unplug the active gamepad. This requires us to keep track of
-                // whether a gamepad was ever plugged in, because we don't want to pause
-                // on PC if they are playing with a keyboard and have no gamepad at all!
-                bool gamePadDisconnected = !gamePadState.IsConnected && input.GamePadWasConnected[playerIndex];
-                if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
-                {
-                    ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
-                }
-                else
-                {
-                    // Otherwise move the player position.
-                    Vector2 movement = Vector2.Zero;
-
-                    if (keyboardState.IsKeyDown(Keys.Left))
-                    {
-                        movement.X--;
-                    }
-
-                    if (keyboardState.IsKeyDown(Keys.Right))
-                    {
-                        movement.X++;
-                    }
-
-                    if (keyboardState.IsKeyDown(Keys.Up))
-                    {
-                        movement.Y--;
-                    }
-
-                    if (keyboardState.IsKeyDown(Keys.Down))
-                    {
-                        movement.Y++;
-                    }
-
-                    Vector2 thumbstick = gamePadState.ThumbSticks.Left;
-
-                    movement.X += thumbstick.X;
-                    movement.Y -= thumbstick.Y;
-
-                    if (movement.Length() > 1)
-                    {
-                        movement.Normalize();
-                    }
-
-                    _playerPosition += movement * 2;
-                }
+                ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
             }
         }
 
-
-        /// <summary>
-        /// Draws the gameplay screen.
-        /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            // This game has a blue background. Why? Because!
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target, Color.CornflowerBlue, 0, 0);
-
-            // Our player and enemy are both actually just text strings.
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(_gameFont, "// TODO", _playerPosition, Color.Green);
-            spriteBatch.DrawString(_gameFont, "Insert Gameplay Here", _enemyPosition, Color.DarkRed);
+            Board.Draw(spriteBatch, gameTime);
             spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.
@@ -211,6 +142,38 @@ namespace GameClient.Classes.Screens
                 float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, _pauseAlpha / 2);
                 ScreenManager.FadeBackBufferToBlack(alpha);
             }
+        }
+        #endregion
+
+
+        #region Internal Implementation
+        private void RegisterUserInputs()
+        {
+            InputManager.RegisterKeyPressed(Keys.LeftShift, Board.ExchangePiece);
+            InputManager.RegisterKeyPressed(Keys.Space, Board.DropPieceAllTheWay);
+            InputManager.RegisterKeyPressed(Keys.Up, Board.RotateLeft);
+            InputManager.RegisterKeyPressed(Keys.LeftControl, Board.RotateRight);
+            InputManager.RegisterKeyPressed(Keys.Down, Board.DropPieceByOne, true, 100);
+            // TODO: KG - Adjust left/right speed
+            InputManager.RegisterKeyPressed(Keys.Left, Board.MoveLeft, true, 120);
+            InputManager.RegisterKeyPressed(Keys.Right, Board.MoveRight, true, 120);
+            // TODO: KG - Restart Game (With Confirmation)
+            // TODO: KG - Quit Game (With Confirmation)
+            //InputManager.RegisterKeyPressed(Keys.Escape, Application.Exit);
+            InputManager.RegisterKeyPressed(Keys.R, RestartGame);
+            //InputManager.RegisterKeyPressed(Keys.F, _graphics.ToggleFullScreen);
+            InputManager.RegisterKeyPressed(Keys.Z, Board.CurrentPiece.Debug_AddBlock, true);
+        }
+
+        private void TogglePause()
+        {
+            TetrisGame.GetInstance().IsRunning = !TetrisGame.GetInstance().IsRunning;
+            SoundManager.GetInstance().PlaySound("Pause");
+        }
+
+        private void RestartGame()
+        {
+            Board.Reset();
         }
         #endregion
     }

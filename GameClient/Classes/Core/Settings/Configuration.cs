@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace GameClient.Classes.Core.Settings
 {

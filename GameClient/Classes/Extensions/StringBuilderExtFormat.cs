@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
+// Resharper disable All
 namespace GameClient.Classes.Extensions
 {
     public static partial class StringBuilderExtensions

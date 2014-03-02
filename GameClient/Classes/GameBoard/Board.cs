@@ -20,7 +20,6 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Properties
-        public TetrisGame Game { get; set; }
         public int Rows { get; set; }
         public int Columns { get; set; }
         public int UpdateDelay { get; set; }
@@ -36,21 +35,17 @@ namespace GameClient.Classes.GameBoard
 
 
         #region Constructors
-        public Board(TetrisGame game, Point position)
+        public Board()
         {
-            Game = game;
-
             Rows = Defaults.Board.Rows;
             Columns = Defaults.Board.Columns;
             UpdateDelay = Defaults.Board.Speed;
             BackgroundColor = Defaults.Board.BackgroundColor;
-
-            Bounds = new Rectangle(position.X, position.Y,
+            Bounds = new Rectangle(40, 40,
                                    Columns * Defaults.Board.BlockSize.Width,
                                    Rows * Defaults.Board.BlockSize.Height);
 
-            Texture = CreateTexture(Game.GraphicsDevice, Bounds, BackgroundColor);
-
+            Texture = CreateTexture(TetrisGame.GetInstance().GraphicsDevice, Bounds, BackgroundColor);
             Reset();
         }
         #endregion
