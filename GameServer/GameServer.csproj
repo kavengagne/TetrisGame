@@ -123,9 +123,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\BasicAuthMessageHandler.cs" />
+    <Compile Include="Authentication\Credentials.cs" />
+    <Compile Include="Authentication\DatabasePrincipalProvider.cs" />
+    <Compile Include="Authentication\IPrincipalProvider.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ConfigsController.cs" />

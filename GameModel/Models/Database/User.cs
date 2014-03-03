@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 
 namespace GameModel.Models.Database
 {
@@ -25,8 +22,5 @@ namespace GameModel.Models.Database
         public DateTime LastLoginDate { get; set; }
 
         public virtual ICollection<Game> Games { get; set; }
-
-        [NotMapped]
-        public int SessionID { get; set; }
     }
 }

@@ -9,8 +9,9 @@ namespace GameServer.Controllers
     {
         // POST games
         [HttpPost]
+        [Authorize]
         [ActionName("games")]
-        public void AddGame([FromBody]Game game)
+        public bool AddGame([FromBody]Game game)
         {
             var mygame = new Game
             {
@@ -21,11 +22,11 @@ namespace GameServer.Controllers
                 Level = 10,
                 Lines = 100,
                 Score = 10234,
-                SessionID = 1000,
                 Tetris = 4,
                 Tspin = 1,
             };
             Console.WriteLine(JsonConvert.SerializeObject(mygame));
+            return true;
         }
     }
 }

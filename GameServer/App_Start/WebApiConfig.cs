@@ -9,19 +9,13 @@ namespace GameServer.App_Start
             config.Routes.MapHttpRoute(
                 "GameStatsApi",
                 "games",
-                new { controller = "Games", action = "games", sessionID = 0 }
-            );
-
-            config.Routes.MapHttpRoute(
-                "UserStatisticsApi",
-                "users/stats/{sessionID}",
-                new { controller = "Users", action = "stats" }
+                new { controller = "Games", action = "games" }
             );
 
             config.Routes.MapHttpRoute(
                 "UserManagementApi",
-                "users/{action}/{sessionID}",
-                new { controller = "Users", sessionID = RouteParameter.Optional }
+                "users/{action}",
+                new { controller = "Users", action = "get" }
             );
 
             config.Routes.MapHttpRoute(

@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using GameServer.App_Start;
+using GameServer.Authentication;
 
 namespace GameServer
 {
@@ -9,7 +10,10 @@ namespace GameServer
     {
         protected void Application_Start()
         {
-            //AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthMessageHandler
+            {
+                PrincipalProvider = new DatabasePrincipalProvider()
+            });
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

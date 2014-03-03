@@ -1,35 +1,15 @@
-using GameModel.Utils;
-
 namespace GameModel.Models
 {
-    public class UserCreationModel
+    public class UserCreationModel : BaseUserModel
     {
-        #region Fields
-        private string _password;
-        #endregion
-
-
         #region Properties
-        public string Username { get; private set; }
-
-        public string Password
-        {
-            get { return _password; }
-            private set
-            {
-                _password = PasswordHash.CreateHashWithClientSalt(value);
-            }
-        }
-
-        public string Country { get; set; }
+        public string Country { get; private set; }
         #endregion
 
 
         #region Constructor
-        public UserCreationModel(string username, string password, string country)
+        public UserCreationModel(string username, string password, string country) : base(username, password)
         {
-            Username = username;
-            Password = password;
             Country = country;
         }
         #endregion

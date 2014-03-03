@@ -13,9 +13,11 @@ namespace GameServer.Controllers
         [ActionName("leaderboard")]
         public LeaderBoard GetLeaderBoard()
         {
-            var stats = new StatisticsDbContext();
-            stats.Games.Add(new Game { Duration = TimeSpan.FromMinutes(22), Score = 12035 });
-            return new LeaderBoard();
+            using (var stats = new StatisticsDbContext())
+            {
+                stats.Games.Add(new Game { Duration = TimeSpan.FromMinutes(22), Score = 12035 });
+                return new LeaderBoard();
+            }
         }
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 
 namespace GameModel.Models.Database
 {
@@ -19,8 +16,5 @@ namespace GameModel.Models.Database
         public int Tspin { get; set; }
 
         public virtual User User { get; set; }
-
-        [NotMapped]
-        public int SessionID { get; set; }
     }
 }
