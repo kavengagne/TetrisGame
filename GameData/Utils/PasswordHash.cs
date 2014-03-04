@@ -32,7 +32,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GameModel.Utils
+namespace GameData.Utils
 {
     /// <summary>
     /// Salted password hashing with PBKDF2-SHA1.

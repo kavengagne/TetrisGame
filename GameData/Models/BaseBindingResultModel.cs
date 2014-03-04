@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Http.ModelBinding;
 
-namespace GameModel.Models
+namespace GameData.Models
 {
     public class BaseBindingResultModel
     {

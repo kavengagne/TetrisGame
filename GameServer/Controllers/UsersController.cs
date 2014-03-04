@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Text;
 using System.Web.Http;
-using GameModel.Contexts;
+using GameData.Contexts;
+using GameData.Models;
+using GameData.Utils;
 using GameModel.Models;
-using GameModel.Models.Database;
-using GameModel.Utils;
 
 namespace GameServer.Controllers
 {
@@ -17,7 +17,8 @@ namespace GameServer.Controllers
         [ActionName("get")]
         public User GetUser()
         {
-            return new User();
+            var username = RequestContext.Principal.Identity.Name;
+            return UserUtils.GetUserByUsername(username);
         }
 
         // POST users/create

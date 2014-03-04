@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GameModel.Models
+namespace GameData.Models
 {
     public abstract class BaseUserModel
     {

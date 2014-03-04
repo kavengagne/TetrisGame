@@ -16,13 +16,15 @@ namespace GameClient.Classes.Core.Settings
 
         public static class Server
         {
-            public static readonly string Address = "http://kavenserver.no-ip.com:88"; // Do not access directly
+            public static readonly string Address = "http://kavenserver.no-ip.org:88"; // Do not access directly
 
             public static class Query
             {
-                public static readonly string Configuration = "/tetris/config";
-                public static readonly string Statistics = "/tetris/stats";
-                public static readonly string ErrorLogging = "/tetris/error";
+                public static readonly string Configs = "/configs";
+                public static readonly string Games = "/games";
+                public static readonly string Stats = "/stats";
+                public static readonly string Errors = "/errors";
+                public static readonly string Users = "/users";
             }
         }
 

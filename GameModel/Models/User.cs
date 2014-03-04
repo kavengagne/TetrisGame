@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GameModel.Models.Database
+namespace GameModel.Models
 {
     public class User
     {
         [Key]
         public int UserID { get; set; }
         
-        [MinLength(5), MaxLength(30)]
+        [StringLength(30, MinimumLength = 5)]
         public string Username { get; set; }
-        
-        [MinLength(5), MaxLength(250)]
+
+        [StringLength(250, MinimumLength = 5)]
         public string Password { get; set; }
-        
-        [MinLength(2), MaxLength(40)]
+
+        [StringLength(40, MinimumLength = 2)]
         public string Country { get; set; }
         
         public DateTime RegisteredDate { get; set; }

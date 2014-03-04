@@ -32,16 +32,8 @@ namespace GameClient.Classes
         #region Public Methods
         public void Run()
         {
-            try
-            {
-                LoadConfiguration();
-                StartGame();
-            }
-            catch (Exception ex)
-            {
-                File.WriteAllText("error_log.txt", ex.ToString());
-                Process.Start("error_log.txt");
-            }
+            LoadConfiguration();
+            StartGame();
         }
 
         public static void Exit()

@@ -127,6 +127,7 @@
     <Compile Include="Authentication\Credentials.cs" />
     <Compile Include="Authentication\DatabasePrincipalProvider.cs" />
     <Compile Include="Authentication\IPrincipalProvider.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -140,6 +141,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TetrisGameStats.mdf" />
+    <Content Include="App_Data\TetrisGameStats_log.ldf">
+      <DependentUpon>TetrisGameStats.mdf</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -162,12 +167,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameModel\GameModel.csproj">
+    <ProjectReference Include="..\GameData\GameData.csproj">
       <Project>{AE8DD1C8-F7A1-4D7D-AC20-5FA155208287}</Project>
+      <Name>GameData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameModel\GameModel.csproj">
+      <Project>{43D36D23-FF1E-4A31-959F-0CA017BDDA3C}</Project>
       <Name>GameModel</Name>
     </ProjectReference>
   </ItemGroup>

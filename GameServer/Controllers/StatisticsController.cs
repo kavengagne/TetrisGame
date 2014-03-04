@@ -1,8 +1,6 @@
-﻿using System;
-using System.Web.Http;
-using GameModel.Contexts;
-using GameModel.Models;
-using GameModel.Models.Database;
+﻿using System.Web.Http;
+using GameData.Contexts;
+using GameData.Models;
 
 namespace GameServer.Controllers
 {
@@ -15,7 +13,7 @@ namespace GameServer.Controllers
         {
             using (var stats = new StatisticsDbContext())
             {
-                stats.Games.Add(new Game { Duration = TimeSpan.FromMinutes(22), Score = 12035 });
+
                 return new LeaderBoard();
             }
         }

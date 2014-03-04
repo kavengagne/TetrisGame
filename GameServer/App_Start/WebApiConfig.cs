@@ -6,6 +6,15 @@ namespace GameServer.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Formatters.JsonFormatter
+                  .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            config.Routes.MapHttpRoute(
+                "ErrorsApi",
+                "errors",
+                new { controller = "Errors", action = "log" }
+            );
+
             config.Routes.MapHttpRoute(
                 "GameStatsApi",
                 "games",

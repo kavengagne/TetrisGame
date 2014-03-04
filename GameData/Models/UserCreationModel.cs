@@ -1,4 +1,4 @@
-namespace GameModel.Models
+namespace GameData.Models
 {
     public class UserCreationModel : BaseUserModel
     {

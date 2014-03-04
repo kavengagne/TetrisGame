@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Principal;
-using GameModel.Contexts;
-using GameModel.Models;
+using GameData.Contexts;
+using GameData.Models;
 
 namespace GameServer.Authentication
 {

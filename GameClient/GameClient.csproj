@@ -90,6 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\Application.cs" />
+    <Compile Include="Classes\Core\Managers\ServerManager.cs" />
     <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
     <Compile Include="Classes\Core\Settings\Configuration.cs" />
     <Compile Include="Classes\Core\Settings\Contants.cs" />
@@ -228,6 +229,10 @@
       <Name>GameClientContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{BA902A47-8107-4008-BE30-788A6AB98164}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameModel\GameModel.csproj">
+      <Project>{43d36d23-ff1e-4a31-959f-0ca017bdda3c}</Project>
+      <Name>GameModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

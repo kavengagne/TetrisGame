@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http.ModelBinding;
 
-namespace GameModel.Models
+namespace GameData.Models
 {
     public class UserCreationResultModel : BaseBindingResultModel
     {

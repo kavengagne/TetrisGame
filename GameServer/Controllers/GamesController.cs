@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Web.Http;
-using GameModel.Models.Database;
-using Newtonsoft.Json;
+using GameData.Contexts;
+using GameData.Utils;
+using GameModel.Models;
 
 namespace GameServer.Controllers
 {
@@ -13,19 +16,21 @@ namespace GameServer.Controllers
         [ActionName("games")]
         public bool AddGame([FromBody]Game game)
         {
-            var mygame = new Game
+            if (!ModelState.IsValid)
             {
-                BackToBack = 2,
-                Doubles = 4,
-                Duration = TimeSpan.FromMinutes(2.5),
-                GameID = 1111,
-                Level = 10,
-                Lines = 100,
-                Score = 10234,
-                Tetris = 4,
-                Tspin = 1,
-            };
-            Console.WriteLine(JsonConvert.SerializeObject(mygame));
+                return false;
+            }
+            using (var db = new StatisticsDbContext())
+            {
+                var username = RequestContext.Principal.Identity.Name;
+                var user = UserUtils.GetUserByUsername(username);
+                game.GameID = 0;
+                game.UserID = user.UserID;
+                game.PlayedDate = DateTime.Now;
+                var newGame = db.Games.Add(game);
+                db.SaveChanges();
+                Debug.WriteLine("GameID:{0}, UserID:{1}", newGame.GameID, newGame.UserID);
+            }
             return true;
         }
     }

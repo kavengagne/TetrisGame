@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace GameModel.Models.Database
+namespace GameModel.Models
 {
     public class Game
     {
         public int GameID { get; set; }
         public int UserID { get; set; }
+
+        public DateTime PlayedDate { get; set; }
         public TimeSpan Duration { get; set; }
+
         public int Score { get; set; }
         public int Level { get; set; }
         public int Lines { get; set; }
