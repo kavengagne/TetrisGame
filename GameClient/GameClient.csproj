@@ -1,139 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BF09A2A7-DED8-466B-8F08-4118BD2E1625}</ProjectGuid>
+    <ProjectGuid>{8754599D-7BFD-49F8-9781-CD386C09BFD4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GameClient</RootNamespace>
     <AssemblyName>GameClient</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
-    <XnaPlatform>Windows</XnaPlatform>
-    <XnaProfile>Reach</XnaProfile>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>E:\Dropbox\Projects\OnlineGame\GameServer\Client\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://kavenserver.no-ip.org:88/play/</InstallUrl>
-    <ProductName>TetrisGame</ProductName>
-    <PublisherName>Kaven Gagné</PublisherName>
-    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>publish.htm</WebPage>
-    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>37</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <CreateDesktopShortcut>true</CreateDesktopShortcut>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\WindowsGL\Debug\</OutputPath>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\WindowsGL\Release\</OutputPath>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
     <DefineConstants>TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>38A51F5EF7A9815F712D5AB8E41DD49B62EC49CD</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>GameClient_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\Application.cs" />
-    <Compile Include="Classes\Core\Managers\ServerManager.cs" />
+    <Compile Include="Classes\Core\Inputs\InputManager.cs" />
+    <Compile Include="Classes\Core\Inputs\KeyAction.cs" />
+    <Compile Include="Classes\Core\Inputs\KeyHeldAction.cs" />
+    <Compile Include="Classes\Core\Inputs\KeyPressedAction.cs" />
+    <Compile Include="Classes\Core\Inputs\KeyReleasedAction.cs" />
+    <Compile Include="Classes\Core\Managers\SoundManager.cs" />
     <Compile Include="Classes\Core\Randomizer\RandomBag.cs" />
+    <Compile Include="Classes\Core\Randomizer\StaticRandom.cs" />
     <Compile Include="Classes\Core\Settings\Configuration.cs" />
     <Compile Include="Classes\Core\Settings\Contants.cs" />
     <Compile Include="Classes\Core\Settings\Defaults.cs" />
+    <Compile Include="Classes\Core\TetrisGame.cs" />
     <Compile Include="Classes\Extensions\ContentManagerExtensions.cs" />
+    <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
     <Compile Include="Classes\Extensions\RectangleJsonConverter.cs" />
     <Compile Include="Classes\Extensions\StringBuilderExtFormat.cs" />
     <Compile Include="Classes\Extensions\StringBuilderExtNumeric.cs" />
     <Compile Include="Classes\Extensions\Texture2DExtensions.cs" />
-    <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Block.cs" />
-    <Compile Include="Classes\GameBoard\Pieces\PieceBase.cs" />
-    <Compile Include="Classes\GameBoard\Pieces\PieceInformation.cs" />
-    <Compile Include="Classes\GameBoard\Pieces\PreviewPiece.cs" />
-    <Compile Include="Classes\Core\Inputs\KeyAction.cs" />
-    <Compile Include="Classes\Core\Inputs\InputManager.cs" />
-    <Compile Include="Classes\Core\Inputs\KeyHeldAction.cs" />
-    <Compile Include="Classes\Core\Inputs\KeyReleasedAction.cs" />
-    <Compile Include="Classes\Core\Inputs\KeyPressedAction.cs" />
-    <Compile Include="Classes\GameBoard\Pieces\PieceGenerator.cs" />
+    <Compile Include="Classes\GameBoard\Board.cs" />
     <Compile Include="Classes\GameBoard\Pieces\Piece.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceBase.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceGenerator.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PieceInformation.cs" />
     <Compile Include="Classes\GameBoard\Pieces\PieceModel.cs" />
-    <Compile Include="Classes\GameBoard\Score.cs" />
+    <Compile Include="Classes\GameBoard\Pieces\PreviewPiece.cs" />
     <Compile Include="Classes\GameBoard\PreviewPanel.cs" />
+    <Compile Include="Classes\GameBoard\Score.cs" />
     <Compile Include="Classes\GameBoard\ScoreBoard.cs" />
-    <Compile Include="Classes\Core\Managers\SoundManager.cs" />
     <Compile Include="Classes\Interfaces\ISprite.cs" />
     <Compile Include="Classes\ParticleSystem\Particle.cs" />
     <Compile Include="Classes\ParticleSystem\ParticleEngine.cs" />
-    <Compile Include="Classes\Core\Randomizer\StaticRandom.cs" />
-    <Compile Include="Classes\Core\TetrisGame.cs" />
-    <Compile Include="Classes\Extensions\GameWindowExtensions.cs" />
     <Compile Include="Classes\Screens\BackgroundScreen.cs" />
     <Compile Include="Classes\Screens\GameplayScreen.cs" />
     <Compile Include="Classes\Screens\LoadingScreen.cs" />
     <Compile Include="Classes\Screens\MainMenuScreen.cs" />
-    <Compile Include="Classes\StateManager\Base\MenuEntry.cs" />
-    <Compile Include="Classes\StateManager\Base\MenuScreen.cs" />
     <Compile Include="Classes\Screens\MessageBoxScreen.cs" />
     <Compile Include="Classes\Screens\OptionsMenuScreen.cs" />
     <Compile Include="Classes\Screens\PauseMenuScreen.cs" />
     <Compile Include="Classes\Screens\PlayerIndexEventArgs.cs" />
     <Compile Include="Classes\StateManager\Base\GameScreen.cs" />
+    <Compile Include="Classes\StateManager\Base\MenuEntry.cs" />
+    <Compile Include="Classes\StateManager\Base\MenuScreen.cs" />
     <Compile Include="Classes\StateManager\InputState.cs" />
     <Compile Include="Classes\StateManager\ScreenManager.cs" />
     <Compile Include="Classes\StateManager\ScreenState.cs" />
@@ -146,104 +97,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <Private>False</Private>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <Private>False</Private>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Lidgren.Network">
-      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\WindowsGL\Lidgren.Network.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.Threading.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="Content\Graphics\Background.png" />
+    <Content Include="Content\Graphics\Blank.png" />
+    <Content Include="Content\Graphics\block.png" />
+    <Content Include="Content\Graphics\circle.png" />
+    <Content Include="Content\Graphics\diamond.png" />
+    <Content Include="Content\Graphics\Gradient.png" />
+    <Content Include="Content\Graphics\star.png" />
     <Content Include="Icon.ico" />
-    <None Include="GameClient_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Content\Fonts\MainMenu.spritefont" />
+    <None Include="Content\Fonts\ScoreBoard.spritefont" />
+    <None Include="Content\Sounds\SoundBank.xsb" />
+    <None Include="Content\Sounds\TetrisGame.xgs" />
+    <None Include="Content\Sounds\WaveBank.xwb" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameClientContent\GameClientContent.contentproj">
-      <Name>GameClientContent %28Content%29</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-      <Project>{BA902A47-8107-4008-BE30-788A6AB98164}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GameModel\GameModel.csproj">
-      <Project>{43d36d23-ff1e-4a31-959f-0ca017bdda3c}</Project>
-      <Name>GameModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v4.0\Microsoft.Xna.GameStudio.Content.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

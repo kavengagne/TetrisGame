@@ -21,7 +21,6 @@ namespace GameClient.Classes.Core.Managers
         #region Fields
         private readonly AudioEngine _audioEngine;
         private readonly SoundBank _soundBank;
-        // ReSharper disable once NotAccessedField.Local
         private readonly WaveBank _waveBank;
         private Cue _currentMusic;
         private readonly Cue[] _currentSounds;
@@ -31,6 +30,8 @@ namespace GameClient.Classes.Core.Managers
         #region Constructor
         private SoundManager()
         {
+            return;
+
             _audioEngine = new AudioEngine("Content/Sounds/TetrisGame.xgs");
             _waveBank = new WaveBank(_audioEngine, "Content/Sounds/WaveBank.xwb");
             _soundBank = new SoundBank(_audioEngine, "Content/Sounds/SoundBank.xsb");
@@ -47,11 +48,15 @@ namespace GameClient.Classes.Core.Managers
         #region Public Methods
         public void Update(GameTime gameTime)
         {
+            return;
+
             _audioEngine.Update();
         }
 
         public void PlaySound(string soundName, float volume = 1)
         {
+            return;
+
             for (int i = 0; i < 20; i++)
             {
                 if (_currentSounds[i] == null || !_currentSounds[i].IsPlaying)
@@ -65,6 +70,8 @@ namespace GameClient.Classes.Core.Managers
 
         public void PlayMusic(string musicName)
         {
+            return;
+
             if (string.IsNullOrEmpty(musicName))
             {
                 musicName = "m_Silence";

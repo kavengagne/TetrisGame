@@ -53,9 +53,10 @@ namespace GameClient.Classes
         {
             var game = TetrisGame.GetInstance();
 
+            var centerX = (Screen.PrimaryScreen.Bounds.Width - Configuration.GetInstance().WindowWidth) / 2;
+
             game.Window.Title = Defaults.Window.Name;
-            game.Window.SetLocation(
-                new Point((Screen.PrimaryScreen.Bounds.Width - Configuration.GetInstance().WindowWidth) / 2, 20));
+            game.Window.SetLocation(new Point(centerX, 20));
             game.Window.SetMinimumSize(new Size(816, 639));
             game.Window.AllowUserResizing = true;
 

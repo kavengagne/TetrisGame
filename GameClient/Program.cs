@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using GameClient.Classes;
+﻿using GameClient.Classes;
+using System;
 
 namespace GameClient
 {
@@ -9,17 +7,9 @@ namespace GameClient
     public static class Program
     {
         [STAThread]
-        private static void Main()
+        static void Main()
         {
-            try
-            {
-                Application.GetInstance().Run();
-            }
-            catch (Exception ex)
-            {
-                File.WriteAllText("error_log.txt", ex.ToString());
-                Process.Start("error_log.txt");
-            }
+            Application.GetInstance().Run();
         }
     }
 #endif

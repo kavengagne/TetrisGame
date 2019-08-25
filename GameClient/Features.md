@@ -1,6 +1,0 @@
-﻿
-Features
---------
-
-- Wall Kick
-- ...

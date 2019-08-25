@@ -7,7 +7,7 @@ namespace GameClient.Classes.Core.Settings
     {
         public static class Window
         {
-            public static readonly string Name = "TetrisGame Constants";
+            public static readonly string Name = "TetrisGame";
             public static readonly int Width = 800; // Do not access directly
             public static readonly int Height = 600; // Do not access directly
             public static readonly int MinimumWidth = 800;

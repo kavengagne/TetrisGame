@@ -31,3 +31,5 @@ _ReSharper*/
 [Gg]ame[Ss]erver/[Cc]lient/
 *.sdf
 *.mdf
+
+/.vs

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Mime;
-using System.Text;
-using GameClient.Classes.Core.Managers;
+﻿using GameClient.Classes.Core.Managers;
 using GameClient.Classes.Core.Randomizer;
 using GameClient.Classes.Core.Settings;
 using GameClient.Classes.GameBoard;
@@ -121,9 +114,6 @@ namespace GameClient.Classes.Core
         #region Methods Overrides
         protected override void Initialize()
         {
-            // TODO: KG - Remove this from here.
-            ServerManager.GetInstance().CreateUser();
-
             Window.Title = Defaults.Window.Name;
             base.Initialize();
         }
